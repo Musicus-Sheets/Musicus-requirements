@@ -17,3 +17,7 @@ The app shall store sheets and annotations only encrypted, with a random key per
 ## Acceptance criteria
 
 - The app's data files cannot be read without the device keystore.
+
+## Notes
+
+App: Dioxus desktop/mobile (webview), reusing the web client's components and `musicus-api`. Local store options: SQLite with SQLCipher, or plain SQLite holding XChaCha20-Poly1305-encrypted blobs (RustCrypto). The data key is random per device and wrapped by the OS keystore (Android Keystore, iOS Keychain, Windows DPAPI, macOS Keychain).

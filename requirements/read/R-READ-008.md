@@ -17,3 +17,7 @@ When the conductor selects the next piece of a programme, the web client of ever
 ## Acceptance criteria
 
 - Within 2 s after the conductor's selection, members see the next piece offered.
+
+## Notes
+
+Needs a server push channel (Server-Sent Events or WebSocket), which version 0.1 does not have. With PostgreSQL, LISTEN/NOTIFY could carry the signal across several server instances.

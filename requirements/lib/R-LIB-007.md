@@ -13,7 +13,7 @@ links:
 
 ## Statement
 
-The system shall store for each score optionally a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording.
+The system shall store for each score optionally a lyricist, a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording, and for each part optionally its clef (e.g. treble or bass; trombone and euphonium parts exist in both).
 
 ## Acceptance criteria
 

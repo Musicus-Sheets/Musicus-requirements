@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 0 | 27 | 0 | 0 | 32 |
-| 3 Requirements | 12 | 0 | 33 | 46 | 0 | 91 |
+| 3 Requirements | 22 | 0 | 33 | 46 | 0 | 101 |
 
 ## Goals and features
 
@@ -152,11 +152,14 @@ Every musician gets exactly the parts they play, without the librarian having to
   - [R-ACC-003](requirements/acc/R-ACC-003.md) First administrator `verified`
   - [R-ACC-004](requirements/acc/R-ACC-004.md) Login `verified`
   - [R-ACC-010](requirements/acc/R-ACC-010.md) Password reset by new invite `implemented`
+  - [R-ACC-011](requirements/acc/R-ACC-011.md) Login through an identity provider `proposed`
+  - [R-ACC-012](requirements/acc/R-ACC-012.md) Send invite links by e-mail `proposed`
 - [F-ACL-001](features/F-ACL-001.md) Access by instrument through groups `implemented`
   - [R-ACL-001](requirements/acl/R-ACL-001.md) Read rule `verified`
   - [R-ACL-002](requirements/acl/R-ACL-002.md) Denied as not found `verified`
   - [R-ACL-003](requirements/acl/R-ACL-003.md) Changes apply immediately `verified`
   - [R-ACL-004](requirements/acl/R-ACL-004.md) Managing groups and grants `verified`
+  - [R-ACL-007](requirements/acl/R-ACL-007.md) Several ensembles on one server `proposed`
 - [F-ACL-002](features/F-ACL-002.md) Access to whole scores `implemented`
   - [R-ACL-001](requirements/acl/R-ACL-001.md) Read rule `verified`
   - [R-ACL-003](requirements/acl/R-ACL-003.md) Changes apply immediately `verified`
@@ -179,9 +182,11 @@ Every musician can add their own markings to their parts, keep them, and use dif
   - [R-ANN-003](requirements/ann/R-ANN-003.md) Undo and redo `implemented`
   - [R-ANN-004](requirements/ann/R-ANN-004.md) Palm rejection `implemented`
   - [R-ANN-005](requirements/ann/R-ANN-005.md) Device-independent position `verified`
+  - [R-ANN-019](requirements/ann/R-ANN-019.md) Simple shapes `proposed`
 - [F-ANN-002](features/F-ANN-002.md) Named annotation sets `implemented`
   - [R-ANN-008](requirements/ann/R-ANN-008.md) Annotation sets `verified`
   - [R-ANN-009](requirements/ann/R-ANN-009.md) Choosing the set when reading `verified`
+  - [R-ANN-020](requirements/ann/R-ANN-020.md) Readable export of annotations `proposed`
 - [F-ANN-003](features/F-ANN-003.md) Markings are never lost `implemented`
   - [R-ANN-005](requirements/ann/R-ANN-005.md) Device-independent position `verified`
   - [R-ANN-006](requirements/ann/R-ANN-006.md) Limits of an annotation page `verified`
@@ -213,6 +218,7 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-FILE-006](requirements/file/R-FILE-006.md) Conditional and partial downloads `verified`
   - [R-FILE-007](requirements/file/R-FILE-007.md) Configurable client caching `verified`
 - [F-PERF-002](features/F-PERF-002.md) Everyone opens the same piece at once `implemented`
+  - [R-FILE-010](requirements/file/R-FILE-010.md) Smaller scanned sheets `proposed`
   - [R-PERF-003](requirements/perf/R-PERF-003.md) Burst of downloads `implemented`
   - [R-PERF-004](requirements/perf/R-PERF-004.md) Hot files in memory `verified`
   - [R-PERF-005](requirements/perf/R-PERF-005.md) Fast access check `implemented`
@@ -231,6 +237,7 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-READ-004](requirements/read/R-READ-004.md) Full screen `implemented`
   - [R-READ-006](requirements/read/R-READ-006.md) Compatible PDF rendering `verified`
   - [R-READ-007](requirements/read/R-READ-007.md) Half-page turns `proposed`
+  - [R-READ-009](requirements/read/R-READ-009.md) Swipe to turn pages `proposed`
 - [F-READ-002](features/F-READ-002.md) Move through a programme while reading `implemented`
   - [R-READ-005](requirements/read/R-READ-005.md) Next and previous piece `implemented`
   - [R-READ-008](requirements/read/R-READ-008.md) Conductor push `proposed`
@@ -250,6 +257,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
+  - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
 - [F-OPS-003](features/F-OPS-003.md) Health monitoring `implemented`
   - [R-OPS-007](requirements/ops/R-OPS-007.md) Health check `verified`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
@@ -268,6 +276,8 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-ACC-003](requirements/acc/R-ACC-003.md) First administrator `verified`
   - [R-ACC-004](requirements/acc/R-ACC-004.md) Login `verified`
   - [R-ACC-010](requirements/acc/R-ACC-010.md) Password reset by new invite `implemented`
+  - [R-ACC-011](requirements/acc/R-ACC-011.md) Login through an identity provider `proposed`
+  - [R-ACC-012](requirements/acc/R-ACC-012.md) Send invite links by e-mail `proposed`
 - [F-ACC-002](features/F-ACC-002.md) Stay logged in, with control over devices `implemented`
   - [R-ACC-005](requirements/acc/R-ACC-005.md) Long-lived sessions `implemented`
   - [R-ACC-006](requirements/acc/R-ACC-006.md) See and end sessions `verified`
@@ -284,6 +294,7 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
+  - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
 - [F-SEC-001](features/F-SEC-001.md) Nothing stored on the device `implemented`
@@ -298,6 +309,8 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-SEC-006](requirements/sec/R-SEC-006.md) No SQL injection `implemented`
   - [R-SEC-007](requirements/sec/R-SEC-007.md) Minimal, unprivileged container `implemented`
   - [R-SEC-008](requirements/sec/R-SEC-008.md) No internal details in errors `implemented`
+  - [R-SEC-009](requirements/sec/R-SEC-009.md) Personal watermark `proposed`
+  - [R-SEC-010](requirements/sec/R-SEC-010.md) Download audit log `proposed`
 
 ### G-007 Offline use and more formats in the future `proposed`
 
@@ -335,6 +348,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-ACC-008](requirements/acc/R-ACC-008.md) | Disable users | must | verified | F-ACC-003, F-ACC-002 |
 | [R-ACC-009](requirements/acc/R-ACC-009.md) | Rights of the roles | must | verified | F-ACC-003 |
 | [R-ACC-010](requirements/acc/R-ACC-010.md) | Password reset by new invite | must | implemented | F-ACC-001 |
+| [R-ACC-011](requirements/acc/R-ACC-011.md) | Login through an identity provider | could | proposed | F-ACC-001 |
+| [R-ACC-012](requirements/acc/R-ACC-012.md) | Send invite links by e-mail | could | proposed | F-ACC-001 |
 
 ### ACL – Access to sheets
 
@@ -346,6 +361,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-ACL-004](requirements/acl/R-ACL-004.md) | Managing groups and grants | must | verified | F-ACL-001, F-ACL-002 |
 | [R-ACL-005](requirements/acl/R-ACL-005.md) | Grants per voice | could | proposed | F-ACL-003 |
 | [R-ACL-006](requirements/acl/R-ACL-006.md) | Grants per programme and until a date | could | proposed | F-ACL-003 |
+| [R-ACL-007](requirements/acl/R-ACL-007.md) | Several ensembles on one server | could | proposed | F-ACL-001 |
 
 ### LIB – Library
 
@@ -372,6 +388,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-FILE-007](requirements/file/R-FILE-007.md) | Configurable client caching | must | verified | F-FILE-002 |
 | [R-FILE-008](requirements/file/R-FILE-008.md) | MusicXML upload | could | proposed | F-FILE-003 |
 | [R-FILE-009](requirements/file/R-FILE-009.md) | Removal of unused files | could | proposed | F-OPS-002 |
+| [R-FILE-010](requirements/file/R-FILE-010.md) | Smaller scanned sheets | could | proposed | F-PERF-002 |
 
 ### PROG – Concert programmes
 
@@ -394,6 +411,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-READ-006](requirements/read/R-READ-006.md) | Compatible PDF rendering | must | verified | F-READ-001 |
 | [R-READ-007](requirements/read/R-READ-007.md) | Half-page turns | could | proposed | F-READ-001 |
 | [R-READ-008](requirements/read/R-READ-008.md) | Conductor push | could | proposed | F-READ-002 |
+| [R-READ-009](requirements/read/R-READ-009.md) | Swipe to turn pages | should | proposed | F-READ-001 |
 
 ### ANN – Annotations
 
@@ -417,6 +435,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-ANN-016](requirements/ann/R-ANN-016.md) | Sets belong to a file version | must | verified | F-ANN-005 |
 | [R-ANN-017](requirements/ann/R-ANN-017.md) | Share a set read-only | could | proposed | F-ANN-006 |
 | [R-ANN-018](requirements/ann/R-ANN-018.md) | Encrypted annotations at rest | could | proposed | F-ANN-004 |
+| [R-ANN-019](requirements/ann/R-ANN-019.md) | Simple shapes | could | proposed | F-ANN-001 |
+| [R-ANN-020](requirements/ann/R-ANN-020.md) | Readable export of annotations | could | proposed | F-ANN-002 |
 
 ### SEC – Security and privacy
 
@@ -430,6 +450,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-SEC-006](requirements/sec/R-SEC-006.md) | No SQL injection | must | implemented | F-SEC-002 |
 | [R-SEC-007](requirements/sec/R-SEC-007.md) | Minimal, unprivileged container | should | implemented | F-SEC-002, F-OPS-001 |
 | [R-SEC-008](requirements/sec/R-SEC-008.md) | No internal details in errors | must | implemented | F-SEC-002 |
+| [R-SEC-009](requirements/sec/R-SEC-009.md) | Personal watermark | could | proposed | F-SEC-002 |
+| [R-SEC-010](requirements/sec/R-SEC-010.md) | Download audit log | could | proposed | F-SEC-002 |
 
 ### PERF – Performance and resources
 
@@ -455,6 +477,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-006](requirements/ops/R-OPS-006.md) | HTTPS | must | implemented | F-OPS-004 |
 | [R-OPS-007](requirements/ops/R-OPS-007.md) | Health check | must | verified | F-OPS-003 |
 | [R-OPS-008](requirements/ops/R-OPS-008.md) | Graceful shutdown | must | implemented | F-OPS-001 |
+| [R-OPS-009](requirements/ops/R-OPS-009.md) | Continuous database replication | could | proposed | F-OPS-002 |
 
 ### OFF – Offline app
 
@@ -525,3 +548,4 @@ All links other than `refines`.
 | [R-READ-005](requirements/read/R-READ-005.md) | depends_on | [R-PROG-003](requirements/prog/R-PROG-003.md) |  |
 | [R-READ-006](requirements/read/R-READ-006.md) | constrains | [R-READ-001](requirements/read/R-READ-001.md) |  |
 | [R-SEC-001](requirements/sec/R-SEC-001.md) | depends_on | [R-FILE-007](requirements/file/R-FILE-007.md) |  |
+| [R-SEC-009](requirements/sec/R-SEC-009.md) | conflicts_with | [R-FILE-004](requirements/file/R-FILE-004.md) | The personalised copy is generated on delivery and never stored as a blob; the original stays immutable and content-addressed. |

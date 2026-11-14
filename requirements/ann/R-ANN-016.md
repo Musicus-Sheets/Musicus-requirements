@@ -24,3 +24,7 @@ The system shall bind every annotation set to the file version it was drawn on, 
 
 - After a corrected upload with the same page count, 'Move them to the current version' succeeds.
 - With a different page count the move is refused with HTTP 409.
+
+## Notes
+
+Version 0.1 compares only the page count, not the page size, and does not mark a moved set for review; both were part of the original design and remain open.

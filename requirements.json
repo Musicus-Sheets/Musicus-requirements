@@ -41,6 +41,12 @@
           },
           {
             "source": "R-ACC-010"
+          },
+          {
+            "source": "R-ACC-011"
+          },
+          {
+            "source": "R-ACC-012"
           }
         ]
       }
@@ -140,6 +146,9 @@
           },
           {
             "source": "R-ACL-004"
+          },
+          {
+            "source": "R-ACL-007"
           }
         ],
         "required_by": [
@@ -238,6 +247,9 @@
           },
           {
             "source": "R-ANN-005"
+          },
+          {
+            "source": "R-ANN-019"
           }
         ]
       }
@@ -271,6 +283,9 @@
           },
           {
             "source": "R-ANN-009"
+          },
+          {
+            "source": "R-ANN-020"
           }
         ]
       }
@@ -591,7 +606,7 @@
       "priority": "could",
       "status": "proposed",
       "path": "features/F-LIB-003.md",
-      "statement": "Librarians can record further information per work: difficulty grade, duration, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information, physical archive number and a reference recording.",
+      "statement": "Librarians can record further information per work: difficulty grade, duration, lyricist, clef of a part, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information, physical archive number and a reference recording.",
       "links": {
         "refines": [
           {
@@ -716,6 +731,9 @@
           },
           {
             "source": "R-OPS-005"
+          },
+          {
+            "source": "R-OPS-009"
           }
         ]
       }
@@ -832,6 +850,9 @@
       },
       "incoming": {
         "refined_by": [
+          {
+            "source": "R-FILE-010"
+          },
           {
             "source": "R-PERF-003"
           },
@@ -965,6 +986,9 @@
           },
           {
             "source": "R-READ-007"
+          },
+          {
+            "source": "R-READ-009"
           }
         ]
       }
@@ -1079,6 +1103,12 @@
           },
           {
             "source": "R-SEC-008"
+          },
+          {
+            "source": "R-SEC-009"
+          },
+          {
+            "source": "R-SEC-010"
           }
         ]
       }
@@ -1703,6 +1733,42 @@
       "incoming": {}
     },
     {
+      "id": "R-ACC-011",
+      "level": 3,
+      "area": "ACC",
+      "title": "Login through an identity provider",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/acc/R-ACC-011.md",
+      "statement": "The system shall allow users to log in through an external OpenID Connect provider (e.g. Keycloak, Authentik, Google) configured by the operator.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-012",
+      "level": 3,
+      "area": "ACC",
+      "title": "Send invite links by e-mail",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/acc/R-ACC-012.md",
+      "statement": "When an operator configured an SMTP server, the system shall offer to send invite and reset links to the user's e-mail address.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-ACL-001",
       "level": 3,
       "area": "ACL",
@@ -1922,6 +1988,24 @@
         "depends_on": [
           {
             "target": "R-PROG-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACL-007",
+      "level": 3,
+      "area": "ACL",
+      "title": "Several ensembles on one server",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/acl/R-ACL-007.md",
+      "statement": "The system shall allow one server to host several independent ensembles, each with its own users, groups, instruments, library and programmes that the other ensembles cannot see.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-001"
           }
         ]
       },
@@ -2544,6 +2628,42 @@
       "incoming": {}
     },
     {
+      "id": "R-ANN-019",
+      "level": 3,
+      "area": "ANN",
+      "title": "Simple shapes",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ann/R-ANN-019.md",
+      "statement": "The web client shall let members draw straight lines, rectangles and ellipses as annotation objects.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-020",
+      "level": 3,
+      "area": "ANN",
+      "title": "Readable export of annotations",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ann/R-ANN-020.md",
+      "statement": "The system shall let members (and developers for debugging) export an annotation set as JSON.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-002"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-FILE-001",
       "level": 3,
       "area": "FILE",
@@ -2703,6 +2823,10 @@
           {
             "source": "R-FILE-009",
             "note": "Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent."
+          },
+          {
+            "source": "R-SEC-009",
+            "note": "The personalised copy is generated on delivery and never stored as a blob; the original stays immutable and content-addressed."
           }
         ],
         "required_by": [
@@ -2870,6 +2994,24 @@
           {
             "target": "R-FILE-004",
             "note": "Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent."
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-FILE-010",
+      "level": 3,
+      "area": "FILE",
+      "title": "Smaller scanned sheets",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/file/R-FILE-010.md",
+      "statement": "When a scanned PDF is uploaded, the system shall offer to store an optimised version with bilevel image compression (CCITT G4 or JBIG2) if it is substantially smaller.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
           }
         ]
       },
@@ -3101,7 +3243,7 @@
       "priority": "could",
       "status": "proposed",
       "path": "requirements/lib/R-LIB-007.md",
-      "statement": "The system shall store for each score optionally a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording.",
+      "statement": "The system shall store for each score optionally a lyricist, a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording, and for each part optionally its clef (e.g. treble or bass; trombone and euphonium parts exist in both).",
       "links": {
         "refines": [
           {
@@ -3404,6 +3546,24 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/main.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-009",
+      "level": 3,
+      "area": "OPS",
+      "title": "Continuous database replication",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-009.md",
+      "statement": "The system shall support continuous replication of the database to another location (e.g. with Litestream), so that it can be restored to a recent point in time.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
           }
         ]
       },
@@ -4041,6 +4201,24 @@
       "incoming": {}
     },
     {
+      "id": "R-READ-009",
+      "level": 3,
+      "area": "READ",
+      "title": "Swipe to turn pages",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/read/R-READ-009.md",
+      "statement": "In reading mode, the web client shall turn to the next page on a swipe to the left and to the previous page on a swipe to the right.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-SEC-001",
       "level": 3,
       "area": "SEC",
@@ -4287,6 +4465,48 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/error.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-009",
+      "level": 3,
+      "area": "SEC",
+      "title": "Personal watermark",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/sec/R-SEC-009.md",
+      "statement": "The system shall be able to add the name of the downloading member to the margin of every delivered sheet.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-FILE-004",
+            "note": "The personalised copy is generated on delivery and never stored as a blob; the original stays immutable and content-addressed."
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-010",
+      "level": 3,
+      "area": "SEC",
+      "title": "Download audit log",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/sec/R-SEC-010.md",
+      "statement": "The system shall record which user downloaded which file version and when, and let admins view this log.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
           }
         ]
       },
