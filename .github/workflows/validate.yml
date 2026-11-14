@@ -1,0 +1,11 @@
+name: Validate requirements
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      # Path and label checks need the main repository and are skipped here;
+      # they run locally inside docs/requirements of the main repository.
+      - run: uv run tools/validate.py --check

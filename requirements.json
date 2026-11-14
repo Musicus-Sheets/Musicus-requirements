@@ -1,0 +1,4383 @@
+{
+  "generated_by": "tools/validate.py",
+  "items": [
+    {
+      "id": "F-ACC-001",
+      "level": 2,
+      "area": "ACC",
+      "title": "Accounts created by invitation",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ACC-001.md",
+      "statement": "Admins create accounts for members; members set their own password through a personal one-time link.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-006"
+          },
+          {
+            "target": "G-002"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "F-PERF-001"
+          }
+        ],
+        "refined_by": [
+          {
+            "source": "R-ACC-001"
+          },
+          {
+            "source": "R-ACC-002"
+          },
+          {
+            "source": "R-ACC-003"
+          },
+          {
+            "source": "R-ACC-004"
+          },
+          {
+            "source": "R-ACC-010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACC-002",
+      "level": 2,
+      "area": "ACC",
+      "title": "Stay logged in, with control over devices",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ACC-002.md",
+      "statement": "Members stay logged in on their devices for weeks and can see and end their sessions on other devices.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          },
+          {
+            "target": "G-006"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACC-005"
+          },
+          {
+            "source": "R-ACC-006"
+          },
+          {
+            "source": "R-ACC-007"
+          },
+          {
+            "source": "R-ACC-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACC-003",
+      "level": 2,
+      "area": "ACC",
+      "title": "Roles",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ACC-003.md",
+      "statement": "The system distinguishes members (read and annotate), librarians (maintain the library and access) and admins (additionally manage users and groups).",
+      "links": {
+        "refines": [
+          {
+            "target": "G-006"
+          },
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACC-008"
+          },
+          {
+            "source": "R-ACC-009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACL-001",
+      "level": 2,
+      "area": "ACL",
+      "title": "Access by instrument through groups",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ACL-001.md",
+      "statement": "Members of a group get access to all parts tagged with an instrument granted to the group, e.g. group 'Trumpets' reads every trumpet part.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-002"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACL-001"
+          },
+          {
+            "source": "R-ACL-002"
+          },
+          {
+            "source": "R-ACL-003"
+          },
+          {
+            "source": "R-ACL-004"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "F-FILE-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACL-002",
+      "level": 2,
+      "area": "ACL",
+      "title": "Access to whole scores",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ACL-002.md",
+      "statement": "A group can be granted all parts of a score, e.g. for the conductor or section leaders.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-002"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACL-001"
+          },
+          {
+            "source": "R-ACL-003"
+          },
+          {
+            "source": "R-ACL-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACL-003",
+      "level": 2,
+      "area": "ACL",
+      "title": "Finer and time-limited grants",
+      "priority": "could",
+      "status": "proposed",
+      "path": "features/F-ACL-003.md",
+      "statement": "Librarians can grant access per voice (e.g. only 1st trumpet), per concert programme, and until a date.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-002"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACL-005"
+          },
+          {
+            "source": "R-ACL-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-001",
+      "level": 2,
+      "area": "ANN",
+      "title": "Drawing tools",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ANN-001.md",
+      "statement": "Members can mark up their parts with pen, highlighter, eraser, musical stamps and text, and undo mistakes.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ANN-001"
+          },
+          {
+            "source": "R-ANN-002"
+          },
+          {
+            "source": "R-ANN-003"
+          },
+          {
+            "source": "R-ANN-004"
+          },
+          {
+            "source": "R-ANN-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-002",
+      "level": 2,
+      "area": "ANN",
+      "title": "Named annotation sets",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ANN-002.md",
+      "statement": "Members can keep several named sets of markings per part (e.g. one per concert), switch between them, and hide all markings.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-PROG-001",
+            "note": "A set can be linked to a programme and is then chosen automatically."
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ANN-008"
+          },
+          {
+            "source": "R-ANN-009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-003",
+      "level": 2,
+      "area": "ANN",
+      "title": "Markings are never lost",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ANN-003.md",
+      "statement": "Markings are saved automatically and survive closing the tab, network problems and editing on two devices.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ANN-005"
+          },
+          {
+            "source": "R-ANN-006"
+          },
+          {
+            "source": "R-ANN-007"
+          },
+          {
+            "source": "R-ANN-010"
+          },
+          {
+            "source": "R-ANN-011"
+          },
+          {
+            "source": "R-ANN-012"
+          },
+          {
+            "source": "R-ANN-013"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-004",
+      "level": 2,
+      "area": "ANN",
+      "title": "Private markings",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ANN-004.md",
+      "statement": "A member's markings are visible to nobody else, administrators included.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          },
+          {
+            "target": "G-006"
+          }
+        ]
+      },
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "F-ANN-006",
+            "note": "Sharing is explicit and read-only; private sets stay private."
+          }
+        ],
+        "refined_by": [
+          {
+            "source": "R-ANN-014"
+          },
+          {
+            "source": "R-ANN-015"
+          },
+          {
+            "source": "R-ANN-018"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-005",
+      "level": 2,
+      "area": "ANN",
+      "title": "Markings follow corrected sheets",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-ANN-005.md",
+      "statement": "When a librarian replaces a sheet with a corrected version, members keep their markings and can move them to the new version.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-FILE-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ANN-016"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ANN-006",
+      "level": 2,
+      "area": "ANN",
+      "title": "Shared markings for a section",
+      "priority": "could",
+      "status": "proposed",
+      "path": "features/F-ANN-006.md",
+      "statement": "A section leader can share a read-only set of markings (e.g. bowings, cuts) with a group.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-003"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "F-ANN-004",
+            "note": "Sharing is explicit and read-only; private sets stay private."
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ANN-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-FILE-001",
+      "level": 2,
+      "area": "FILE",
+      "title": "Upload sheets as PDF, with versions",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-FILE-001.md",
+      "statement": "Librarians can upload a PDF file for each part and later replace it with a corrected version, without losing the previous version.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-FILE-001"
+          },
+          {
+            "source": "R-FILE-002"
+          },
+          {
+            "source": "R-FILE-003"
+          },
+          {
+            "source": "R-FILE-004"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "F-ANN-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-FILE-002",
+      "level": 2,
+      "area": "FILE",
+      "title": "Fast and safe delivery of sheets",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-FILE-002.md",
+      "statement": "The system delivers sheet files quickly to the musicians allowed to read them, and to nobody else.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-002"
+          },
+          {
+            "target": "G-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-ACL-001"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "F-PERF-001"
+          },
+          {
+            "source": "F-PERF-002"
+          }
+        ],
+        "refined_by": [
+          {
+            "source": "R-FILE-005"
+          },
+          {
+            "source": "R-FILE-006"
+          },
+          {
+            "source": "R-FILE-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-FILE-003",
+      "level": 2,
+      "area": "FILE",
+      "title": "MusicXML sheets",
+      "priority": "could",
+      "status": "proposed",
+      "path": "features/F-FILE-003.md",
+      "statement": "Librarians can upload MusicXML files in addition to PDF; members can read them.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-007"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-FILE-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-LIB-001",
+      "level": 2,
+      "area": "LIB",
+      "title": "Scores and parts with metadata",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-LIB-001.md",
+      "statement": "Librarians can describe each work (score) and each of its sheets (parts) with metadata, and members see the library organised by work.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-LIB-001"
+          },
+          {
+            "source": "R-LIB-002"
+          },
+          {
+            "source": "R-LIB-003"
+          },
+          {
+            "source": "R-LIB-005"
+          },
+          {
+            "source": "R-LIB-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-LIB-002",
+      "level": 2,
+      "area": "LIB",
+      "title": "Library search",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-LIB-002.md",
+      "statement": "Users can find works in the library by title, composer, arranger, genre and tags.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-LIB-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-LIB-003",
+      "level": 2,
+      "area": "LIB",
+      "title": "Extended metadata",
+      "priority": "could",
+      "status": "proposed",
+      "path": "features/F-LIB-003.md",
+      "statement": "Librarians can record further information per work: difficulty grade, duration, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information, physical archive number and a reference recording.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-LIB-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OFF-001",
+      "level": 2,
+      "area": "OFF",
+      "title": "Encrypted offline app",
+      "priority": "should",
+      "status": "proposed",
+      "path": "features/F-OFF-001.md",
+      "statement": "A native app stores the member's sheets and markings encrypted on the device, works without network, and synchronises when online.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-007"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "F-SEC-001",
+            "note": "F-SEC-001 applies to the web client. The app stores data only encrypted, with a key in the OS keystore and a time-limited offline lease."
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OFF-001"
+          },
+          {
+            "source": "R-OFF-002"
+          },
+          {
+            "source": "R-OFF-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-001",
+      "level": 2,
+      "area": "OPS",
+      "title": "Simple installation",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-OPS-001.md",
+      "statement": "The system is installed as one program or one container, with all data in one directory.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "F-PERF-001"
+          }
+        ],
+        "refined_by": [
+          {
+            "source": "R-OPS-001"
+          },
+          {
+            "source": "R-OPS-002"
+          },
+          {
+            "source": "R-OPS-003"
+          },
+          {
+            "source": "R-OPS-004"
+          },
+          {
+            "source": "R-OPS-008"
+          },
+          {
+            "source": "R-SEC-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-002",
+      "level": 2,
+      "area": "OPS",
+      "title": "Backup and restore",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-OPS-002.md",
+      "statement": "Operators can make a consistent backup while the system runs and restore it.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          },
+          {
+            "target": "G-006"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-FILE-004"
+          },
+          {
+            "source": "R-FILE-009"
+          },
+          {
+            "source": "R-OPS-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-003",
+      "level": 2,
+      "area": "OPS",
+      "title": "Health monitoring",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-OPS-003.md",
+      "statement": "Operators and container platforms can check automatically whether the system works.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-004",
+      "level": 2,
+      "area": "OPS",
+      "title": "Encrypted connections",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-OPS-004.md",
+      "statement": "All traffic between devices and server can be encrypted (HTTPS), with little effort for the operator.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-006"
+          },
+          {
+            "target": "G-005"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-PERF-001",
+      "level": 2,
+      "area": "PERF",
+      "title": "Runs on small hardware",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-PERF-001.md",
+      "statement": "The server runs on a Raspberry Pi 4 or a virtual server with 1 vCPU and 1 GB RAM.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "F-FILE-002"
+          },
+          {
+            "target": "F-ACC-001"
+          },
+          {
+            "target": "F-OPS-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-PERF-001"
+          },
+          {
+            "source": "R-PERF-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-PERF-002",
+      "level": 2,
+      "area": "PERF",
+      "title": "Everyone opens the same piece at once",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-PERF-002.md",
+      "statement": "The system serves a whole ensemble that opens the same piece within the same few seconds without noticeable delay.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "F-FILE-002"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-PERF-003"
+          },
+          {
+            "source": "R-PERF-004"
+          },
+          {
+            "source": "R-PERF-005"
+          },
+          {
+            "source": "R-PERF-006"
+          },
+          {
+            "source": "R-PERF-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-PROG-001",
+      "level": 2,
+      "area": "PROG",
+      "title": "Concert programmes",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-PROG-001.md",
+      "statement": "Librarians can put together concert programmes: a dated, ordered list of works, which members open as a set list.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          },
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-PROG-001"
+          },
+          {
+            "source": "R-PROG-002"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "F-ANN-002",
+            "note": "A set can be linked to a programme and is then chosen automatically."
+          },
+          {
+            "source": "F-PROG-002"
+          },
+          {
+            "source": "F-READ-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-PROG-002",
+      "level": 2,
+      "area": "PROG",
+      "title": "Prepare a programme in advance",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-PROG-002.md",
+      "statement": "When a member opens a programme, all their sheets of it are downloaded ahead of time, so that playing needs no network.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-PROG-001"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "F-SEC-001",
+            "note": "Prefetched sheets are held in memory only, never stored on the device; a reload downloads them again."
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-PROG-003"
+          },
+          {
+            "source": "R-PROG-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-READ-001",
+      "level": 2,
+      "area": "READ",
+      "title": "Stage-ready reader",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-READ-001.md",
+      "statement": "Members read their parts one page at a time, fitted to the screen, turn pages without looking away from the music, and the screen stays on.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-READ-001"
+          },
+          {
+            "source": "R-READ-002"
+          },
+          {
+            "source": "R-READ-003"
+          },
+          {
+            "source": "R-READ-004"
+          },
+          {
+            "source": "R-READ-006"
+          },
+          {
+            "source": "R-READ-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-READ-002",
+      "level": 2,
+      "area": "READ",
+      "title": "Move through a programme while reading",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-READ-002.md",
+      "statement": "While reading a part from a programme, the member reaches the previous and next piece directly from the reader.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-PROG-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-READ-005"
+          },
+          {
+            "source": "R-READ-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-SEC-001",
+      "level": 2,
+      "area": "SEC",
+      "title": "Nothing stored on the device",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-SEC-001.md",
+      "statement": "The web client stores no sheets, markings or other data persistently on the device.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-006"
+          }
+        ]
+      },
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "F-OFF-001",
+            "note": "F-SEC-001 applies to the web client. The app stores data only encrypted, with a key in the OS keystore and a time-limited offline lease."
+          },
+          {
+            "source": "F-PROG-002",
+            "note": "Prefetched sheets are held in memory only, never stored on the device; a reload downloads them again."
+          }
+        ],
+        "refined_by": [
+          {
+            "source": "R-SEC-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-SEC-002",
+      "level": 2,
+      "area": "SEC",
+      "title": "Protection against common attacks",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-SEC-002.md",
+      "statement": "The system resists password guessing, cross-site request forgery, injection and probing of the library, and stores secrets only in non-reversible form.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-006"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACL-002"
+          },
+          {
+            "source": "R-ANN-006"
+          },
+          {
+            "source": "R-SEC-002"
+          },
+          {
+            "source": "R-SEC-003"
+          },
+          {
+            "source": "R-SEC-004"
+          },
+          {
+            "source": "R-SEC-005"
+          },
+          {
+            "source": "R-SEC-006"
+          },
+          {
+            "source": "R-SEC-007"
+          },
+          {
+            "source": "R-SEC-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-TECH-001",
+      "level": 2,
+      "area": "TECH",
+      "title": "Rust backend and Dioxus client",
+      "priority": "must",
+      "status": "implemented",
+      "path": "features/F-TECH-001.md",
+      "statement": "The server is written in Rust; the user interface is written in Rust with Dioxus.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-008"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-TECH-001"
+          },
+          {
+            "source": "R-TECH-002"
+          },
+          {
+            "source": "R-TECH-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-001",
+      "level": 1,
+      "area": null,
+      "title": "Central sheet music library",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-001.md",
+      "statement": "The ensemble keeps its sheet music in one digital library that librarians maintain and members use.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-ACC-003"
+          },
+          {
+            "source": "F-FILE-001"
+          },
+          {
+            "source": "F-LIB-001"
+          },
+          {
+            "source": "F-LIB-002"
+          },
+          {
+            "source": "F-LIB-003"
+          },
+          {
+            "source": "F-PROG-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-002",
+      "level": 1,
+      "area": null,
+      "title": "The right parts reach the right musicians",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-002.md",
+      "statement": "Every musician gets exactly the parts they play, without the librarian having to assign each file to each person.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-ACC-001"
+          },
+          {
+            "source": "F-ACL-001"
+          },
+          {
+            "source": "F-ACL-002"
+          },
+          {
+            "source": "F-ACL-003"
+          },
+          {
+            "source": "F-FILE-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-003",
+      "level": 1,
+      "area": null,
+      "title": "Personal markings",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-003.md",
+      "statement": "Every musician can add their own markings to their parts, keep them, and use different markings for different concerts, without changing the original sheet.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-ANN-001"
+          },
+          {
+            "source": "F-ANN-002"
+          },
+          {
+            "source": "F-ANN-003"
+          },
+          {
+            "source": "F-ANN-004"
+          },
+          {
+            "source": "F-ANN-005"
+          },
+          {
+            "source": "F-ANN-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-004",
+      "level": 1,
+      "area": null,
+      "title": "Reliable paperless playing",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-004.md",
+      "statement": "Musicians can read and turn their parts on a tablet during rehearsals and concerts as reliably as on paper, even when the whole ensemble opens the same piece at the same moment.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-ACC-002"
+          },
+          {
+            "source": "F-FILE-002"
+          },
+          {
+            "source": "F-PERF-002"
+          },
+          {
+            "source": "F-PROG-001"
+          },
+          {
+            "source": "F-PROG-002"
+          },
+          {
+            "source": "F-READ-001"
+          },
+          {
+            "source": "F-READ-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-005",
+      "level": 1,
+      "area": null,
+      "title": "Simple and cheap to run",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-005.md",
+      "statement": "A volunteer-run ensemble can install, operate and back up the system on small, inexpensive hardware without special knowledge.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-OPS-001"
+          },
+          {
+            "source": "F-OPS-002"
+          },
+          {
+            "source": "F-OPS-003"
+          },
+          {
+            "source": "F-OPS-004"
+          },
+          {
+            "source": "F-PERF-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-006",
+      "level": 1,
+      "area": null,
+      "title": "Protect members and the library",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-006.md",
+      "statement": "Accounts, personal markings and the (often licensed) sheet music are protected against unauthorised access and loss.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-ACC-001"
+          },
+          {
+            "source": "F-ACC-002"
+          },
+          {
+            "source": "F-ACC-003"
+          },
+          {
+            "source": "F-ANN-004"
+          },
+          {
+            "source": "F-OPS-002"
+          },
+          {
+            "source": "F-OPS-004"
+          },
+          {
+            "source": "F-SEC-001"
+          },
+          {
+            "source": "F-SEC-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-007",
+      "level": 1,
+      "area": null,
+      "title": "Offline use and more formats in the future",
+      "priority": "should",
+      "status": "proposed",
+      "path": "goals/G-007.md",
+      "statement": "The system can later be extended by an app that works offline with encrypted local storage, and by sheet formats other than PDF.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-FILE-003"
+          },
+          {
+            "source": "F-OFF-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G-008",
+      "level": 1,
+      "area": null,
+      "title": "Maintainable technology",
+      "priority": "must",
+      "status": "accepted",
+      "path": "goals/G-008.md",
+      "statement": "The system is built with a small, consistent technology stack that a small team can maintain over years.",
+      "links": {},
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "F-TECH-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-001",
+      "level": 3,
+      "area": "ACC",
+      "title": "Create accounts with an invite link",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-001.md",
+      "statement": "When an admin creates a user (username, display name, role), the system shall create the account without password and return a one-time invite link valid for 7 days.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/users.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-invites"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-002",
+      "level": 3,
+      "area": "ACC",
+      "title": "Accept an invite",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-002.md",
+      "statement": "When a user opens a valid invite link and chooses a password of 8 to 256 characters, the system shall set the password, invalidate all invites and sessions of that user, and log the user in.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/login.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-003",
+      "level": 3,
+      "area": "ACC",
+      "title": "First administrator",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-003.md",
+      "statement": "When the server starts with no users, it shall create the user 'admin' without password and write a one-time invite link for it to the log.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/lib.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-invites"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-004",
+      "level": 3,
+      "area": "ACC",
+      "title": "Login",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-004.md",
+      "statement": "The system shall log a user in with username (any letter case) and password, and shall answer wrong usernames and wrong passwords identically, also in response time.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-SEC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-hashing"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-PERF-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-005",
+      "level": 3,
+      "area": "ACC",
+      "title": "Long-lived sessions",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/acc/R-ACC-005.md",
+      "statement": "The system shall keep a session valid for a configurable number of days since its last use (default 60).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-sessions"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-006",
+      "level": 3,
+      "area": "ACC",
+      "title": "See and end sessions",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-006.md",
+      "statement": "The system shall show users their active sessions (device, last use) and let them end any of them; logging out ends the current one.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/account.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-007",
+      "level": 3,
+      "area": "ACC",
+      "title": "Change password",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-007.md",
+      "statement": "When a user changes their password, the system shall require the current password and end all other sessions of that user.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/account.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-008",
+      "level": 3,
+      "area": "ACC",
+      "title": "Disable users",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-008.md",
+      "statement": "When an admin disables a user, the system shall end all sessions and invites of that user and refuse further logins, while keeping the user's annotations; admins shall not be able to disable themselves or remove their own admin role.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-003"
+          },
+          {
+            "target": "F-ACC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/users.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-009",
+      "level": 3,
+      "area": "ACC",
+      "title": "Rights of the roles",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-009.md",
+      "statement": "The system shall allow members to read granted parts and annotate them; librarians additionally to manage scores, parts, files, programmes, instruments and grants; admins additionally to manage users, groups and group membership.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACL-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-010",
+      "level": 3,
+      "area": "ACC",
+      "title": "Password reset by new invite",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/acc/R-ACC-010.md",
+      "statement": "When an admin requests a new invite for an enabled user, the system shall replace any previous invite of that user with a new one-time link.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/users.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACL-001",
+      "level": 3,
+      "area": "ACL",
+      "title": "Read rule",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acl/R-ACL-001.md",
+      "statement": "The system shall let a user read a part if the user is a librarian or admin, or a member of a group that is granted one of the part's instruments, or a member of a group that is granted the part's score.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-001"
+          },
+          {
+            "target": "F-ACL-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/access.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-access"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-PERF-005"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-ANN-015"
+          },
+          {
+            "source": "R-FILE-005"
+          },
+          {
+            "source": "R-LIB-005"
+          },
+          {
+            "source": "R-OFF-003"
+          },
+          {
+            "source": "R-PROG-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACL-002",
+      "level": 3,
+      "area": "ACL",
+      "title": "Denied as not found",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acl/R-ACL-002.md",
+      "statement": "The system shall answer requests for parts, files, programmes and annotations the user may not read exactly like requests for things that do not exist (HTTP 404).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-001"
+          },
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/access.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-access"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-FILE-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACL-003",
+      "level": 3,
+      "area": "ACL",
+      "title": "Changes apply immediately",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acl/R-ACL-003.md",
+      "statement": "The system shall apply changes to groups, memberships and grants to the next request of every affected user, without new login.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-001"
+          },
+          {
+            "target": "F-ACL-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/access.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-access"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACL-004",
+      "level": 3,
+      "area": "ACL",
+      "title": "Managing groups and grants",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acl/R-ACL-004.md",
+      "statement": "The system shall let admins create, rename and delete groups and set their members, and let librarians set the instruments and scores granted to a group.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-001"
+          },
+          {
+            "target": "F-ACL-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-009"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::user_administration"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACL-005",
+      "level": 3,
+      "area": "ACL",
+      "title": "Grants per voice",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/acl/R-ACL-005.md",
+      "statement": "The system shall allow granting an instrument to a group for selected voices only (e.g. Trumpet voice 1).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-002"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACL-006",
+      "level": 3,
+      "area": "ACL",
+      "title": "Grants per programme and until a date",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/acl/R-ACL-006.md",
+      "statement": "The system shall allow granting a group all pieces of a programme, and shall allow any grant to expire at a given date.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACL-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-PROG-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-001",
+      "level": 3,
+      "area": "ANN",
+      "title": "Pen and highlighter",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-001.md",
+      "statement": "The web client shall let members draw freehand with a pen (4 colours, 3 widths, width following pen pressure) and a semi-transparent highlighter (3 colours) that is drawn below pen strokes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ink.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-002",
+      "level": 3,
+      "area": "ANN",
+      "title": "Eraser, stamps and text",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ann/R-ANN-002.md",
+      "statement": "The web client shall let members erase whole objects by touching them, place musical stamps (breath mark, fermata, glasses, sharp, flat, natural, accent, caesura) with one tap, and place short text notes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ink.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/ink.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-003",
+      "level": 3,
+      "area": "ANN",
+      "title": "Undo and redo",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ann/R-ANN-003.md",
+      "statement": "The web client shall let members undo and redo their changes on the current page.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-004",
+      "level": 3,
+      "area": "ANN",
+      "title": "Palm rejection",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ann/R-ANN-004.md",
+      "statement": "Once a pen was used in the reader, the web client shall ignore touch input for drawing.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-005",
+      "level": 3,
+      "area": "ANN",
+      "title": "Device-independent position",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-005.md",
+      "statement": "The system shall store annotation positions relative to the page, so that markings appear at the same place in the music on every screen size and zoom level.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-001"
+          },
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs::points_survive_delta_encoding_including_extremes"
+          },
+          {
+            "target": "crates/musicus-api/src/ink.rs::round_trip_keeps_every_object"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ink.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-ink-format"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ANN-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ANN-006",
+      "level": 3,
+      "area": "ANN",
+      "title": "Limits of an annotation page",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-006.md",
+      "statement": "The system shall reject annotation pages with more than 20 000 objects, strokes with more than 20 000 points, texts longer than 1 000 characters, encodings larger than 4 MiB, duplicate object ids, or malformed content (HTTP 422).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          },
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs::decode_rejects_bad_input"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-007",
+      "level": 3,
+      "area": "ANN",
+      "title": "Compact storage",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-007.md",
+      "statement": "The system shall store a typical annotated page (30 strokes of 60 points) in less than 12 KB before compression.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-ANN-010"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs::typical_page_stays_small"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/ink.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-ink-format"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-008",
+      "level": 3,
+      "area": "ANN",
+      "title": "Annotation sets",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-008.md",
+      "statement": "The system shall let members create, rename, duplicate (with all pages), and delete named annotation sets per part, with names unique per member and part, mark exactly one set per part as default, and link a set to a programme.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ANN-009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ANN-009",
+      "level": 3,
+      "area": "ANN",
+      "title": "Choosing the set when reading",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-009.md",
+      "statement": "When the reader opens, the web client shall show the set linked to the current programme, else the default set; when a member draws without any set, it shall create one named after the programme or 'My annotations'; members can switch sets or hide all markings.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ANN-008"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-010",
+      "level": 3,
+      "area": "ANN",
+      "title": "Automatic saving",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-010.md",
+      "statement": "The web client shall save a changed page 1.5 s after the last change, immediately when turning the page or leaving the reader, and show whether all changes are saved.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-reader-store"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-ANN-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ANN-011",
+      "level": 3,
+      "area": "ANN",
+      "title": "Saving when the tab closes",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-011.md",
+      "statement": "When the tab is closed or reloaded while changes are unsaved, the web client shall still send them to the server.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-reader-store"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-012",
+      "level": 3,
+      "area": "ANN",
+      "title": "Editing on two devices",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-012.md",
+      "statement": "The system shall detect when a page was saved by another device in the meantime (revision check), and the web client shall then merge both versions so that additions and deletions from both devices are kept.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ANN-005"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          },
+          {
+            "target": "crates/musicus-api/src/ink.rs::merge_keeps_both_sides_additions_and_deletions"
+          },
+          {
+            "target": "crates/musicus-api/src/ink.rs::merge_with_empty_base_is_a_union"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/ink.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-optimistic"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OFF-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ANN-013",
+      "level": 3,
+      "area": "ANN",
+      "title": "Pages without markings",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-013.md",
+      "statement": "The system shall answer requests for an annotation page that was never saved as an empty page with revision 0, not as an error.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/api.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-204"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-014",
+      "level": 3,
+      "area": "ANN",
+      "title": "Only the owner sees annotations",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-014.md",
+      "statement": "The system shall let only the member who created an annotation set read, change or delete it; no other user, administrators included, can access it through the system.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ANN-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ANN-015",
+      "level": 3,
+      "area": "ANN",
+      "title": "Annotations follow access",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-015.md",
+      "statement": "When a member loses access to a part, the system shall hide the member's annotations on it without deleting them, and show them again if access is granted again.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACL-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-016",
+      "level": 3,
+      "area": "ANN",
+      "title": "Sets belong to a file version",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ann/R-ANN-016.md",
+      "statement": "The system shall bind every annotation set to the file version it was drawn on, show the member when a newer version exists, and move the set to the current version on request if the page count is unchanged; otherwise it shall refuse the move.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::annotations_are_private_versioned_and_conflict_checked"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-017",
+      "level": 3,
+      "area": "ANN",
+      "title": "Share a set read-only",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ann/R-ANN-017.md",
+      "statement": "The system shall let a member share one of their sets read-only with a group whose members may read the same part.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ANN-014"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ANN-018",
+      "level": 3,
+      "area": "ANN",
+      "title": "Encrypted annotations at rest",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ann/R-ANN-018.md",
+      "statement": "The system shall store annotation layers encrypted with a key per user, so that access to the database file alone does not reveal them.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ANN-004"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-FILE-001",
+      "level": 3,
+      "area": "FILE",
+      "title": "Accepted uploads",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-001.md",
+      "statement": "The system shall accept as part file only PDF files (recognised by their content) up to a configurable size, by default 200 MB.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::uploads_are_versioned_and_validated"
+          },
+          {
+            "target": "crates/musicus-server/src/blobs.rs::rejects_oversized_bodies_and_cleans_up"
+          },
+          {
+            "target": "crates/musicus-server/src/processors.rs::sniffs_pdf_only"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/processors.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/blobs.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-FILE-002",
+      "level": 3,
+      "area": "FILE",
+      "title": "File versions",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-002.md",
+      "statement": "When a librarian uploads a file with different content for a part, the system shall add it as a new version and keep all previous versions readable; uploading the current content again shall not create a version.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::uploads_are_versioned_and_validated"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ANN-016"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-FILE-003",
+      "level": 3,
+      "area": "FILE",
+      "title": "Page count and thumbnail",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-003.md",
+      "statement": "When a PDF is uploaded, the system shall determine its page count and create a thumbnail of the first page; if the PDF cannot be analysed, it shall store the file anyway without this information.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/processors.rs::reads_page_count_and_renders_thumbnail"
+          },
+          {
+            "target": "crates/musicus-server/src/processors.rs::unreadable_pdf_is_kept_without_metadata"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/processors.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-pdf-rendering"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-FILE-004",
+      "level": 3,
+      "area": "FILE",
+      "title": "Immutable, content-addressed storage",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-004.md",
+      "statement": "The system shall store every file once under its SHA-256 hash, never modify or overwrite a stored file, and write it so that a stored file is always complete.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-001"
+          },
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/blobs.rs::stores_by_hash_and_deduplicates"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/blobs.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-blobs"
+          }
+        ]
+      },
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "R-FILE-009",
+            "note": "Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent."
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-FILE-002"
+          },
+          {
+            "source": "R-OFF-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-FILE-005",
+      "level": 3,
+      "area": "FILE",
+      "title": "Access check on every download",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-005.md",
+      "statement": "The system shall deliver a file or thumbnail only to users who may read at least one part using that file, and answer all other requests as if the file did not exist (HTTP 404).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACL-001"
+          },
+          {
+            "target": "R-ACL-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-PERF-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-FILE-006",
+      "level": 3,
+      "area": "FILE",
+      "title": "Conditional and partial downloads",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-006.md",
+      "statement": "The system shall mark every file with its hash as ETag, answer a matching If-None-Match with HTTP 304, and answer Range requests with the requested bytes (HTTP 206).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-FILE-007",
+      "level": 3,
+      "area": "FILE",
+      "title": "Configurable client caching",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/file/R-FILE-007.md",
+      "statement": "The system shall by default forbid clients to store downloaded files (Cache-Control: private, no-store), and shall allow operators to permit private caching of files instead.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-002"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-PERF-007",
+            "note": "No-store means every reload downloads the sheets again; operators who accept browser caches can switch to 'immutable'."
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-no-client-storage"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-SEC-001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-FILE-008",
+      "level": 3,
+      "area": "FILE",
+      "title": "MusicXML upload",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/file/R-FILE-008.md",
+      "statement": "The system shall accept MusicXML files (.musicxml and compressed .mxl) as part files and extract title, composer and part names from them.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-FILE-003"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-FILE-009",
+      "level": 3,
+      "area": "FILE",
+      "title": "Removal of unused files",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/file/R-FILE-009.md",
+      "statement": "The system shall offer operators a way to delete stored files that no part version and no annotation set references any more, after a grace period.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-FILE-004",
+            "note": "Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent."
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-001",
+      "level": 3,
+      "area": "LIB",
+      "title": "Score metadata",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-001.md",
+      "statement": "The system shall store for each score a title (required, at most 200 characters) and optionally a subtitle, composer, arranger, genre, a list of up to 30 tags, and notes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-002",
+      "level": 3,
+      "area": "LIB",
+      "title": "Part metadata",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-002.md",
+      "statement": "The system shall store for each part a label (e.g. '2nd Trumpet in Bb'), one or more instruments, an optional voice number between 0 and 99, an optional transposition, and notes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACL-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-003",
+      "level": 3,
+      "area": "LIB",
+      "title": "Controlled instrument vocabulary",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/lib/R-LIB-003.md",
+      "statement": "The system shall keep instruments as a list maintained by librarians, with unique names (ignoring letter case), and shall refuse to delete an instrument that parts still use.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/groups.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0001_init.sql"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-004",
+      "level": 3,
+      "area": "LIB",
+      "title": "Search",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-004.md",
+      "statement": "The system shall find scores whose title, subtitle, composer, arranger, genre or tags contain all entered words as word prefixes, ignoring letter case and diacritics, and shall additionally filter by genre and tag.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs::fts_query_quotes_words_and_drops_operators"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0001_init.sql"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-005",
+      "level": 3,
+      "area": "LIB",
+      "title": "Members see only their part of the library",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-005.md",
+      "statement": "The system shall list for a member only scores with at least one part the member may read, and within them only those parts; librarians and admins see all scores and parts.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACL-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-006",
+      "level": 3,
+      "area": "LIB",
+      "title": "Thumbnails in the library",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/lib/R-LIB-006.md",
+      "statement": "The web client shall show for each readable part a thumbnail of its first page, if the server could create one.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-003"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/library.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-007",
+      "level": 3,
+      "area": "LIB",
+      "title": "Extended score metadata",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/lib/R-LIB-007.md",
+      "statement": "The system shall store for each score optionally a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OFF-001",
+      "level": 3,
+      "area": "OFF",
+      "title": "Encrypted local storage",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/off/R-OFF-001.md",
+      "statement": "The app shall store sheets and annotations only encrypted, with a random key per device protected by the operating system's keystore.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OFF-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OFF-002",
+      "level": 3,
+      "area": "OFF",
+      "title": "Synchronisation",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/off/R-OFF-002.md",
+      "statement": "The app shall synchronise sheets by file hash and annotations by page revision, transferring only what changed.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OFF-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-004"
+          },
+          {
+            "target": "R-ANN-012"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OFF-003",
+      "level": 3,
+      "area": "OFF",
+      "title": "Offline lease and revocation",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/off/R-OFF-003.md",
+      "statement": "The app shall delete local data it is no longer allowed to read at the next synchronisation, and discard its key when it has not synchronised for a configurable time (default 30 days).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OFF-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACL-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-001",
+      "level": 3,
+      "area": "OPS",
+      "title": "One program, one data directory",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-001.md",
+      "statement": "The system shall run as a single server program that serves the API and the web client and keeps all data (database and files) in one configurable directory.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-monolith"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-002",
+      "level": 3,
+      "area": "OPS",
+      "title": "Configuration",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-002.md",
+      "statement": "The server shall read every setting from a command-line option or an equivalent MUSICUS_* environment variable.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/config.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-003",
+      "level": 3,
+      "area": "OPS",
+      "title": "Container",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-003.md",
+      "statement": "The project shall provide a container image and a Compose file that start the system with persistent data in a volume.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "Dockerfile"
+          },
+          {
+            "target": "compose.yaml"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-004",
+      "level": 3,
+      "area": "OPS",
+      "title": "Automatic migrations",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-004.md",
+      "statement": "When the server starts, it shall bring the database schema to the current version automatically.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/db.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-005",
+      "level": 3,
+      "area": "OPS",
+      "title": "Online backup",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-005.md",
+      "statement": "The system shall provide a command that writes a consistent copy of the database while the server runs.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/db.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-006",
+      "level": 3,
+      "area": "OPS",
+      "title": "HTTPS",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-006.md",
+      "statement": "The system shall support HTTPS either directly (certificate and key files) or behind a reverse proxy, and the project shall provide a Compose profile with automatic certificates.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-004"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "compose.yaml"
+          },
+          {
+            "target": "deploy/Caddyfile"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-007",
+      "level": 3,
+      "area": "OPS",
+      "title": "Health check",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/ops/R-OPS-007.md",
+      "statement": "The system shall answer GET /api/health without login with 'ok' when it can read its database, and provide a 'healthcheck' command that exits with 0 only in that case.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-distroless"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-008",
+      "level": 3,
+      "area": "OPS",
+      "title": "Graceful shutdown",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/ops/R-OPS-008.md",
+      "statement": "When the server receives SIGTERM or Ctrl-C, it shall stop accepting connections and let running requests finish.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-001",
+      "level": 3,
+      "area": "PERF",
+      "title": "Memory use",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-001.md",
+      "statement": "The server shall use less than 50 MB of memory when idle and run on a Raspberry Pi 4 (arm64) and on a virtual server with 1 vCPU and 1 GB RAM.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-monolith"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-PERF-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-PERF-002",
+      "level": 3,
+      "area": "PERF",
+      "title": "Bounded password hashing",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-002.md",
+      "statement": "The server shall run at most as many password hash computations at the same time as it has CPU cores.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-001"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-ACC-004"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/state.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-hashing"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-003",
+      "level": 3,
+      "area": "PERF",
+      "title": "Burst of downloads",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-003.md",
+      "statement": "The server shall serve 120 simultaneous downloads of the same 3 MB file in less than 1 s of server time on one CPU core.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-FILE-005"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/cache.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-004",
+      "level": 3,
+      "area": "PERF",
+      "title": "Hot files in memory",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/perf/R-PERF-004.md",
+      "statement": "The server shall keep recently delivered files in a memory cache of configurable size (default 128 MB), evicting the least recently used, and share one copy between all simultaneous downloads.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-PERF-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/cache.rs::evicts_least_recently_used"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/cache.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-005",
+      "level": 3,
+      "area": "PERF",
+      "title": "Fast access check",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-005.md",
+      "statement": "The server shall decide whether a user may read a part in less than 1 ms for a library of 200 000 parts.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-ACL-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/access.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0001_init.sql"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-access"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-006",
+      "level": 3,
+      "area": "PERF",
+      "title": "Concurrent annotation saves",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-006.md",
+      "statement": "The server shall store 120 simultaneous annotation page saves in less than 1 s on one CPU core.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/db.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-sqlite"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-PERF-007",
+      "level": 3,
+      "area": "PERF",
+      "title": "Playing without network",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-007.md",
+      "statement": "Once a programme was prepared, the web client shall be able to show and turn all its pages without further sheet downloads.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-PROG-003"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ]
+      },
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "R-FILE-007",
+            "note": "No-store means every reload downloads the sheets again; operators who accept browser caches can switch to 'immutable'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-PROG-001",
+      "level": 3,
+      "area": "PROG",
+      "title": "Programme content",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/prog/R-PROG-001.md",
+      "statement": "The system shall store for each programme a title, an optional date (YYYY-MM-DD), notes, and an ordered list of up to 200 scores in which a score may appear more than once.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PROG-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/programmes.rs::dates"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/manage.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACL-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-PROG-002",
+      "level": 3,
+      "area": "PROG",
+      "title": "Members see their programmes",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/prog/R-PROG-002.md",
+      "statement": "The system shall show a member only programmes that contain at least one piece the member has a readable part for, and within them only those pieces with only those parts.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PROG-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACL-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/programmes.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-PROG-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-PROG-003",
+      "level": 3,
+      "area": "PROG",
+      "title": "Prefetch the sheets of an opened programme",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/prog/R-PROG-003.md",
+      "statement": "When a member opens a programme, the web client shall start downloading every readable sheet of it into memory, at most 3 at a time, and show the progress and any failed downloads.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PROG-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-PROG-002"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-SEC-001",
+            "note": "Sheets are kept in memory only; a reload downloads them again."
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-no-client-storage"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-PROG-004"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-PERF-007"
+          },
+          {
+            "source": "R-READ-005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-PROG-004",
+      "level": 3,
+      "area": "PROG",
+      "title": "Free memory of other programmes",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/prog/R-PROG-004.md",
+      "statement": "When a member opens a programme, the web client shall release the in-memory sheets of all other programmes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PROG-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-PROG-003"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-001",
+      "level": 3,
+      "area": "READ",
+      "title": "Page display",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/read/R-READ-001.md",
+      "statement": "The web client shall show one page at a time, scaled to fit the available space, rendered at the device's pixel density, and without blank flashes when the page changes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-READ-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-READ-002",
+      "level": 3,
+      "area": "READ",
+      "title": "Turning pages",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/read/R-READ-002.md",
+      "statement": "In reading mode, the web client shall turn to the next page on a tap in the right third or on Arrow Right, Arrow Down, Page Down or Space, and to the previous page on a tap in the left third or on Arrow Left, Arrow Up or Page Up.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-003",
+      "level": 3,
+      "area": "READ",
+      "title": "Screen stays on",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/read/R-READ-003.md",
+      "statement": "While the reader is open, the web client shall keep the screen from dimming where the browser supports the screen wake lock, and re-acquire it after the tab becomes visible again.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-006"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-004",
+      "level": 3,
+      "area": "READ",
+      "title": "Full screen",
+      "priority": "should",
+      "status": "implemented",
+      "path": "requirements/read/R-READ-004.md",
+      "statement": "The web client shall offer a button that switches the reader to full screen and back.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-005",
+      "level": 3,
+      "area": "READ",
+      "title": "Next and previous piece",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/read/R-READ-005.md",
+      "statement": "When a part was opened from a programme, the web client shall open the next piece when turning past the last page, open the previous piece when turning back before the first page, prefer a part that shares an instrument with the current one, and download the next piece in advance.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-PROG-003"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-006",
+      "level": 3,
+      "area": "READ",
+      "title": "Compatible PDF rendering",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/read/R-READ-006.md",
+      "statement": "The web client shall render PDF pages with a build of pdf.js that also works in older tablet browsers.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-READ-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "scripts/fetch-pdfjs.sh"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-pdf-rendering"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-007",
+      "level": 3,
+      "area": "READ",
+      "title": "Half-page turns",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/read/R-READ-007.md",
+      "statement": "The web client shall offer a mode in which a page turn first replaces only the upper half of the screen with the upper half of the next page.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-008",
+      "level": 3,
+      "area": "READ",
+      "title": "Conductor push",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/read/R-READ-008.md",
+      "statement": "When the conductor selects the next piece of a programme, the web client of every member reading that programme shall offer to open it.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-002"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-001",
+      "level": 3,
+      "area": "SEC",
+      "title": "No persistent data in the web client",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-001.md",
+      "statement": "The web client shall keep sheets and annotations only in memory and shall not use local storage, IndexedDB, the Cache API or a service worker.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-007"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-no-client-storage"
+          }
+        ]
+      },
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "R-PROG-003",
+            "note": "Sheets are kept in memory only; a reload downloads them again."
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-SEC-002",
+      "level": 3,
+      "area": "SEC",
+      "title": "Secrets stored irreversibly",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-002.md",
+      "statement": "The system shall store passwords only as Argon2id hashes (19 MiB, 2 iterations, parallelism 1) and session and invite tokens (256-bit random) only as SHA-256 hashes.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-sessions"
+          },
+          {
+            "target": "tech:d-hashing"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-SEC-003",
+      "level": 3,
+      "area": "SEC",
+      "title": "Limit password guessing",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/sec/R-SEC-003.md",
+      "statement": "The system shall refuse login attempts with HTTP 429 after 10 failed attempts within 15 minutes for the same username or the same client address.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          },
+          {
+            "target": "crates/musicus-server/src/auth.rs::limiter_blocks_after_ten_failures"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-004",
+      "level": 3,
+      "area": "SEC",
+      "title": "Cross-site request forgery",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/sec/R-SEC-004.md",
+      "statement": "The system shall send the session cookie only as HttpOnly, SameSite=Lax and (by default) Secure, and shall reject state-changing requests authenticated by cookie that lack the header x-musicus-csrf (HTTP 403).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/api.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-csrf"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-005",
+      "level": 3,
+      "area": "SEC",
+      "title": "Security headers",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-005.md",
+      "statement": "The system shall send with every response the headers X-Content-Type-Options: nosniff, X-Frame-Options: DENY, Referrer-Policy: same-origin and a Permissions-Policy that disables camera, microphone and geolocation.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-006",
+      "level": 3,
+      "area": "SEC",
+      "title": "No SQL injection",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-006.md",
+      "statement": "The system shall use only SQL statements fixed at compile time and pass all user input as bound parameters.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-static-sql"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-007",
+      "level": 3,
+      "area": "SEC",
+      "title": "Minimal, unprivileged container",
+      "priority": "should",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-007.md",
+      "statement": "The container image shall contain only the server, the web assets and the C runtime, and run as an unprivileged user.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          },
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "Dockerfile"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-distroless"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-SEC-008",
+      "level": 3,
+      "area": "SEC",
+      "title": "No internal details in errors",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/sec/R-SEC-008.md",
+      "statement": "The system shall answer internal errors with a generic message and log the details only on the server.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-SEC-002"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/error.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-TECH-001",
+      "level": 3,
+      "area": "TECH",
+      "title": "Server technology",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/tech/R-TECH-001.md",
+      "statement": "The server shall be written in Rust and use an embedded SQLite database.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-sqlite"
+          },
+          {
+            "target": "tech:d-monolith"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-TECH-002",
+      "level": 3,
+      "area": "TECH",
+      "title": "Client technology",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/tech/R-TECH-002.md",
+      "statement": "The web client shall be written in Rust with Dioxus and compiled to WebAssembly; JavaScript is limited to one bridge module for browser features without Rust equivalent.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-pdf-rendering"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-TECH-003",
+      "level": 3,
+      "area": "TECH",
+      "title": "Shared API types",
+      "priority": "must",
+      "status": "implemented",
+      "path": "requirements/tech/R-TECH-003.md",
+      "statement": "Server and clients shall exchange data through a REST API whose request and response types are defined in one shared Rust crate.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-shared-types"
+          }
+        ]
+      },
+      "incoming": {}
+    }
+  ]
+}
