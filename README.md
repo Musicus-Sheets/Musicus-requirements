@@ -127,7 +127,7 @@ when the link needs an explanation. There is deliberately no generic
 
 ```sh
 uv run tools/validate.py            # check and regenerate index.md + requirements.json
-uv run tools/validate.py --check    # check only; fails if index.md is outdated (for CI)
+uv run tools/validate.py --check    # check only; fails if index.md is outdated (pull-request check)
 ```
 
 (Without `uv`: `pip install pyyaml` and run it with `python3`.)

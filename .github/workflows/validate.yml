@@ -1,5 +1,11 @@
 name: Validate requirements
-on: [push, pull_request]
+# Runs only for pull requests (not on every push). Make it a merge gate by
+# marking the job "validate" as a required status check in the branch
+# protection rule / ruleset of the target branch.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  merge_group:
 jobs:
   validate:
     runs-on: ubuntu-latest
