@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 0 | 28 | 0 | 0 | 33 |
-| 3 Requirements | 22 | 0 | 32 | 51 | 0 | 105 |
+| 3 Requirements | 22 | 0 | 32 | 57 | 0 | 111 |
 
 ## Goals and features
 
@@ -129,6 +129,9 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
 - [F-ACC-004](features/F-ACC-004.md) Management where the music is `implemented`
   - [R-ACC-013](requirements/acc/R-ACC-013.md) Management actions inside the regular views `verified`
   - [R-ACC-014](requirements/acc/R-ACC-014.md) Members see the same views without management options `verified`
+  - [R-ACC-015](requirements/acc/R-ACC-015.md) Assignments scale to many entries `verified`
+  - [R-ACC-016](requirements/acc/R-ACC-016.md) Several entries chosen at once, applied when the dropdown closes `verified`
+  - [R-ACC-017](requirements/acc/R-ACC-017.md) Assignments of existing groups and parts are saved immediately `verified`
 - [F-FILE-001](features/F-FILE-001.md) Upload sheets as PDF, with versions `implemented`
   - [R-FILE-001](requirements/file/R-FILE-001.md) Accepted uploads `verified`
   - [R-FILE-002](requirements/file/R-FILE-002.md) File versions `verified`
@@ -142,6 +145,9 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-LIB-006](requirements/lib/R-LIB-006.md) Thumbnails in the library `implemented`
   - [R-LIB-008](requirements/lib/R-LIB-008.md) Instrument list for every user `verified`
   - [R-LIB-009](requirements/lib/R-LIB-009.md) Guided flow for adding a piece `verified`
+  - [R-LIB-010](requirements/lib/R-LIB-010.md) Part names derived from instruments, key and voice `verified`
+  - [R-LIB-011](requirements/lib/R-LIB-011.md) Keys from a fixed list `verified`
+  - [R-LIB-012](requirements/lib/R-LIB-012.md) Existing parts survive the change of part names `verified`
 - [F-LIB-002](features/F-LIB-002.md) Library search `implemented`
   - [R-LIB-004](requirements/lib/R-LIB-004.md) Search `verified`
 - [F-LIB-003](features/F-LIB-003.md) Extended metadata `proposed`
@@ -360,6 +366,9 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-ACC-012](requirements/acc/R-ACC-012.md) | Send invite links by e-mail | could | proposed | F-ACC-001 |
 | [R-ACC-013](requirements/acc/R-ACC-013.md) | Management actions inside the regular views | should | verified | F-ACC-004 |
 | [R-ACC-014](requirements/acc/R-ACC-014.md) | Members see the same views without management options | must | verified | F-ACC-004 |
+| [R-ACC-015](requirements/acc/R-ACC-015.md) | Assignments scale to many entries | should | verified | F-ACC-004 |
+| [R-ACC-016](requirements/acc/R-ACC-016.md) | Several entries chosen at once, applied when the dropdown closes | should | verified | F-ACC-004 |
+| [R-ACC-017](requirements/acc/R-ACC-017.md) | Assignments of existing groups and parts are saved immediately | should | verified | F-ACC-004 |
 
 ### ACL – Access to sheets
 
@@ -386,6 +395,9 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-LIB-007](requirements/lib/R-LIB-007.md) | Extended score metadata | could | proposed | F-LIB-003 |
 | [R-LIB-008](requirements/lib/R-LIB-008.md) | Instrument list for every user | should | verified | F-LIB-001 |
 | [R-LIB-009](requirements/lib/R-LIB-009.md) | Guided flow for adding a piece | should | verified | F-LIB-001 |
+| [R-LIB-010](requirements/lib/R-LIB-010.md) | Part names derived from instruments, key and voice | should | verified | F-LIB-001 |
+| [R-LIB-011](requirements/lib/R-LIB-011.md) | Keys from a fixed list | should | verified | F-LIB-001 |
+| [R-LIB-012](requirements/lib/R-LIB-012.md) | Existing parts survive the change of part names | must | verified | F-LIB-001 |
 
 ### FILE – Sheet files
 
@@ -529,6 +541,9 @@ All links other than `refines`.
 | [R-ACC-004](requirements/acc/R-ACC-004.md) | depends_on | [R-SEC-002](requirements/sec/R-SEC-002.md) |  |
 | [R-ACC-013](requirements/acc/R-ACC-013.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACC-014](requirements/acc/R-ACC-014.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
+| [R-ACC-016](requirements/acc/R-ACC-016.md) | depends_on | [R-ACC-015](requirements/acc/R-ACC-015.md) |  |
+| [R-ACC-017](requirements/acc/R-ACC-017.md) | depends_on | [R-ACC-016](requirements/acc/R-ACC-016.md) |  |
+| [R-ACC-017](requirements/acc/R-ACC-017.md) | depends_on | [R-ACL-004](requirements/acl/R-ACL-004.md) |  |
 | [R-ACL-004](requirements/acl/R-ACL-004.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACL-005](requirements/acl/R-ACL-005.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
 | [R-ACL-006](requirements/acl/R-ACL-006.md) | depends_on | [R-PROG-001](requirements/prog/R-PROG-001.md) |  |
@@ -551,6 +566,11 @@ All links other than `refines`.
 | [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
 | [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
 | [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-FILE-001](requirements/file/R-FILE-001.md) |  |
+| [R-LIB-010](requirements/lib/R-LIB-010.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
+| [R-LIB-010](requirements/lib/R-LIB-010.md) | depends_on | [R-LIB-011](requirements/lib/R-LIB-011.md) |  |
+| [R-LIB-012](requirements/lib/R-LIB-012.md) | depends_on | [R-LIB-010](requirements/lib/R-LIB-010.md) |  |
+| [R-LIB-012](requirements/lib/R-LIB-012.md) | depends_on | [R-LIB-011](requirements/lib/R-LIB-011.md) |  |
+| [R-LIB-012](requirements/lib/R-LIB-012.md) | depends_on | [R-OPS-004](requirements/ops/R-OPS-004.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-ANN-012](requirements/ann/R-ANN-012.md) |  |
 | [R-OFF-003](requirements/off/R-OFF-003.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |

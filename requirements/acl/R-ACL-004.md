@@ -11,6 +11,7 @@ links:
   implemented_by:
     - crates/musicus-server/src/routes/groups.rs
     - crates/musicus-web/src/pages/groups.rs
+    - crates/musicus-web/src/picker.rs
 ---
 
 # R-ACL-004 Managing groups and grants
@@ -21,4 +22,4 @@ The system shall let admins create, rename and delete groups and set their membe
 
 ## Acceptance criteria
 
-- The group page lists members, instruments and scores with checkboxes; saving replaces the lists.
+- The group page shows the assigned members, instruments and scores and adds or removes them with the assignment picker (R-ACC-015); every change replaces the list on the server.

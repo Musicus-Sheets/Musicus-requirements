@@ -150,6 +150,15 @@
           },
           {
             "source": "R-ACC-014"
+          },
+          {
+            "source": "R-ACC-015"
+          },
+          {
+            "source": "R-ACC-016"
+          },
+          {
+            "source": "R-ACC-017"
           }
         ]
       }
@@ -613,6 +622,15 @@
           },
           {
             "source": "R-LIB-009"
+          },
+          {
+            "source": "R-LIB-010"
+          },
+          {
+            "source": "R-LIB-011"
+          },
+          {
+            "source": "R-LIB-012"
           }
         ]
       }
@@ -1927,6 +1945,127 @@
       "incoming": {}
     },
     {
+      "id": "R-ACC-015",
+      "level": 3,
+      "area": "ACC",
+      "title": "Assignments scale to many entries",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-015.md",
+      "statement": "When a librarian or admin assigns users, instruments or scores to a group, instruments to a part, or pieces to a programme, the web client shall show only the assigned entries as a list, each with a remove control, and offer the other entries in a dropdown with a search field instead of one checkbox per existing entry.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/picker.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/programme_edit.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-016"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-016",
+      "level": 3,
+      "area": "ACC",
+      "title": "Several entries chosen at once, applied when the dropdown closes",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-016.md",
+      "statement": "When the assignment dropdown is open, ticking an entry shall not close it, and closing it by clicking or tapping outside, by pressing Escape, or with its \"Add\" button shall add all ticked entries to the assigned list.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-015"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/picker.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-017",
+      "level": 3,
+      "area": "ACC",
+      "title": "Assignments of existing groups and parts are saved immediately",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-017.md",
+      "statement": "When the assignments of an existing group or an existing part change, by closing the dropdown with new entries or by removing an entry, the web client shall save the change at once, confirm it briefly with \"Saved\", and on failure show the error and restore the previous list.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-016"
+          },
+          {
+            "target": "R-ACL-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-ACL-001",
       "level": 3,
       "area": "ACL",
@@ -2100,10 +2239,19 @@
           },
           {
             "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/picker.rs"
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-017"
+          }
+        ]
+      }
     },
     {
       "id": "R-ACL-005",
@@ -3235,7 +3383,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/lib/R-LIB-002.md",
-      "statement": "The system shall store for each part a label (e.g. '2nd Trumpet in Bb'), one or more instruments, an optional voice number between 0 and 99, an optional transposition, and notes.",
+      "statement": "The system shall store for each part an optional custom name, one or more instruments, an optional voice as free text of up to 20 characters (e.g. '2', '1a', 'Solo'), an optional key (R-LIB-011), and notes.",
       "links": {
         "refines": [
           {
@@ -3250,6 +3398,9 @@
         "verified_by": [
           {
             "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
           }
         ],
         "implemented_by": [
@@ -3271,6 +3422,9 @@
           },
           {
             "source": "R-LIB-009"
+          },
+          {
+            "source": "R-LIB-010"
           }
         ]
       }
@@ -3329,7 +3483,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/lib/R-LIB-004.md",
-      "statement": "The system shall find scores whose title, subtitle, composer, arranger, genre or tags contain all entered words as word prefixes, ignoring letter case and diacritics, and shall additionally filter by genre and tag.",
+      "statement": "The system shall find scores for which every entered word is a word prefix of the title, subtitle, composer, arranger, genre or tags, or of the name of a part of the score the user may read (R-LIB-010), ignoring letter case and diacritics, and shall additionally filter by genre and tag.",
       "links": {
         "refines": [
           {
@@ -3341,7 +3495,10 @@
             "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
           },
           {
-            "target": "crates/musicus-server/src/routes/library.rs::fts_query_quotes_words_and_drops_operators"
+            "target": "crates/musicus-server/src/routes/library.rs::fts_terms_quote_words_and_drop_operators"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
           },
           {
             "target": "e2e/smoke.mjs"
@@ -3353,6 +3510,12 @@
           },
           {
             "target": "crates/musicus-server/migrations/0001_init.sql"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0002_part_names.sql"
+          },
+          {
+            "target": "crates/musicus-server/src/part_index.rs"
           }
         ]
       },
@@ -3535,6 +3698,157 @@
       "incoming": {}
     },
     {
+      "id": "R-LIB-010",
+      "level": 3,
+      "area": "LIB",
+      "title": "Part names derived from instruments, key and voice",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-010.md",
+      "statement": "When a part has no custom name, the system shall name it after its instruments, key and voice in the form \"<instruments joined by ' / ' in alphabetical order> in <key> <voice>\", and shall show this name, or the custom name if one is given, wherever the part is shown.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-002"
+          },
+          {
+            "target": "R-LIB-011"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs::derived_names"
+          },
+          {
+            "target": "crates/musicus-api/src/naming.rs::custom_name_wins"
+          },
+          {
+            "target": "crates/musicus-api/src/naming.rs::natural_order"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-011",
+      "level": 3,
+      "area": "LIB",
+      "title": "Keys from a fixed list",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-011.md",
+      "statement": "The system shall accept as key of a part only none (concert pitch) or one of B♭, E♭, F, C, A, D, G, E, A♭, D♭, G♭ and B♮ (H), stored as the codes Bb, Eb, F, C, A, D, G, E, Ab, Db, Gb and H, and the web client shall offer exactly these in a selection list.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs::keys"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-010"
+          },
+          {
+            "source": "R-LIB-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-012",
+      "level": 3,
+      "area": "LIB",
+      "title": "Existing parts survive the change of part names",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-012.md",
+      "statement": "When a database created before part names were derived is opened, the system shall keep every existing label as the custom name, keep numeric voices as text, convert key spellings that are unambiguous to the key codes, keep all other key values unchanged, and make the parts findable by name.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-010"
+          },
+          {
+            "target": "R-LIB-011"
+          },
+          {
+            "target": "R-OPS-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::migration_0002_keeps_old_parts"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/migrations/0002_part_names.sql"
+          },
+          {
+            "target": "crates/musicus-server/src/part_index.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-OFF-001",
       "level": 3,
       "area": "OFF",
@@ -3705,7 +4019,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-012"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-005",

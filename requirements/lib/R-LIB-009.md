@@ -23,5 +23,5 @@ When a librarian adds a piece, the web client shall guide them in two visible st
 ## Acceptance criteria
 
 - The step indicator shows "Details" and "Parts and PDFs"; the title is required in step 1.
-- After adding a part the form is empty again (including the instrument ticks), and the added part shows "Uploading…" and then its version and page count, or "No PDF yet".
+- After adding a part the form is empty again (including the chosen instruments), and the added part shows "Uploading…" and then its version and page count, or "No PDF yet".
 - "Finish" is disabled while uploads run and then opens the library with the new piece highlighted.
