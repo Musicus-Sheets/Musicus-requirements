@@ -8,7 +8,7 @@ links:
   refines: [F-ACC-001]
   implemented_by:
     - crates/musicus-server/src/routes/users.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/users.rs
 ---
 
 # R-ACC-010 Password reset by new invite

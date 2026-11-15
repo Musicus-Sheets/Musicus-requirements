@@ -11,7 +11,8 @@ links:
     - crates/musicus-server/tests/api.rs::programmes_and_search
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/score_edit.rs
+    - crates/musicus-web/src/pages/forms.rs
 ---
 
 # R-LIB-001 Score metadata

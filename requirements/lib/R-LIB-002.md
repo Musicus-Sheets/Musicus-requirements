@@ -10,7 +10,8 @@ links:
   verified_by: [crates/musicus-server/tests/api.rs::members_only_reach_granted_parts]
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/score_edit.rs
+    - crates/musicus-web/src/pages/forms.rs
 ---
 
 # R-LIB-002 Part metadata

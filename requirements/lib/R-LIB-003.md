@@ -3,11 +3,14 @@ id: R-LIB-003
 level: 3
 title: Controlled instrument vocabulary
 priority: must
-status: implemented
+status: verified
 links:
   refines: [F-LIB-001]
+  verified_by: [crates/musicus-server/tests/api.rs::instruments_are_listed_for_everyone_and_kept_while_in_use]
   implemented_by:
     - crates/musicus-server/src/routes/groups.rs
+    - crates/musicus-server/src/error.rs
+    - crates/musicus-web/src/pages/instruments.rs
     - crates/musicus-server/migrations/0001_init.sql
 ---
 
