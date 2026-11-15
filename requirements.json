@@ -150,6 +150,15 @@
           },
           {
             "source": "R-ACC-014"
+          },
+          {
+            "source": "R-ACC-015"
+          },
+          {
+            "source": "R-ACC-016"
+          },
+          {
+            "source": "R-ACC-017"
           }
         ]
       }
@@ -1927,6 +1936,127 @@
       "incoming": {}
     },
     {
+      "id": "R-ACC-015",
+      "level": 3,
+      "area": "ACC",
+      "title": "Assignments scale to many entries",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-015.md",
+      "statement": "When a librarian or admin assigns users, instruments or scores to a group, instruments to a part, or pieces to a programme, the web client shall show only the assigned entries as a list, each with a remove control, and offer the other entries in a dropdown with a search field instead of one checkbox per existing entry.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/picker.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/programme_edit.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-016"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-016",
+      "level": 3,
+      "area": "ACC",
+      "title": "Several entries chosen at once, applied when the dropdown closes",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-016.md",
+      "statement": "When the assignment dropdown is open, ticking an entry shall not close it, and closing it by clicking or tapping outside, by pressing Escape, or with its \"Add\" button shall add all ticked entries to the assigned list.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-015"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/picker.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-ACC-017",
+      "level": 3,
+      "area": "ACC",
+      "title": "Assignments of existing groups and parts are saved immediately",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-017.md",
+      "statement": "When the assignments of an existing group or an existing part change, by closing the dropdown with new entries or by removing an entry, the web client shall save the change at once, confirm it briefly with \"Saved\", and on failure show the error and restore the previous list.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-016"
+          },
+          {
+            "target": "R-ACL-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
       "id": "R-ACL-001",
       "level": 3,
       "area": "ACL",
@@ -2100,10 +2230,19 @@
           },
           {
             "target": "crates/musicus-web/src/pages/groups.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/picker.rs"
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-ACC-017"
+          }
+        ]
+      }
     },
     {
       "id": "R-ACL-005",
