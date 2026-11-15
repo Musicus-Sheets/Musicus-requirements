@@ -114,6 +114,43 @@
           {
             "source": "R-ACC-009"
           }
+        ],
+        "required_by": [
+          {
+            "source": "F-ACC-004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-ACC-004",
+      "level": 2,
+      "area": "ACC",
+      "title": "Management where the music is",
+      "priority": "should",
+      "status": "implemented",
+      "path": "features/F-ACC-004.md",
+      "statement": "Librarians and admins maintain the library, the programmes and the instrument list directly in the views every user works with, and members see the same views without the management options.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-ACC-003"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-ACC-013"
+          },
+          {
+            "source": "R-ACC-014"
+          }
         ]
       }
     },
@@ -570,6 +607,12 @@
           },
           {
             "source": "R-LIB-006"
+          },
+          {
+            "source": "R-LIB-008"
+          },
+          {
+            "source": "R-LIB-009"
           }
         ]
       }
@@ -1159,6 +1202,9 @@
             "source": "F-ACC-003"
           },
           {
+            "source": "F-ACC-004"
+          },
+          {
             "source": "F-FILE-001"
           },
           {
@@ -1411,7 +1457,7 @@
             "target": "crates/musicus-server/src/routes/users.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/users.rs"
           }
         ],
         "decided_in": [
@@ -1701,6 +1747,12 @@
       "incoming": {
         "required_by": [
           {
+            "source": "R-ACC-013"
+          },
+          {
+            "source": "R-ACC-014"
+          },
+          {
             "source": "R-ACL-004"
           }
         ]
@@ -1726,7 +1778,7 @@
             "target": "crates/musicus-server/src/routes/users.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/users.rs"
           }
         ]
       },
@@ -1763,6 +1815,112 @@
         "refines": [
           {
             "target": "F-ACC-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-013",
+      "level": 3,
+      "area": "ACC",
+      "title": "Management actions inside the regular views",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-013.md",
+      "statement": "When a librarian or admin is logged in, the web client shall offer the management actions in the regular views: adding a piece and editing each piece and each part in the library, creating and editing programmes in the programme views, and adding, editing and deleting instruments in the instrument list; groups (librarians and admins) and users (admins) shall have their own navigation entries, and there shall be no separate management area.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-009"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/instruments.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/score_edit.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/programme_edit.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-inline-management"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-ACC-014",
+      "level": 3,
+      "area": "ACC",
+      "title": "Members see the same views without management options",
+      "priority": "must",
+      "status": "verified",
+      "path": "requirements/acc/R-ACC-014.md",
+      "statement": "When a member is logged in, the web client shall show the library, programme and instrument views without any control to add, edit or delete, and the server shall keep refusing every management request of a member regardless of the user interface.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-ACC-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ACC-009"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::members_only_reach_granted_parts"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::instruments_are_listed_for_everyone_and_kept_while_in_use"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/library.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/instruments.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-inline-management"
           }
         ]
       },
@@ -1941,7 +2099,7 @@
             "target": "crates/musicus-server/src/routes/groups.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/groups.rs"
           }
         ]
       },
@@ -2701,7 +2859,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-009"
+          }
+        ]
+      }
     },
     {
       "id": "R-FILE-002",
@@ -3045,7 +3209,10 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/score_edit.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
           }
         ]
       },
@@ -3053,6 +3220,9 @@
         "required_by": [
           {
             "source": "R-LIB-007"
+          },
+          {
+            "source": "R-LIB-009"
           }
         ]
       }
@@ -3087,7 +3257,10 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/score_edit.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
           }
         ]
       },
@@ -3095,6 +3268,9 @@
         "required_by": [
           {
             "source": "R-ACL-005"
+          },
+          {
+            "source": "R-LIB-009"
           }
         ]
       }
@@ -3105,7 +3281,7 @@
       "area": "LIB",
       "title": "Controlled instrument vocabulary",
       "priority": "must",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/lib/R-LIB-003.md",
       "statement": "The system shall keep instruments as a list maintained by librarians, with unique names (ignoring letter case), and shall refuse to delete an instrument that parts still use.",
       "links": {
@@ -3114,9 +3290,20 @@
             "target": "F-LIB-001"
           }
         ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::instruments_are_listed_for_everyone_and_kept_while_in_use"
+          }
+        ],
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/routes/groups.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/error.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/instruments.rs"
           },
           {
             "target": "crates/musicus-server/migrations/0001_init.sql"
@@ -3127,6 +3314,9 @@
         "required_by": [
           {
             "source": "R-LIB-002"
+          },
+          {
+            "source": "R-LIB-008"
           }
         ]
       }
@@ -3253,6 +3443,92 @@
         "depends_on": [
           {
             "target": "R-LIB-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-008",
+      "level": 3,
+      "area": "LIB",
+      "title": "Instrument list for every user",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-008.md",
+      "statement": "The system shall show every logged-in user the instruments of the ensemble with their family, grouped by family.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-003"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::instruments_are_listed_for_everyone_and_kept_while_in_use"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/instruments.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/groups.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-009",
+      "level": 3,
+      "area": "LIB",
+      "title": "Guided flow for adding a piece",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-009.md",
+      "statement": "When a librarian adds a piece, the web client shall guide them in two visible steps, first the score details and then its parts, where each part is entered with label, instruments, voice, key and an optional PDF, several parts can be added one after another, and the upload state of every added part is shown.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-001"
+          },
+          {
+            "target": "R-LIB-002"
+          },
+          {
+            "target": "R-FILE-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/score_edit.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-inline-management"
           }
         ]
       },
@@ -3833,7 +4109,7 @@
             "target": "crates/musicus-server/src/routes/programmes.rs"
           },
           {
-            "target": "crates/musicus-web/src/pages/manage.rs"
+            "target": "crates/musicus-web/src/pages/programme_edit.rs"
           }
         ]
       },

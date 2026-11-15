@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 0 | 27 | 0 | 0 | 32 |
-| 3 Requirements | 22 | 0 | 33 | 46 | 0 | 101 |
+| 2 Features | 5 | 0 | 28 | 0 | 0 | 33 |
+| 3 Requirements | 22 | 0 | 32 | 51 | 0 | 105 |
 
 ## Goals and features
 
@@ -29,6 +29,7 @@ flowchart LR
   F_ACC_001["F-ACC-001<br/>Accounts created by invitation"]
   F_ACC_002["F-ACC-002<br/>Stay logged in, with control over devices"]
   F_ACC_003["F-ACC-003<br/>Roles"]
+  F_ACC_004["F-ACC-004<br/>Management where the music is"]
   F_ACL_001["F-ACL-001<br/>Access by instrument through groups"]
   F_ACL_002["F-ACL-002<br/>Access to whole scores"]
   F_ACL_003["F-ACL-003<br/>Finer and time-limited grants"]
@@ -64,6 +65,7 @@ flowchart LR
   F_ACC_002 --> G_006
   F_ACC_003 --> G_006
   F_ACC_003 --> G_001
+  F_ACC_004 --> G_001
   F_ACL_001 --> G_002
   F_ACL_002 --> G_002
   F_ACL_003 --> G_002
@@ -98,6 +100,7 @@ flowchart LR
   F_SEC_001 --> G_006
   F_SEC_002 --> G_006
   F_TECH_001 --> G_008
+  F_ACC_004 -. depends_on .-> F_ACC_003
   F_ANN_002 -. depends_on .-> F_PROG_001
   F_ANN_005 -. depends_on .-> F_FILE_001
   F_ANN_006 -. conflicts_with .-> F_ANN_004
@@ -123,6 +126,9 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
 - [F-ACC-003](features/F-ACC-003.md) Roles `implemented`
   - [R-ACC-008](requirements/acc/R-ACC-008.md) Disable users `verified`
   - [R-ACC-009](requirements/acc/R-ACC-009.md) Rights of the roles `verified`
+- [F-ACC-004](features/F-ACC-004.md) Management where the music is `implemented`
+  - [R-ACC-013](requirements/acc/R-ACC-013.md) Management actions inside the regular views `verified`
+  - [R-ACC-014](requirements/acc/R-ACC-014.md) Members see the same views without management options `verified`
 - [F-FILE-001](features/F-FILE-001.md) Upload sheets as PDF, with versions `implemented`
   - [R-FILE-001](requirements/file/R-FILE-001.md) Accepted uploads `verified`
   - [R-FILE-002](requirements/file/R-FILE-002.md) File versions `verified`
@@ -131,9 +137,11 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
 - [F-LIB-001](features/F-LIB-001.md) Scores and parts with metadata `implemented`
   - [R-LIB-001](requirements/lib/R-LIB-001.md) Score metadata `verified`
   - [R-LIB-002](requirements/lib/R-LIB-002.md) Part metadata `verified`
-  - [R-LIB-003](requirements/lib/R-LIB-003.md) Controlled instrument vocabulary `implemented`
+  - [R-LIB-003](requirements/lib/R-LIB-003.md) Controlled instrument vocabulary `verified`
   - [R-LIB-005](requirements/lib/R-LIB-005.md) Members see only their part of the library `verified`
   - [R-LIB-006](requirements/lib/R-LIB-006.md) Thumbnails in the library `implemented`
+  - [R-LIB-008](requirements/lib/R-LIB-008.md) Instrument list for every user `verified`
+  - [R-LIB-009](requirements/lib/R-LIB-009.md) Guided flow for adding a piece `verified`
 - [F-LIB-002](features/F-LIB-002.md) Library search `implemented`
   - [R-LIB-004](requirements/lib/R-LIB-004.md) Search `verified`
 - [F-LIB-003](features/F-LIB-003.md) Extended metadata `proposed`
@@ -350,6 +358,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-ACC-010](requirements/acc/R-ACC-010.md) | Password reset by new invite | must | implemented | F-ACC-001 |
 | [R-ACC-011](requirements/acc/R-ACC-011.md) | Login through an identity provider | could | proposed | F-ACC-001 |
 | [R-ACC-012](requirements/acc/R-ACC-012.md) | Send invite links by e-mail | could | proposed | F-ACC-001 |
+| [R-ACC-013](requirements/acc/R-ACC-013.md) | Management actions inside the regular views | should | verified | F-ACC-004 |
+| [R-ACC-014](requirements/acc/R-ACC-014.md) | Members see the same views without management options | must | verified | F-ACC-004 |
 
 ### ACL – Access to sheets
 
@@ -369,11 +379,13 @@ The system is built with a small, consistent technology stack that a small team 
 | --- | --- | --- | --- | --- |
 | [R-LIB-001](requirements/lib/R-LIB-001.md) | Score metadata | must | verified | F-LIB-001 |
 | [R-LIB-002](requirements/lib/R-LIB-002.md) | Part metadata | must | verified | F-LIB-001 |
-| [R-LIB-003](requirements/lib/R-LIB-003.md) | Controlled instrument vocabulary | must | implemented | F-LIB-001 |
+| [R-LIB-003](requirements/lib/R-LIB-003.md) | Controlled instrument vocabulary | must | verified | F-LIB-001 |
 | [R-LIB-004](requirements/lib/R-LIB-004.md) | Search | must | verified | F-LIB-002 |
 | [R-LIB-005](requirements/lib/R-LIB-005.md) | Members see only their part of the library | must | verified | F-LIB-001 |
 | [R-LIB-006](requirements/lib/R-LIB-006.md) | Thumbnails in the library | must | implemented | F-LIB-001 |
 | [R-LIB-007](requirements/lib/R-LIB-007.md) | Extended score metadata | could | proposed | F-LIB-003 |
+| [R-LIB-008](requirements/lib/R-LIB-008.md) | Instrument list for every user | should | verified | F-LIB-001 |
+| [R-LIB-009](requirements/lib/R-LIB-009.md) | Guided flow for adding a piece | should | verified | F-LIB-001 |
 
 ### FILE – Sheet files
 
@@ -501,6 +513,7 @@ All links other than `refines`.
 
 | From | Link | To | Note |
 | --- | --- | --- | --- |
+| [F-ACC-004](features/F-ACC-004.md) | depends_on | [F-ACC-003](features/F-ACC-003.md) |  |
 | [F-ANN-002](features/F-ANN-002.md) | depends_on | [F-PROG-001](features/F-PROG-001.md) | A set can be linked to a programme and is then chosen automatically. |
 | [F-ANN-005](features/F-ANN-005.md) | depends_on | [F-FILE-001](features/F-FILE-001.md) |  |
 | [F-ANN-006](features/F-ANN-006.md) | conflicts_with | [F-ANN-004](features/F-ANN-004.md) | Sharing is explicit and read-only; private sets stay private. |
@@ -514,6 +527,8 @@ All links other than `refines`.
 | [F-PROG-002](features/F-PROG-002.md) | conflicts_with | [F-SEC-001](features/F-SEC-001.md) | Prefetched sheets are held in memory only, never stored on the device; a reload downloads them again. |
 | [F-READ-002](features/F-READ-002.md) | depends_on | [F-PROG-001](features/F-PROG-001.md) |  |
 | [R-ACC-004](requirements/acc/R-ACC-004.md) | depends_on | [R-SEC-002](requirements/sec/R-SEC-002.md) |  |
+| [R-ACC-013](requirements/acc/R-ACC-013.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
+| [R-ACC-014](requirements/acc/R-ACC-014.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACL-004](requirements/acl/R-ACL-004.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACL-005](requirements/acl/R-ACL-005.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
 | [R-ACL-006](requirements/acl/R-ACL-006.md) | depends_on | [R-PROG-001](requirements/prog/R-PROG-001.md) |  |
@@ -532,6 +547,10 @@ All links other than `refines`.
 | [R-LIB-005](requirements/lib/R-LIB-005.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
 | [R-LIB-006](requirements/lib/R-LIB-006.md) | depends_on | [R-FILE-003](requirements/file/R-FILE-003.md) |  |
 | [R-LIB-007](requirements/lib/R-LIB-007.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
+| [R-LIB-008](requirements/lib/R-LIB-008.md) | depends_on | [R-LIB-003](requirements/lib/R-LIB-003.md) |  |
+| [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
+| [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
+| [R-LIB-009](requirements/lib/R-LIB-009.md) | depends_on | [R-FILE-001](requirements/file/R-FILE-001.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-ANN-012](requirements/ann/R-ANN-012.md) |  |
 | [R-OFF-003](requirements/off/R-OFF-003.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |

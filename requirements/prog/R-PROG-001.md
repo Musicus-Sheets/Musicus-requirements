@@ -12,7 +12,7 @@ links:
     - e2e/smoke.mjs
   implemented_by:
     - crates/musicus-server/src/routes/programmes.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/programme_edit.rs
 ---
 
 # R-PROG-001 Programme content

@@ -9,7 +9,7 @@ links:
   verified_by: [crates/musicus-server/tests/api.rs::user_administration, e2e/smoke.mjs]
   implemented_by:
     - crates/musicus-server/src/routes/users.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/users.rs
   decided_in: [tech:d-invites]
 ---
 

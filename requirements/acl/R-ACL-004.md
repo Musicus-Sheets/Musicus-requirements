@@ -10,7 +10,7 @@ links:
   verified_by: [e2e/smoke.mjs, crates/musicus-server/tests/api.rs::user_administration]
   implemented_by:
     - crates/musicus-server/src/routes/groups.rs
-    - crates/musicus-web/src/pages/manage.rs
+    - crates/musicus-web/src/pages/groups.rs
 ---
 
 # R-ACL-004 Managing groups and grants
