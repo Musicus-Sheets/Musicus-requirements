@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 0 | 29 | 0 | 0 | 34 |
-| 3 Requirements | 22 | 1 | 34 | 67 | 0 | 124 |
+| 3 Requirements | 22 | 0 | 34 | 68 | 0 | 124 |
 
 ## Goals and features
 
@@ -267,7 +267,7 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-READ-013](requirements/read/R-READ-013.md) Systems continue across pages `verified`
   - [R-READ-014](requirements/read/R-READ-014.md) View setting per user `verified`
   - [R-READ-015](requirements/read/R-READ-015.md) Unsure pages are shown whole `verified`
-  - [R-READ-016](requirements/read/R-READ-016.md) Librarians correct the systems `accepted`
+  - [R-READ-016](requirements/read/R-READ-016.md) Librarians correct the systems `verified`
   - [R-READ-017](requirements/read/R-READ-017.md) Split wide systems at a barline `proposed`
   - [R-READ-018](requirements/read/R-READ-018.md) Annotations in the system view `verified`
   - [R-READ-019](requirements/read/R-READ-019.md) System layouts of a programme ahead `implemented`
@@ -461,7 +461,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-READ-013](requirements/read/R-READ-013.md) | Systems continue across pages | should | verified | F-READ-003 |
 | [R-READ-014](requirements/read/R-READ-014.md) | View setting per user | should | verified | F-READ-003 |
 | [R-READ-015](requirements/read/R-READ-015.md) | Unsure pages are shown whole | should | verified | F-READ-003 |
-| [R-READ-016](requirements/read/R-READ-016.md) | Librarians correct the systems | should | accepted | F-READ-003 |
+| [R-READ-016](requirements/read/R-READ-016.md) | Librarians correct the systems | should | verified | F-READ-003 |
 | [R-READ-017](requirements/read/R-READ-017.md) | Split wide systems at a barline | could | proposed | F-READ-003 |
 | [R-READ-018](requirements/read/R-READ-018.md) | Annotations in the system view | should | verified | F-READ-003 |
 | [R-READ-019](requirements/read/R-READ-019.md) | System layouts of a programme ahead | should | implemented | F-READ-003 |

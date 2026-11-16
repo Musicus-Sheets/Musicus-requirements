@@ -5366,7 +5366,7 @@
       "area": "READ",
       "title": "Librarians correct the systems",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/read/R-READ-016.md",
       "statement": "A librarian shall be able to correct the detected layout of every page of a file version: move, add and delete cut lines (which merges and splits systems), mark a band as system, header or hidden, and mark a page to be shown whole; the correction shall apply to all members, override the automatic detection and survive a new detection run.",
       "links": {
@@ -5378,6 +5378,31 @@
         "depends_on": [
           {
             "target": "R-READ-010"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::librarians_correct_system_layouts_for_everyone"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs::tests"
+          },
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/layout_edit.rs"
           }
         ]
       },

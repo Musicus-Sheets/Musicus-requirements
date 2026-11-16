@@ -30,7 +30,7 @@ The server shall find, for every page of every PDF file, the staves, the music s
 
 - An upload returns at once; the layout is `pending` until a background worker has analysed the file, then `done` (or `failed` if the PDF cannot be read).
 - Staves connected by a system barline, brace or bracket form one system; a single staff without such a connection is a system of its own; five-line staves (incl. percussion) and six-line tablature staves are found.
-- Markings between two systems (dynamics, tempo, lyrics, rehearsal marks) stay with their system: cuts lie in the longest ink-free band between the systems; ink starting within 2.5 line distances below the last staff stays with the last system.
+- Markings between two systems (dynamics, tempo, lyrics, rehearsal marks) stay with their system: cuts lie in the longest ink-free band between the systems; ink starting within 4 line distances below the last staff (dynamics, 8vb lines, low notes) stays with the last system.
 - Files that exist before this feature, and all files after the detection algorithm changed (`ALGORITHM_VERSION`), are analysed in the background after the start, newest first, without blocking requests.
 - Someone who may not read the file gets 404.
 
