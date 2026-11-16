@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 0 | 28 | 0 | 0 | 33 |
-| 3 Requirements | 22 | 0 | 32 | 59 | 0 | 113 |
+| 2 Features | 5 | 0 | 29 | 0 | 0 | 34 |
+| 3 Requirements | 22 | 1 | 34 | 67 | 0 | 124 |
 
 ## Goals and features
 
@@ -56,6 +56,7 @@ flowchart LR
   F_PROG_002["F-PROG-002<br/>Prepare a programme in advance"]
   F_READ_001["F-READ-001<br/>Stage-ready reader"]
   F_READ_002["F-READ-002<br/>Move through a programme while reading"]
+  F_READ_003["F-READ-003<br/>System view for small screens"]
   F_SEC_001["F-SEC-001<br/>Nothing stored on the device"]
   F_SEC_002["F-SEC-002<br/>Protection against common attacks"]
   F_TECH_001["F-TECH-001<br/>Rust backend and Dioxus client"]
@@ -97,6 +98,7 @@ flowchart LR
   F_PROG_002 --> G_004
   F_READ_001 --> G_004
   F_READ_002 --> G_004
+  F_READ_003 --> G_004
   F_SEC_001 --> G_006
   F_SEC_002 --> G_006
   F_TECH_001 --> G_008
@@ -113,6 +115,7 @@ flowchart LR
   F_PROG_002 -. depends_on .-> F_PROG_001
   F_PROG_002 -. conflicts_with .-> F_SEC_001
   F_READ_002 -. depends_on .-> F_PROG_001
+  F_READ_003 -. depends_on .-> F_READ_001
 ```
 
 ## Hierarchy
@@ -253,10 +256,21 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-READ-004](requirements/read/R-READ-004.md) Full screen `implemented`
   - [R-READ-006](requirements/read/R-READ-006.md) Compatible PDF rendering `verified`
   - [R-READ-007](requirements/read/R-READ-007.md) Half-page turns `proposed`
-  - [R-READ-009](requirements/read/R-READ-009.md) Swipe to turn pages `proposed`
+  - [R-READ-009](requirements/read/R-READ-009.md) Swipe to turn pages `verified`
 - [F-READ-002](features/F-READ-002.md) Move through a programme while reading `implemented`
   - [R-READ-005](requirements/read/R-READ-005.md) Next and previous piece `implemented`
   - [R-READ-008](requirements/read/R-READ-008.md) Conductor push `proposed`
+- [F-READ-003](features/F-READ-003.md) System view for small screens `implemented`
+  - [R-READ-010](requirements/read/R-READ-010.md) Detect music systems of every file `verified`
+  - [R-READ-011](requirements/read/R-READ-011.md) Views of whole systems at a minimum staff size `verified`
+  - [R-READ-012](requirements/read/R-READ-012.md) Turning in the system view `verified`
+  - [R-READ-013](requirements/read/R-READ-013.md) Systems continue across pages `verified`
+  - [R-READ-014](requirements/read/R-READ-014.md) View setting per user `verified`
+  - [R-READ-015](requirements/read/R-READ-015.md) Unsure pages are shown whole `verified`
+  - [R-READ-016](requirements/read/R-READ-016.md) Librarians correct the systems `accepted`
+  - [R-READ-017](requirements/read/R-READ-017.md) Split wide systems at a barline `proposed`
+  - [R-READ-018](requirements/read/R-READ-018.md) Annotations in the system view `verified`
+  - [R-READ-019](requirements/read/R-READ-019.md) System layouts of a programme ahead `implemented`
 
 ### G-005 Simple and cheap to run `accepted`
 
@@ -281,6 +295,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
 - [F-PERF-001](features/F-PERF-001.md) Runs on small hardware `implemented`
   - [R-PERF-001](requirements/perf/R-PERF-001.md) Memory use `implemented`
   - [R-PERF-002](requirements/perf/R-PERF-002.md) Bounded password hashing `implemented`
+  - [R-PERF-008](requirements/perf/R-PERF-008.md) System detection budget `implemented`
 
 ### G-006 Protect members and the library `accepted`
 
@@ -439,7 +454,17 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-READ-006](requirements/read/R-READ-006.md) | Compatible PDF rendering | must | verified | F-READ-001 |
 | [R-READ-007](requirements/read/R-READ-007.md) | Half-page turns | could | proposed | F-READ-001 |
 | [R-READ-008](requirements/read/R-READ-008.md) | Conductor push | could | proposed | F-READ-002 |
-| [R-READ-009](requirements/read/R-READ-009.md) | Swipe to turn pages | should | proposed | F-READ-001 |
+| [R-READ-009](requirements/read/R-READ-009.md) | Swipe to turn pages | should | verified | F-READ-001 |
+| [R-READ-010](requirements/read/R-READ-010.md) | Detect music systems of every file | should | verified | F-READ-003 |
+| [R-READ-011](requirements/read/R-READ-011.md) | Views of whole systems at a minimum staff size | should | verified | F-READ-003 |
+| [R-READ-012](requirements/read/R-READ-012.md) | Turning in the system view | should | verified | F-READ-003 |
+| [R-READ-013](requirements/read/R-READ-013.md) | Systems continue across pages | should | verified | F-READ-003 |
+| [R-READ-014](requirements/read/R-READ-014.md) | View setting per user | should | verified | F-READ-003 |
+| [R-READ-015](requirements/read/R-READ-015.md) | Unsure pages are shown whole | should | verified | F-READ-003 |
+| [R-READ-016](requirements/read/R-READ-016.md) | Librarians correct the systems | should | accepted | F-READ-003 |
+| [R-READ-017](requirements/read/R-READ-017.md) | Split wide systems at a barline | could | proposed | F-READ-003 |
+| [R-READ-018](requirements/read/R-READ-018.md) | Annotations in the system view | should | verified | F-READ-003 |
+| [R-READ-019](requirements/read/R-READ-019.md) | System layouts of a programme ahead | should | implemented | F-READ-003 |
 
 ### ANN – Annotations
 
@@ -492,6 +517,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-PERF-005](requirements/perf/R-PERF-005.md) | Fast access check | must | implemented | F-PERF-002 |
 | [R-PERF-006](requirements/perf/R-PERF-006.md) | Concurrent annotation saves | must | implemented | F-PERF-002 |
 | [R-PERF-007](requirements/perf/R-PERF-007.md) | Playing without network | must | implemented | F-PERF-002 |
+| [R-PERF-008](requirements/perf/R-PERF-008.md) | System detection budget | should | implemented | F-PERF-001 |
 
 ### OPS – Installation and operation
 
@@ -542,6 +568,7 @@ All links other than `refines`.
 | [F-PROG-002](features/F-PROG-002.md) | depends_on | [F-PROG-001](features/F-PROG-001.md) |  |
 | [F-PROG-002](features/F-PROG-002.md) | conflicts_with | [F-SEC-001](features/F-SEC-001.md) | Prefetched sheets are held in memory only, never stored on the device; a reload downloads them again. |
 | [F-READ-002](features/F-READ-002.md) | depends_on | [F-PROG-001](features/F-PROG-001.md) |  |
+| [F-READ-003](features/F-READ-003.md) | depends_on | [F-READ-001](features/F-READ-001.md) |  |
 | [R-ACC-004](requirements/acc/R-ACC-004.md) | depends_on | [R-SEC-002](requirements/sec/R-SEC-002.md) |  |
 | [R-ACC-013](requirements/acc/R-ACC-013.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACC-014](requirements/acc/R-ACC-014.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
@@ -593,5 +620,22 @@ All links other than `refines`.
 | [R-READ-003](requirements/read/R-READ-003.md) | depends_on | [R-OPS-006](requirements/ops/R-OPS-006.md) |  |
 | [R-READ-005](requirements/read/R-READ-005.md) | depends_on | [R-PROG-003](requirements/prog/R-PROG-003.md) |  |
 | [R-READ-006](requirements/read/R-READ-006.md) | constrains | [R-READ-001](requirements/read/R-READ-001.md) |  |
+| [R-READ-010](requirements/read/R-READ-010.md) | depends_on | [R-FILE-001](requirements/file/R-FILE-001.md) |  |
+| [R-READ-010](requirements/read/R-READ-010.md) | constrains | [R-PERF-008](requirements/perf/R-PERF-008.md) |  |
+| [R-READ-011](requirements/read/R-READ-011.md) | depends_on | [R-READ-010](requirements/read/R-READ-010.md) |  |
+| [R-READ-011](requirements/read/R-READ-011.md) | depends_on | [R-READ-014](requirements/read/R-READ-014.md) |  |
+| [R-READ-012](requirements/read/R-READ-012.md) | depends_on | [R-READ-011](requirements/read/R-READ-011.md) |  |
+| [R-READ-012](requirements/read/R-READ-012.md) | depends_on | [R-READ-002](requirements/read/R-READ-002.md) |  |
+| [R-READ-013](requirements/read/R-READ-013.md) | depends_on | [R-READ-011](requirements/read/R-READ-011.md) |  |
+| [R-READ-013](requirements/read/R-READ-013.md) | depends_on | [R-READ-005](requirements/read/R-READ-005.md) |  |
+| [R-READ-014](requirements/read/R-READ-014.md) | depends_on | [R-SEC-001](requirements/sec/R-SEC-001.md) |  |
+| [R-READ-015](requirements/read/R-READ-015.md) | depends_on | [R-READ-010](requirements/read/R-READ-010.md) |  |
+| [R-READ-016](requirements/read/R-READ-016.md) | depends_on | [R-READ-010](requirements/read/R-READ-010.md) |  |
+| [R-READ-017](requirements/read/R-READ-017.md) | depends_on | [R-READ-011](requirements/read/R-READ-011.md) |  |
+| [R-READ-018](requirements/read/R-READ-018.md) | depends_on | [R-ANN-005](requirements/ann/R-ANN-005.md) |  |
+| [R-READ-018](requirements/read/R-READ-018.md) | depends_on | [R-ANN-012](requirements/ann/R-ANN-012.md) |  |
+| [R-READ-019](requirements/read/R-READ-019.md) | depends_on | [R-PROG-003](requirements/prog/R-PROG-003.md) |  |
+| [R-READ-019](requirements/read/R-READ-019.md) | depends_on | [R-READ-010](requirements/read/R-READ-010.md) |  |
+| [R-READ-019](requirements/read/R-READ-019.md) | conflicts_with | [R-SEC-001](requirements/sec/R-SEC-001.md) | Layouts are kept in memory only, like the sheets. |
 | [R-SEC-001](requirements/sec/R-SEC-001.md) | depends_on | [R-FILE-007](requirements/file/R-FILE-007.md) |  |
 | [R-SEC-009](requirements/sec/R-SEC-009.md) | conflicts_with | [R-FILE-004](requirements/file/R-FILE-004.md) | The personalised copy is generated on delivery and never stored as a blob; the original stays immutable and content-addressed. |
