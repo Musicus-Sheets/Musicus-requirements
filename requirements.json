@@ -631,6 +631,12 @@
           },
           {
             "source": "R-LIB-012"
+          },
+          {
+            "source": "R-LIB-013"
+          },
+          {
+            "source": "R-LIB-014"
           }
         ]
       }
@@ -2116,6 +2122,9 @@
             "source": "R-LIB-005"
           },
           {
+            "source": "R-LIB-014"
+          },
+          {
             "source": "R-OFF-003"
           },
           {
@@ -3371,6 +3380,9 @@
           },
           {
             "source": "R-LIB-009"
+          },
+          {
+            "source": "R-LIB-013"
           }
         ]
       }
@@ -3843,6 +3855,96 @@
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-013",
+      "level": 3,
+      "area": "LIB",
+      "title": "Tags entered as chips",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-013.md",
+      "statement": "When a librarian edits the tags of a piece, the web client shall show every finished tag as a non-editable chip like the tags in the library, with a remove button, and a text field before, between or after the chips for the next tag.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/tag_input.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-014"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-014",
+      "level": 3,
+      "area": "LIB",
+      "title": "Suggestions of existing tags and families",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-014.md",
+      "statement": "While a librarian types a tag of a piece or the family of an instrument, the web client shall show a small list of the existing tags or families that match the typed text, ignoring letter case and diacritics, those starting with the text first, without the tags the piece already has.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-013"
+          },
+          {
+            "target": "R-ACL-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::programmes_and_search"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/suggest.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/tag_input.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/instruments.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
           }
         ]
       },
