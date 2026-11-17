@@ -890,6 +890,9 @@
           },
           {
             "source": "R-PERF-002"
+          },
+          {
+            "source": "R-PERF-008"
           }
         ]
       }
@@ -1057,6 +1060,11 @@
           {
             "source": "R-READ-009"
           }
+        ],
+        "required_by": [
+          {
+            "source": "F-READ-003"
+          }
         ]
       }
     },
@@ -1088,6 +1096,62 @@
           },
           {
             "source": "R-READ-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-READ-003",
+      "level": 2,
+      "area": "READ",
+      "title": "System view for small screens",
+      "priority": "should",
+      "status": "implemented",
+      "path": "features/F-READ-003.md",
+      "statement": "Besides whole pages, members can read their parts as a sequence of whole music systems: as many systems as fit at a chosen minimum staff size, cropped to the width of the music and continuing across page boundaries, so the notes stay readable on a small tablet. The server finds the systems of every uploaded file automatically; pages it is unsure about are shown whole, and librarians can correct the detection.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-READ-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-READ-010"
+          },
+          {
+            "source": "R-READ-011"
+          },
+          {
+            "source": "R-READ-012"
+          },
+          {
+            "source": "R-READ-013"
+          },
+          {
+            "source": "R-READ-014"
+          },
+          {
+            "source": "R-READ-015"
+          },
+          {
+            "source": "R-READ-016"
+          },
+          {
+            "source": "R-READ-017"
+          },
+          {
+            "source": "R-READ-018"
+          },
+          {
+            "source": "R-READ-019"
           }
         ]
       }
@@ -1341,6 +1405,9 @@
           },
           {
             "source": "F-READ-002"
+          },
+          {
+            "source": "F-READ-003"
           }
         ]
       }
@@ -2476,6 +2543,9 @@
         "required_by": [
           {
             "source": "R-ANN-012"
+          },
+          {
+            "source": "R-READ-018"
           }
         ]
       }
@@ -2752,6 +2822,9 @@
         "required_by": [
           {
             "source": "R-OFF-002"
+          },
+          {
+            "source": "R-READ-018"
           }
         ]
       }
@@ -3020,6 +3093,9 @@
         "required_by": [
           {
             "source": "R-LIB-009"
+          },
+          {
+            "source": "R-READ-010"
           }
         ]
       }
@@ -4501,6 +4577,43 @@
       }
     },
     {
+      "id": "R-PERF-008",
+      "level": 3,
+      "area": "PERF",
+      "title": "System detection budget",
+      "priority": "should",
+      "status": "implemented",
+      "path": "requirements/perf/R-PERF-008.md",
+      "statement": "The server shall detect the systems of an A4 page in at most 250 ms on one core of an x86-64 laptop (about one second on a Raspberry Pi 4), with one background worker, rendering at most 1754 × 1754 pixels per page, so that analysing a new file never delays requests.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-PERF-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/layout/worker.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-system-layout"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-READ-010"
+          }
+        ]
+      }
+    },
+    {
       "id": "R-PROG-001",
       "level": 3,
       "area": "PROG",
@@ -4639,6 +4752,9 @@
           },
           {
             "source": "R-READ-005"
+          },
+          {
+            "source": "R-READ-019"
           }
         ]
       }
@@ -4737,7 +4853,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-012"
+          }
+        ]
+      }
     },
     {
       "id": "R-READ-003",
@@ -4819,7 +4941,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-013"
+          }
+        ]
+      }
     },
     {
       "id": "R-READ-006",
@@ -4904,13 +5032,479 @@
       "area": "READ",
       "title": "Swipe to turn pages",
       "priority": "should",
-      "status": "proposed",
+      "status": "verified",
       "path": "requirements/read/R-READ-009.md",
       "statement": "In reading mode, the web client shall turn to the next page on a swipe to the left and to the previous page on a swipe to the right.",
       "links": {
         "refines": [
           {
             "target": "F-READ-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-010",
+      "level": 3,
+      "area": "READ",
+      "title": "Detect music systems of every file",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-010.md",
+      "statement": "The server shall find, for every page of every PDF file, the staves, the music systems they form, the cut lines between the systems, a header above and a footer below them and a confidence value, once per file in the background after the upload, and serve the result to everyone who may read the file at `GET /api/files/{sha256}/layout`.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-001"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-PERF-008"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs::tests"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::system_layouts_are_detected_in_the_background_and_follow_file_access"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/layout/detect.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/worker.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-system-layout"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-011"
+          },
+          {
+            "source": "R-READ-015"
+          },
+          {
+            "source": "R-READ-016"
+          },
+          {
+            "source": "R-READ-019"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-READ-011",
+      "level": 3,
+      "area": "READ",
+      "title": "Views of whole systems at a minimum staff size",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-011.md",
+      "statement": "In the system view, the web client shall show as many whole systems as fit on the screen at the user's minimum staff height, as one contiguous crop of the original page per page (from the first shown system to the last, including the space and everything between them), cropped to the horizontal extent of the music of the whole part, at one scale for the whole part; a system shall never be cut. If the music is wider than the screen at the minimum height, it shall be shown at the full screen width.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-010"
+          },
+          {
+            "target": "R-READ-014"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-system-layout"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-012"
+          },
+          {
+            "source": "R-READ-013"
+          },
+          {
+            "source": "R-READ-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-READ-012",
+      "level": 3,
+      "area": "READ",
+      "title": "Turning in the system view",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-012.md",
+      "statement": "In the system view, the keys, pedals, taps and swipes that turn pages shall turn views; if the current view shows at least three systems the next view shall start with its last system (one system overlap), otherwise with the system after it.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-011"
+          },
+          {
+            "target": "R-READ-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-013",
+      "level": 3,
+      "area": "READ",
+      "title": "Systems continue across pages",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-013.md",
+      "statement": "The system view shall treat the systems of all pages of a part as one sequence, so that a view may show the last systems of one page and the first systems of the next; after the last view of a part in a programme it shall open the next piece as the page view does.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-011"
+          },
+          {
+            "target": "R-READ-005"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-014",
+      "level": 3,
+      "area": "READ",
+      "title": "View setting per user",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-014.md",
+      "statement": "The reader shall offer a switch between page view and system view and, in the system view, the staff sizes S, M, L and XL (minimum staff height 5, 6, 7 and 8 mm on the screen); the choice shall be stored per user on the server, not on the device.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-SEC-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::system_layouts_are_detected_in_the_background_and_follow_file_access"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-READ-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-READ-015",
+      "level": 3,
+      "area": "READ",
+      "title": "Unsure pages are shown whole",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-015.md",
+      "statement": "A page without systems or with a detection confidence below 0.6 shall appear in the system view as one whole page, fitted to the screen, at its place in the sequence; while a file's layout is pending or failed, the reader shall show whole pages and say why.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-010"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs::tests"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/layout.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-016",
+      "level": 3,
+      "area": "READ",
+      "title": "Librarians correct the systems",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-016.md",
+      "statement": "A librarian shall be able to correct the detected layout of every page of a file version: move, add and delete cut lines (which merges and splits systems), mark a band as system, header or hidden, and mark a page to be shown whole; the correction shall apply to all members, override the automatic detection and survive a new detection run.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-010"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::librarians_correct_system_layouts_for_everyone"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs::tests"
+          },
+          {
+            "target": "crates/musicus-api/src/layout.rs::tests"
+          },
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/layout/mod.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/layout_edit.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-017",
+      "level": 3,
+      "area": "READ",
+      "title": "Split wide systems at a barline",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/read/R-READ-017.md",
+      "statement": "When a system is so wide that it cannot reach the minimum staff height, the system view should show it in two halves, divided at a barline near its middle, one below the other.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-READ-011"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-018",
+      "level": 3,
+      "area": "READ",
+      "title": "Annotations in the system view",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/read/R-READ-018.md",
+      "statement": "In the system view, annotations shall be shown on every crop and drawn, erased, stamped and typed there exactly as in the page view, stored in the coordinates of the whole page.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ANN-005"
+          },
+          {
+            "target": "R-ANN-012"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/ink.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-READ-019",
+      "level": 3,
+      "area": "READ",
+      "title": "System layouts of a programme ahead",
+      "priority": "should",
+      "status": "implemented",
+      "path": "requirements/read/R-READ-019.md",
+      "statement": "When a member opens a programme, the web client shall also load the system layouts of all its sheets into memory, so that the system view works on stage without network.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-READ-003"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-PROG-003"
+          },
+          {
+            "target": "R-READ-010"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-SEC-001",
+            "note": "Layouts are kept in memory only, like the sheets."
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/programmes.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/layouts.rs"
           }
         ]
       },
@@ -4952,6 +5546,15 @@
           {
             "source": "R-PROG-003",
             "note": "Sheets are kept in memory only; a reload downloads them again."
+          },
+          {
+            "source": "R-READ-019",
+            "note": "Layouts are kept in memory only, like the sheets."
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-READ-014"
           }
         ]
       }
