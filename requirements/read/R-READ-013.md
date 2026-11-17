@@ -19,5 +19,5 @@ The system view shall treat the systems of all pages of a part as one sequence, 
 
 ## Acceptance criteria
 
-- A view can contain systems of two pages; the page counter shows the page of the view's first system.
+- A view can contain systems of two pages: the end of page n and the start of page n+1 are shown directly below each other, separated only by a hairline (no shadow); the page counter shows the page of the view's first system.
 - Page furniture is skipped: headers and footers smaller than 6 % of the page height except the title block of the first page.

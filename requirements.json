@@ -5135,7 +5135,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/read/R-READ-011.md",
-      "statement": "In the system view, the web client shall show as many whole systems as fit on the screen at the user's minimum staff height, stacked and cropped to the horizontal extent of the music, and enlarge them to fill the screen; a system shall never be cut. If even one system cannot reach the minimum height because the music is wider than the screen, it shall be shown at the full screen width.",
+      "statement": "In the system view, the web client shall show as many whole systems as fit on the screen at the user's minimum staff height, as one contiguous crop of the original page per page (from the first shown system to the last, including the space and everything between them), cropped to the horizontal extent of the music of the whole part, at one scale for the whole part; a system shall never be cut. If the music is wider than the screen at the minimum height, it shall be shown at the full screen width.",
       "links": {
         "refines": [
           {

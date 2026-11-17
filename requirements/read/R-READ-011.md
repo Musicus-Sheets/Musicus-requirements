@@ -21,11 +21,12 @@ links:
 
 ## Statement
 
-In the system view, the web client shall show as many whole systems as fit on the screen at the user's minimum staff height, stacked and cropped to the horizontal extent of the music, and enlarge them to fill the screen; a system shall never be cut. If even one system cannot reach the minimum height because the music is wider than the screen, it shall be shown at the full screen width.
+In the system view, the web client shall show as many whole systems as fit on the screen at the user's minimum staff height, as one contiguous crop of the original page per page (from the first shown system to the last, including the space and everything between them), cropped to the horizontal extent of the music of the whole part, at one scale for the whole part; a system shall never be cut. If the music is wider than the screen at the minimum height, it shall be shown at the full screen width.
 
 ## Acceptance criteria
 
 - A larger staff size gives fewer systems per view, never a cut system.
+- The systems of one page are one canvas of the original page: no removed gaps, no shadows, borders or gaps between systems; the horizontal crop and the scale are the same in every view of a part.
 - The crops are rendered sharp at the device pixel ratio; the next view is rendered ahead.
 - Turning the tablet re-plans the views and keeps the reading position.
 - The view algorithm is the one documented in the technical documentation, chapter "System view".
