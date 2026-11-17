@@ -30,3 +30,4 @@ A librarian shall be able to correct the detected layout of every page of a file
 - A correction can be reset to the automatic detection.
 - Members cannot change layouts (403); a page that was not analysed yet cannot be corrected (409).
 - A cut line can be moved by dragging or with the arrow keys; Split adds a cut, × removes one.
+- A cut line the librarian moved or added is where the system view starts or ends, even if there is only empty paper between it and the music (e.g. a first system pulled up to the top edge of the page).
