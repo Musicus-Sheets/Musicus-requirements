@@ -4816,6 +4816,9 @@
           },
           {
             "target": "crates/musicus-web/js/bridge.js"
+          },
+          {
+            "target": "crates/musicus-api/src/pixels.rs"
           }
         ]
       },
