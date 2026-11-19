@@ -2337,7 +2337,7 @@
       "priority": "could",
       "status": "proposed",
       "path": "requirements/acl/R-ACL-005.md",
-      "statement": "The system shall allow granting an instrument to a group for selected voices only (e.g. Trumpet voice 1).",
+      "statement": "The system shall allow granting an instrument to a group for selected voices only (e.g. Trumpet voice 1), using the voices stored with each part (R-LIB-002): a part is readable through such a grant when it contains at least one of the granted voices.",
       "links": {
         "refines": [
           {
@@ -2347,6 +2347,9 @@
         "depends_on": [
           {
             "target": "R-LIB-002"
+          },
+          {
+            "target": "R-LIB-010"
           }
         ]
       },
@@ -3471,7 +3474,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/lib/R-LIB-002.md",
-      "statement": "The system shall store for each part an optional custom name, one or more instruments, an optional voice as free text of up to 20 characters (e.g. '2', '1a', 'Solo'), an optional key (R-LIB-011), and notes.",
+      "statement": "The system shall store for each part an optional custom name, one or more instruments, an ordered list of up to 10 voices (none, one or several; each free text of up to 20 characters, e.g. '2', '1a', 'Solo'), an optional key (R-LIB-011), and notes. It shall store the voices so that it knows which voices a part contains (R-ACL-005), keep their order, ignore blank entries and drop repeated voices, ignoring letter case.",
       "links": {
         "refines": [
           {
@@ -3489,11 +3492,29 @@
           },
           {
             "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::parts_with_several_voices"
+          },
+          {
+            "target": "crates/musicus-api/src/naming.rs::voices_are_cleaned"
+          },
+          {
+            "target": "crates/musicus-api/src/dto.rs::part_input_accepts_blank_label_and_numeric_voices"
+          },
+          {
+            "target": "e2e/smoke.mjs"
           }
         ],
         "implemented_by": [
           {
+            "target": "crates/musicus-api/src/naming.rs"
+          },
+          {
             "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0005_part_voices.sql"
           },
           {
             "target": "crates/musicus-web/src/pages/score_edit.rs"
@@ -3587,6 +3608,9 @@
           },
           {
             "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::parts_with_several_voices"
           },
           {
             "target": "e2e/smoke.mjs"
@@ -3746,7 +3770,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-009.md",
-      "statement": "When a librarian adds a piece, the web client shall guide them in two visible steps, first the score details and then its parts, where each part is entered with label, instruments, voice, key and an optional PDF, several parts can be added one after another, and the upload state of every added part is shown.",
+      "statement": "When a librarian adds a piece, the web client shall guide them in two visible steps, first the score details and then its parts, where each part is entered with label, instruments, voices, key and an optional PDF, several parts can be added one after another, and the upload state of every added part is shown.",
       "links": {
         "refines": [
           {
@@ -3789,11 +3813,11 @@
       "id": "R-LIB-010",
       "level": 3,
       "area": "LIB",
-      "title": "Part names derived from instruments, key and voice",
+      "title": "Part names derived from instruments, key and voices",
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-010.md",
-      "statement": "When a part has no custom name, the system shall name it after its instruments, key and voice in the form \"<instruments joined by ' / ' in alphabetical order> in <key> <voice>\", and shall show this name, or the custom name if one is given, wherever the part is shown.",
+      "statement": "When a part has no custom name, the system shall name it after its instruments, key and voices in the form \"<instruments joined by ' / ' in alphabetical order> in <key> <voices joined by ' & ' in their order>\", and shall show this name, or the custom name if one is given, wherever the part is shown.",
       "links": {
         "refines": [
           {
@@ -3819,6 +3843,12 @@
             "target": "crates/musicus-api/src/naming.rs::natural_order"
           },
           {
+            "target": "crates/musicus-api/src/naming.rs::several_voices_are_joined_in_order"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::parts_with_several_voices"
+          },
+          {
             "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
           },
           {
@@ -3839,6 +3869,9 @@
       },
       "incoming": {
         "required_by": [
+          {
+            "source": "R-ACL-005"
+          },
           {
             "source": "R-LIB-012"
           }

@@ -10,6 +10,7 @@ links:
     - crates/musicus-server/tests/api.rs::programmes_and_search
     - crates/musicus-server/src/routes/library.rs::fts_terms_quote_words_and_drop_operators
     - crates/musicus-server/tests/api.rs::part_names_keys_and_part_search
+    - crates/musicus-server/tests/api.rs::parts_with_several_voices
     - e2e/smoke.mjs
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
@@ -29,3 +30,4 @@ The system shall find scores for which every entered word is a word prefix of th
 - Searching 'fucik flor' finds 'Florentiner Marsch' by 'Julius Fučík'.
 - Input such as '" OR NEAR(' is treated as plain words and causes no error.
 - A member of the trumpet group finds the march with 'trumpet' and with 'fucik trumpet', but not with the name of its flute part.
+- A part with several voices is found under each of them: 'Klarinette 2' finds a piece with the part "Klarinette 1 & 2".
