@@ -18,7 +18,7 @@ links:
 
 ## Statement
 
-When a librarian adds a piece, the web client shall guide them in two visible steps, first the score details and then its parts, where each part is entered with label, instruments, voice, key and an optional PDF, several parts can be added one after another, and the upload state of every added part is shown.
+When a librarian adds a piece, the web client shall guide them in two visible steps, first the score details and then its parts, where each part is entered with label, instruments, voices, key and an optional PDF, several parts can be added one after another, and the upload state of every added part is shown.
 
 ## Acceptance criteria
 

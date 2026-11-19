@@ -148,7 +148,7 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-LIB-006](requirements/lib/R-LIB-006.md) Thumbnails in the library `implemented`
   - [R-LIB-008](requirements/lib/R-LIB-008.md) Instrument list for every user `verified`
   - [R-LIB-009](requirements/lib/R-LIB-009.md) Guided flow for adding a piece `verified`
-  - [R-LIB-010](requirements/lib/R-LIB-010.md) Part names derived from instruments, key and voice `verified`
+  - [R-LIB-010](requirements/lib/R-LIB-010.md) Part names derived from instruments, key and voices `verified`
   - [R-LIB-011](requirements/lib/R-LIB-011.md) Keys from a fixed list `verified`
   - [R-LIB-012](requirements/lib/R-LIB-012.md) Existing parts survive the change of part names `verified`
   - [R-LIB-013](requirements/lib/R-LIB-013.md) Tags entered as chips `verified`
@@ -412,7 +412,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-LIB-007](requirements/lib/R-LIB-007.md) | Extended score metadata | could | proposed | F-LIB-003 |
 | [R-LIB-008](requirements/lib/R-LIB-008.md) | Instrument list for every user | should | verified | F-LIB-001 |
 | [R-LIB-009](requirements/lib/R-LIB-009.md) | Guided flow for adding a piece | should | verified | F-LIB-001 |
-| [R-LIB-010](requirements/lib/R-LIB-010.md) | Part names derived from instruments, key and voice | should | verified | F-LIB-001 |
+| [R-LIB-010](requirements/lib/R-LIB-010.md) | Part names derived from instruments, key and voices | should | verified | F-LIB-001 |
 | [R-LIB-011](requirements/lib/R-LIB-011.md) | Keys from a fixed list | should | verified | F-LIB-001 |
 | [R-LIB-012](requirements/lib/R-LIB-012.md) | Existing parts survive the change of part names | must | verified | F-LIB-001 |
 | [R-LIB-013](requirements/lib/R-LIB-013.md) | Tags entered as chips | should | verified | F-LIB-001 |
@@ -577,6 +577,7 @@ All links other than `refines`.
 | [R-ACC-017](requirements/acc/R-ACC-017.md) | depends_on | [R-ACL-004](requirements/acl/R-ACL-004.md) |  |
 | [R-ACL-004](requirements/acl/R-ACL-004.md) | depends_on | [R-ACC-009](requirements/acc/R-ACC-009.md) |  |
 | [R-ACL-005](requirements/acl/R-ACL-005.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
+| [R-ACL-005](requirements/acl/R-ACL-005.md) | depends_on | [R-LIB-010](requirements/lib/R-LIB-010.md) |  |
 | [R-ACL-006](requirements/acl/R-ACL-006.md) | depends_on | [R-PROG-001](requirements/prog/R-PROG-001.md) |  |
 | [R-ANN-007](requirements/ann/R-ANN-007.md) | constrains | [R-ANN-010](requirements/ann/R-ANN-010.md) |  |
 | [R-ANN-009](requirements/ann/R-ANN-009.md) | depends_on | [R-ANN-008](requirements/ann/R-ANN-008.md) |  |
