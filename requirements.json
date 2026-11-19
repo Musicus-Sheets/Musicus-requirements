@@ -693,6 +693,48 @@
       }
     },
     {
+      "id": "F-LIB-004",
+      "level": 2,
+      "area": "LIB",
+      "title": "Mass import of a sheet archive",
+      "priority": "should",
+      "status": "accepted",
+      "path": "features/F-LIB-004.md",
+      "statement": "Librarians can bring an existing digital archive (a folder tree of PDF files, hundreds to thousands of pieces) into the library in one go: Musicus reads number, title, composer, category and the part (instrument, key, voice) from the folder and file names, shows a proposal for review, and creates pieces and parts only after the librarian has checked and committed them.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-LIB-016"
+          },
+          {
+            "source": "R-LIB-017"
+          },
+          {
+            "source": "R-LIB-018"
+          },
+          {
+            "source": "R-LIB-019"
+          },
+          {
+            "source": "R-LIB-020"
+          },
+          {
+            "source": "R-LIB-021"
+          },
+          {
+            "source": "R-LIB-022"
+          }
+        ]
+      }
+    },
+    {
       "id": "F-OFF-001",
       "level": 2,
       "area": "OFF",
@@ -1306,6 +1348,9 @@
           },
           {
             "source": "F-LIB-003"
+          },
+          {
+            "source": "F-LIB-004"
           },
           {
             "source": "F-PROG-001"
@@ -2193,6 +2238,15 @@
           },
           {
             "source": "R-LIB-014"
+          },
+          {
+            "source": "R-LIB-016"
+          },
+          {
+            "source": "R-LIB-019"
+          },
+          {
+            "source": "R-LIB-020"
           },
           {
             "source": "R-OFF-003"
@@ -3101,6 +3155,9 @@
             "source": "R-LIB-009"
           },
           {
+            "source": "R-LIB-016"
+          },
+          {
             "source": "R-READ-010"
           }
         ]
@@ -3141,6 +3198,9 @@
         "required_by": [
           {
             "source": "R-ANN-016"
+          },
+          {
+            "source": "R-LIB-021"
           }
         ]
       }
@@ -3235,6 +3295,12 @@
         "required_by": [
           {
             "source": "R-FILE-002"
+          },
+          {
+            "source": "R-LIB-016"
+          },
+          {
+            "source": "R-LIB-021"
           },
           {
             "source": "R-OFF-002"
@@ -3468,6 +3534,9 @@
           },
           {
             "source": "R-LIB-015"
+          },
+          {
+            "source": "R-LIB-021"
           }
         ]
       }
@@ -3540,6 +3609,12 @@
           },
           {
             "source": "R-LIB-010"
+          },
+          {
+            "source": "R-LIB-018"
+          },
+          {
+            "source": "R-LIB-021"
           }
         ]
       }
@@ -3586,6 +3661,12 @@
           },
           {
             "source": "R-LIB-008"
+          },
+          {
+            "source": "R-LIB-018"
+          },
+          {
+            "source": "R-LIB-020"
           }
         ]
       }
@@ -3892,6 +3973,9 @@
           },
           {
             "source": "R-LIB-012"
+          },
+          {
+            "source": "R-LIB-018"
           }
         ]
       }
@@ -3941,6 +4025,9 @@
           },
           {
             "source": "R-LIB-012"
+          },
+          {
+            "source": "R-LIB-018"
           }
         ]
       }
@@ -4126,6 +4213,304 @@
           },
           {
             "target": "crates/musicus-web/src/pages/library.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-017"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-016",
+      "level": 3,
+      "area": "LIB",
+      "title": "Import a folder of PDF files",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/lib/R-LIB-016.md",
+      "statement": "The system shall let a librarian select a folder (or drop it onto the import page) and upload every PDF file in it and its subfolders into a staging area of an import batch, ignoring other files. The browser shall compute the SHA-256 of each file before uploading; files whose content is already in the library or already in the batch shall be skipped and never imported twice. Selecting the same folder again shall continue an interrupted import without uploading finished files again. Staged files shall not be readable by anyone through the library until they are committed (R-LIB-021); nothing shall be stored on the device.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-001"
+          },
+          {
+            "target": "R-FILE-004"
+          },
+          {
+            "target": "R-ACL-001"
+          },
+          {
+            "target": "R-SEC-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-017",
+      "level": 3,
+      "area": "LIB",
+      "title": "File name patterns",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-017.md",
+      "statement": "The import shall read piece and part data from the file paths (relative to the selected folder) with a pattern made of the placeholders `{number}`, `{title}`, `{composer}`, `{arranger}`, `{genre}`, `{part}`, `{*}` (ignored text), optional segments `[…]` and literal text. It shall offer the presets \"Folder per piece\" `[{genre}/][{number} ]{title}[ - {composer}]/{part}.pdf` (default), \"Category / piece\" `{genre}/[{number} ]{title}[ - {composer}]/{part}.pdf`, \"One folder, title in the file name\" `{title} - {part}.pdf` and \"One folder, archive number in the file name\" `{number}Stimme{*}_{part}.pdf`, shall pre-select the preset that matches the most files, and shall let the librarian choose another preset or edit the pattern with a live preview. Files are grouped into pieces by archive number (leading zeros and separators ignored) or, without number, by title and composer.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-015"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::folder_preset"
+          },
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::flat_number_preset_ignores_counters"
+          },
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::flat_title_and_category"
+          },
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::custom_patterns"
+          },
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::errors"
+          },
+          {
+            "target": "crates/musicus-api/src/import/mod.rs::detection_picks_the_preset_that_parses_most_files"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::files_are_grouped_into_pieces"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::flat_files_group_by_number_and_need_a_title"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/import/mod.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-019"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-018",
+      "level": 3,
+      "area": "LIB",
+      "title": "Part names in file names",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-018.md",
+      "statement": "The import shall read instrument(s), key and voices from the part text of a file name in any order, in German or English, with common abbreviations and without spaces (`Klarinette 2 in B`, `Bb Clarinet II`, `Klar2B`, `KlarinetteEb`, `Trp 1`, `Pos. 3`). A part may contain several voices (R-LIB-002): voices joined by `+`, `&`, `/`, `,`, `und` or `and` (`Trompete 1+2`, `1/2`, `1 & 2`, `I+II`) shall give the voices \"1\" and \"2\" in the order written; voices that only stand next to each other (`Trompete 1 2`) shall also be read as several voices but flagged for review, as the second number may be a copy or page number. It shall never assume a key: a name without key gives no key. German key names (`B` = B♭, `Es`, `As`, `Des`, `Ges`, `H` = B♮) shall be read only when the batch's naming language is German; the language shall be suggested from the instrument words found. A letter that is ambiguous in the batch's language shall be flagged for review and left empty. \"Partitur\" (full score; also \"Score\", \"Full score\") and \"Direktion\" (also \"Direction\", \"Dirigierstimme\", \"Conductor\", \"Conductor score\", \"Condensed score\") shall be two different instruments. Abbreviations and guessed words shall be flagged for review.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-010"
+          },
+          {
+            "target": "R-LIB-011"
+          },
+          {
+            "target": "R-LIB-003"
+          },
+          {
+            "target": "R-LIB-002"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::german_and_english_names"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::no_key_is_ever_assumed"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::german_letters_only_in_german_batches"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::partitur_and_direktion_are_different_instruments"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::levels_of_instrument_words"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::language_suggestion"
+          },
+          {
+            "target": "crates/musicus-api/src/import/parts.rs::several_voices"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::partitur_and_direktion_need_their_own_instruments"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/import/parts.rs"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-019"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-019",
+      "level": 3,
+      "area": "LIB",
+      "title": "Review of an import",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/lib/R-LIB-019.md",
+      "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including the list of voices of a part, edit several pieces at once (genre, composer, arranger), and skip single files. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-017"
+          },
+          {
+            "target": "R-LIB-018"
+          },
+          {
+            "target": "R-ACL-001"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-021"
+          },
+          {
+            "source": "R-LIB-022"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-LIB-020",
+      "level": 3,
+      "area": "LIB",
+      "title": "Instrument aliases of the import",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/lib/R-LIB-020.md",
+      "statement": "The import shall never create an instrument by itself. For an unknown or abbreviated instrument word, the librarian shall choose an existing instrument or create a new one with an explicit action; the choice shall be stored as an alias of that word and applied at once to every row of every open import and to future imports.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-003"
+          },
+          {
+            "target": "R-ACL-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-021",
+      "level": 3,
+      "area": "LIB",
+      "title": "Commit and undo of an import",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/lib/R-LIB-021.md",
+      "statement": "The librarian shall commit reviewed pieces one at a time or all green pieces at once. Each piece shall be created (or its parts added to the confirmed existing piece) in one short write transaction, with the same rules as pieces and parts entered by hand. Committed parts become visible to members by the normal read rule (R-ACL-001). The librarian shall be able to undo a batch: its created pieces and parts are removed, unless annotations exist on them or other parts were added to its pieces since, in which case nothing is removed and the affected pieces are named. Uploaded files stay in the file store (R-FILE-004).",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-019"
+          },
+          {
+            "target": "R-LIB-001"
+          },
+          {
+            "target": "R-LIB-002"
+          },
+          {
+            "target": "R-FILE-002"
+          },
+          {
+            "target": "R-FILE-004"
+          },
+          {
+            "target": "R-PERF-006"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-022",
+      "level": 3,
+      "area": "LIB",
+      "title": "Further import sources (OCR, inventory list)",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/lib/R-LIB-022.md",
+      "statement": "The import shall add candidates for title, composer, arranger, archive number and instrument from text recognised on the first page of each file (OCR) and from an inventory list of the archive (CSV), each marked with its source, in the same review and with the same colours as the values read from file names.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-004"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-019"
           }
         ]
       },
@@ -4644,7 +5029,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-021"
+          }
+        ]
+      }
     },
     {
       "id": "R-PERF-007",
@@ -5661,6 +6052,9 @@
           }
         ],
         "required_by": [
+          {
+            "source": "R-LIB-016"
+          },
           {
             "source": "R-READ-014"
           }
