@@ -19,7 +19,7 @@ links:
 
 ## Statement
 
-The system shall store for each score a title (required, at most 200 characters) and optionally a subtitle, composer, arranger, genre, a list of up to 30 tags, and notes.
+The system shall store for each score a title (required, at most 200 characters) and optionally a subtitle, composer, arranger, genre, a list of up to 30 tags, notes, and an archive number (R-LIB-015).
 
 ## Acceptance criteria
 

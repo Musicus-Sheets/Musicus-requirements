@@ -637,6 +637,9 @@
           },
           {
             "source": "R-LIB-014"
+          },
+          {
+            "source": "R-LIB-015"
           }
         ]
       }
@@ -673,7 +676,7 @@
       "priority": "could",
       "status": "proposed",
       "path": "features/F-LIB-003.md",
-      "statement": "Librarians can record further information per work: difficulty grade, duration, lyricist, clef of a part, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information, physical archive number and a reference recording.",
+      "statement": "Librarians can record further information per work: difficulty grade, duration, lyricist, clef of a part, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information and a reference recording. (The archive number is part of F-LIB-001: R-LIB-015.)",
       "links": {
         "refines": [
           {
@@ -3425,7 +3428,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/lib/R-LIB-001.md",
-      "statement": "The system shall store for each score a title (required, at most 200 characters) and optionally a subtitle, composer, arranger, genre, a list of up to 30 tags, and notes.",
+      "statement": "The system shall store for each score a title (required, at most 200 characters) and optionally a subtitle, composer, arranger, genre, a list of up to 30 tags, notes, and an archive number (R-LIB-015).",
       "links": {
         "refines": [
           {
@@ -3462,6 +3465,9 @@
           },
           {
             "source": "R-LIB-013"
+          },
+          {
+            "source": "R-LIB-015"
           }
         ]
       }
@@ -3592,7 +3598,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/lib/R-LIB-004.md",
-      "statement": "The system shall find scores for which every entered word is a word prefix of the title, subtitle, composer, arranger, genre or tags, or of the name of a part of the score the user may read (R-LIB-010), ignoring letter case and diacritics, and shall additionally filter by genre and tag.",
+      "statement": "The system shall find scores for which every entered word is a word prefix of the title, subtitle, composer, arranger, genre, tags or archive number (R-LIB-015), or of the name of a part of the score the user may read (R-LIB-010), ignoring letter case and diacritics, and shall additionally filter by genre and tag.",
       "links": {
         "refines": [
           {
@@ -3613,6 +3619,9 @@
             "target": "crates/musicus-server/tests/api.rs::parts_with_several_voices"
           },
           {
+            "target": "crates/musicus-server/tests/api.rs::archive_numbers_are_free_text_searchable_and_not_unique"
+          },
+          {
             "target": "e2e/smoke.mjs"
           }
         ],
@@ -3627,11 +3636,20 @@
             "target": "crates/musicus-server/migrations/0002_part_names.sql"
           },
           {
+            "target": "crates/musicus-server/migrations/0006_archive_number.sql"
+          },
+          {
             "target": "crates/musicus-server/src/part_index.rs"
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-LIB-015"
+          }
+        ]
+      }
     },
     {
       "id": "R-LIB-005",
@@ -3708,7 +3726,7 @@
       "priority": "could",
       "status": "proposed",
       "path": "requirements/lib/R-LIB-007.md",
-      "statement": "The system shall store for each score optionally a lyricist, a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number, a physical archive number and a link to a reference recording, and for each part optionally its clef (e.g. treble or bass; trombone and euphonium parts exist in both).",
+      "statement": "The system shall store for each score optionally a lyricist, a difficulty grade (1–6), a duration (minutes and seconds), publisher and catalogue number, ensemble type, rights status (owned, rented until a date, public domain), a performing-rights work number and a link to a reference recording, and for each part optionally its clef (e.g. treble or bass; trombone and euphonium parts exist in both).",
       "links": {
         "refines": [
           {
@@ -4054,6 +4072,60 @@
           },
           {
             "target": "crates/musicus-server/src/routes/library.rs"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-LIB-015",
+      "level": 3,
+      "area": "LIB",
+      "title": "Archive number of a piece",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/lib/R-LIB-015.md",
+      "statement": "The system shall store for each score optionally an archive number: free text of at most 40 characters (e.g. \"0304\" or \"A-12\"), trimmed, an empty entry meaning none. The number is not required to be unique. The library shall show it with the piece, shall find a piece by it (also without leading zeros or separators: \"304\" finds \"0304\", \"A12\" finds \"A-12\") and shall offer to sort the list by it in natural order (\"28\" before \"304\").",
+      "links": {
+        "refines": [
+          {
+            "target": "F-LIB-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-001"
+          },
+          {
+            "target": "R-LIB-004"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::archive_numbers_are_free_text_searchable_and_not_unique"
+          },
+          {
+            "target": "crates/musicus-api/src/naming.rs::archive_numbers"
+          },
+          {
+            "target": "crates/musicus-api/src/dto.rs::score_input_trims_the_archive_number"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/migrations/0006_archive_number.sql"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/naming.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/library.rs"
           }
         ]
       },

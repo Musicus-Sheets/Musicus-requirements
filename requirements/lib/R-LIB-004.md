@@ -11,11 +11,13 @@ links:
     - crates/musicus-server/src/routes/library.rs::fts_terms_quote_words_and_drop_operators
     - crates/musicus-server/tests/api.rs::part_names_keys_and_part_search
     - crates/musicus-server/tests/api.rs::parts_with_several_voices
+    - crates/musicus-server/tests/api.rs::archive_numbers_are_free_text_searchable_and_not_unique
     - e2e/smoke.mjs
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-server/migrations/0001_init.sql
     - crates/musicus-server/migrations/0002_part_names.sql
+    - crates/musicus-server/migrations/0006_archive_number.sql
     - crates/musicus-server/src/part_index.rs
 ---
 
@@ -23,7 +25,7 @@ links:
 
 ## Statement
 
-The system shall find scores for which every entered word is a word prefix of the title, subtitle, composer, arranger, genre or tags, or of the name of a part of the score the user may read (R-LIB-010), ignoring letter case and diacritics, and shall additionally filter by genre and tag.
+The system shall find scores for which every entered word is a word prefix of the title, subtitle, composer, arranger, genre, tags or archive number (R-LIB-015), or of the name of a part of the score the user may read (R-LIB-010), ignoring letter case and diacritics, and shall additionally filter by genre and tag.
 
 ## Acceptance criteria
 

@@ -12,7 +12,7 @@ links:
 
 ## Statement
 
-Librarians can record further information per work: difficulty grade, duration, lyricist, clef of a part, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information, physical archive number and a reference recording.
+Librarians can record further information per work: difficulty grade, duration, lyricist, clef of a part, publisher and catalogue number, ensemble type, rights status with expiry, performing-rights information and a reference recording. (The archive number is part of F-LIB-001: R-LIB-015.)
 
 ## Rationale
 
