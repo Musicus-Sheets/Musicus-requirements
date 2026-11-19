@@ -3,7 +3,7 @@ id: F-LIB-004
 level: 2
 title: Mass import of a sheet archive
 priority: should
-status: accepted
+status: implemented
 links:
   refines: [G-001]
 ---

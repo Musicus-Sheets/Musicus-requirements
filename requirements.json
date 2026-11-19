@@ -698,7 +698,7 @@
       "area": "LIB",
       "title": "Mass import of a sheet archive",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "features/F-LIB-004.md",
       "statement": "Librarians can bring an existing digital archive (a folder tree of PDF files, hundreds to thousands of pieces) into the library in one go: Musicus reads number, title, composer, category and the part (instrument, key, voice) from the folder and file names, shows a proposal for review, and creates pieces and parts only after the librarian has checked and committed them.",
       "links": {
@@ -4230,7 +4230,7 @@
       "area": "LIB",
       "title": "Import a folder of PDF files",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/lib/R-LIB-016.md",
       "statement": "The system shall let a librarian select a folder (or drop it onto the import page) and upload every PDF file in it and its subfolders into a staging area of an import batch, ignoring other files. The browser shall compute the SHA-256 of each file before uploading; files whose content is already in the library or already in the batch shall be skipped and never imported twice. Selecting the same folder again shall continue an interrupted import without uploading finished files again. Staged files shall not be readable by anyone through the library until they are committed (R-LIB-021); nothing shall be stored on the device.",
       "links": {
@@ -4255,6 +4255,9 @@
         ],
         "verified_by": [
           {
+            "target": "e2e/smoke.mjs"
+          },
+          {
             "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
           },
           {
@@ -4262,6 +4265,18 @@
           }
         ],
         "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/import.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/import_review.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/bridge.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          },
           {
             "target": "crates/musicus-server/src/routes/import.rs"
           },
@@ -4324,6 +4339,9 @@
           }
         ],
         "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/import.rs"
+          },
           {
             "target": "crates/musicus-api/src/import/pattern.rs"
           },
@@ -4418,7 +4436,7 @@
       "area": "LIB",
       "title": "Review of an import",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/lib/R-LIB-019.md",
       "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including the list of voices of a part, edit several pieces at once (genre, composer, arranger), and skip single files. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
       "links": {
@@ -4440,6 +4458,9 @@
         ],
         "verified_by": [
           {
+            "target": "e2e/smoke.mjs"
+          },
+          {
             "target": "crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary"
           },
           {
@@ -4453,6 +4474,9 @@
           }
         ],
         "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/import_review.rs"
+          },
           {
             "target": "crates/musicus-api/src/import/review.rs"
           },

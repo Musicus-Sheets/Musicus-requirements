@@ -3,16 +3,18 @@ id: R-LIB-019
 level: 3
 title: Review of an import
 priority: should
-status: accepted
+status: verified
 links:
   refines: [F-LIB-004]
   depends_on: [R-LIB-017, R-LIB-018, R-ACL-001]
   verified_by:
+    - e2e/smoke.mjs
     - crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary
     - crates/musicus-api/src/import/review.rs::existing_pieces_are_suggested_not_chosen
     - crates/musicus-api/src/import/review.rs::contradictions_overrides_and_layout_warnings
     - crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes
   implemented_by:
+    - crates/musicus-web/src/pages/import_review.rs
     - crates/musicus-api/src/import/review.rs
     - crates/musicus-server/src/routes/import.rs
   decided_in: [tech:d-import-staging]
