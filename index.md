@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 1 | 29 | 0 | 0 | 35 |
-| 3 Requirements | 23 | 4 | 34 | 71 | 0 | 132 |
+| 3 Requirements | 23 | 2 | 34 | 73 | 0 | 132 |
 
 ## Goals and features
 
@@ -165,8 +165,8 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-LIB-017](requirements/lib/R-LIB-017.md) File name patterns `verified`
   - [R-LIB-018](requirements/lib/R-LIB-018.md) Part names in file names `verified`
   - [R-LIB-019](requirements/lib/R-LIB-019.md) Review of an import `accepted`
-  - [R-LIB-020](requirements/lib/R-LIB-020.md) Instrument aliases of the import `accepted`
-  - [R-LIB-021](requirements/lib/R-LIB-021.md) Commit and undo of an import `accepted`
+  - [R-LIB-020](requirements/lib/R-LIB-020.md) Instrument aliases of the import `verified`
+  - [R-LIB-021](requirements/lib/R-LIB-021.md) Commit and undo of an import `verified`
   - [R-LIB-022](requirements/lib/R-LIB-022.md) Further import sources (OCR, inventory list) `proposed`
 - [F-PROG-001](features/F-PROG-001.md) Concert programmes `implemented`
   - [R-PROG-001](requirements/prog/R-PROG-001.md) Programme content `verified`
@@ -433,8 +433,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-LIB-017](requirements/lib/R-LIB-017.md) | File name patterns | should | verified | F-LIB-004 |
 | [R-LIB-018](requirements/lib/R-LIB-018.md) | Part names in file names | should | verified | F-LIB-004 |
 | [R-LIB-019](requirements/lib/R-LIB-019.md) | Review of an import | should | accepted | F-LIB-004 |
-| [R-LIB-020](requirements/lib/R-LIB-020.md) | Instrument aliases of the import | should | accepted | F-LIB-004 |
-| [R-LIB-021](requirements/lib/R-LIB-021.md) | Commit and undo of an import | should | accepted | F-LIB-004 |
+| [R-LIB-020](requirements/lib/R-LIB-020.md) | Instrument aliases of the import | should | verified | F-LIB-004 |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | Commit and undo of an import | should | verified | F-LIB-004 |
 | [R-LIB-022](requirements/lib/R-LIB-022.md) | Further import sources (OCR, inventory list) | could | proposed | F-LIB-004 |
 
 ### FILE – Sheet files

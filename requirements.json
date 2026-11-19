@@ -4252,6 +4252,27 @@
           {
             "target": "R-SEC-001"
           }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_of_flat_numbered_files_groups_by_number_and_keeps_changes"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/import.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0007_import.sql"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-import-staging"
+          }
         ]
       },
       "incoming": {}
@@ -4416,6 +4437,33 @@
           {
             "target": "R-ACL-001"
           }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::existing_pieces_are_suggested_not_chosen"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::contradictions_overrides_and_layout_warnings"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/import/review.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/import.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-import-staging"
+          }
         ]
       },
       "incoming": {
@@ -4435,7 +4483,7 @@
       "area": "LIB",
       "title": "Instrument aliases of the import",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/lib/R-LIB-020.md",
       "statement": "The import shall never create an instrument by itself. For an unknown or abbreviated instrument word, the librarian shall choose an existing instrument or create a new one with an explicit action; the choice shall be stored as an alias of that word and applied at once to every row of every open import and to future imports.",
       "links": {
@@ -4451,6 +4499,27 @@
           {
             "target": "R-ACL-001"
           }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/import.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-import-staging"
+          }
         ]
       },
       "incoming": {}
@@ -4461,9 +4530,9 @@
       "area": "LIB",
       "title": "Commit and undo of an import",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/lib/R-LIB-021.md",
-      "statement": "The librarian shall commit reviewed pieces one at a time or all green pieces at once. Each piece shall be created (or its parts added to the confirmed existing piece) in one short write transaction, with the same rules as pieces and parts entered by hand. Committed parts become visible to members by the normal read rule (R-ACL-001). The librarian shall be able to undo a batch: its created pieces and parts are removed, unless annotations exist on them or other parts were added to its pieces since, in which case nothing is removed and the affected pieces are named. Uploaded files stay in the file store (R-FILE-004).",
+      "statement": "The librarian shall commit reviewed pieces one at a time or all green pieces at once. Each piece shall be created (or its parts added to the confirmed existing piece) in one short write transaction, with the same rules as pieces and parts entered by hand. Committed parts become visible to members by the normal read rule (R-ACL-001). The librarian shall be able to undo a batch: its created pieces and parts are removed, unless annotations exist on them, other parts were added to its pieces since, or one of its pieces is in a programme, in which case nothing is removed and the affected pieces are named. Uploaded files stay in the file store (R-FILE-004).",
       "links": {
         "refines": [
           {
@@ -4488,6 +4557,24 @@
           },
           {
             "target": "R-PERF-006"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_of_flat_numbered_files_groups_by_number_and_keeps_changes"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/routes/import.rs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-import-staging"
           }
         ]
       },

@@ -3,10 +3,17 @@ id: R-LIB-020
 level: 3
 title: Instrument aliases of the import
 priority: should
-status: accepted
+status: verified
 links:
   refines: [F-LIB-004]
   depends_on: [R-LIB-003, R-ACL-001]
+  verified_by:
+    - crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes
+    - crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary
+  implemented_by:
+    - crates/musicus-server/src/routes/import.rs
+    - crates/musicus-api/src/import/review.rs
+  decided_in: [tech:d-import-staging]
 ---
 
 # R-LIB-020 Instrument aliases of the import

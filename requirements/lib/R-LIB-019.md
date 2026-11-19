@@ -7,6 +7,15 @@ status: accepted
 links:
   refines: [F-LIB-004]
   depends_on: [R-LIB-017, R-LIB-018, R-ACL-001]
+  verified_by:
+    - crates/musicus-api/src/import/review.rs::instruments_resolve_through_aliases_names_and_the_dictionary
+    - crates/musicus-api/src/import/review.rs::existing_pieces_are_suggested_not_chosen
+    - crates/musicus-api/src/import/review.rs::contradictions_overrides_and_layout_warnings
+    - crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes
+  implemented_by:
+    - crates/musicus-api/src/import/review.rs
+    - crates/musicus-server/src/routes/import.rs
+  decided_in: [tech:d-import-staging]
 ---
 
 # R-LIB-019 Review of an import

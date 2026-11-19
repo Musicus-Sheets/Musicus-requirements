@@ -7,6 +7,13 @@ status: accepted
 links:
   refines: [F-LIB-004]
   depends_on: [R-FILE-001, R-FILE-004, R-ACL-001, R-SEC-001]
+  verified_by:
+    - crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes
+    - crates/musicus-server/tests/api.rs::import_of_flat_numbered_files_groups_by_number_and_keeps_changes
+  implemented_by:
+    - crates/musicus-server/src/routes/import.rs
+    - crates/musicus-server/migrations/0007_import.sql
+  decided_in: [tech:d-import-staging]
 ---
 
 # R-LIB-016 Import a folder of PDF files
