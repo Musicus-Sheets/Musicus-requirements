@@ -603,7 +603,34 @@
       "incoming": {
         "refined_by": [
           {
+            "source": "R-I18N-001"
+          },
+          {
+            "source": "R-I18N-002"
+          },
+          {
+            "source": "R-I18N-003"
+          },
+          {
             "source": "R-I18N-004"
+          },
+          {
+            "source": "R-I18N-005"
+          },
+          {
+            "source": "R-I18N-006"
+          },
+          {
+            "source": "R-I18N-007"
+          },
+          {
+            "source": "R-I18N-008"
+          },
+          {
+            "source": "R-I18N-009"
+          },
+          {
+            "source": "R-I18N-010"
           }
         ]
       }
@@ -3514,6 +3541,101 @@
       "incoming": {}
     },
     {
+      "id": "R-I18N-001",
+      "level": 3,
+      "area": "I18N",
+      "title": "User interface in the browser's language",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-001.md",
+      "statement": "The web client shall show its user interface in the first language of the browser's preferred languages (`navigator.languages`) that Musicus ships, compared by language subtag (\"de-AT\" selects German), and shall set `lang` of the HTML document to that language. Musicus shall offer no language setting and shall store nothing about the language, neither on the server nor on the device.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-SEC-001"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-I18N-002"
+          },
+          {
+            "source": "R-I18N-003"
+          },
+          {
+            "source": "R-I18N-005"
+          },
+          {
+            "source": "R-I18N-008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-I18N-002",
+      "level": 3,
+      "area": "I18N",
+      "title": "English when no browser language is shipped",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-002.md",
+      "statement": "When none of the browser's preferred languages is shipped, the web client shall show its user interface in English.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-I18N-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-003",
+      "level": 3,
+      "area": "I18N",
+      "title": "English fallback per message",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-003.md",
+      "statement": "When a message is missing in the chosen language, the web client shall show the English message in its place; it shall never show a message key or an empty text.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-i18n-fluent"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-I18N-001"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-I18N-010"
+          }
+        ]
+      }
+    },
+    {
       "id": "R-I18N-004",
       "level": 3,
       "area": "I18N",
@@ -3565,6 +3687,152 @@
           },
           {
             "target": "crates/musicus-web/src/errors.rs::every_code_has_a_sentence"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-005",
+      "level": 3,
+      "area": "I18N",
+      "title": "Dates, times and numbers in the UI language",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-005.md",
+      "statement": "The web client shall format dates, times, file sizes and other numbers by the conventions of the user interface language (through the browser's `Intl` API), and shall choose plural forms by that language's rules.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-i18n-fluent"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-I18N-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-006",
+      "level": 3,
+      "area": "I18N",
+      "title": "Data as entered; derived names composed in the browser",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-006.md",
+      "statement": "The system shall store and show titles, composers, tags, notes, instrument names, families, group names, voices, custom part names, programme texts and annotation-set names exactly as entered and shall never translate them. The server shall send the components of a part name (custom name, instruments with their names, key code, voices) instead of a composed name; the web client shall compose the derived part name, the key names and the name of an unnamed annotation set in the user interface language.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-010"
+          },
+          {
+            "target": "R-LIB-011"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-007",
+      "level": 3,
+      "area": "I18N",
+      "title": "Parts found by components and every key spelling",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-007.md",
+      "statement": "The library search shall find a part by its custom name, its instrument names, its voices and its key in every spelling of the shipped languages (code, glyph and local names such as \"Bb\", \"B♭\", German \"B\"; \"Eb\", \"E♭\", \"Es\"), and shall ignore the connecting words of part names of the shipped languages (English \"in\") unless the query consists only of such words.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-LIB-004"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-008",
+      "level": 3,
+      "area": "I18N",
+      "title": "Lists sorted by the rules of the UI language",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-008.md",
+      "statement": "The web client shall sort every displayed list of names (library, parts of a piece, instruments, groups, users, programme pieces, picker entries, import review) with the collation of the user interface language, ignoring case and comparing numbers by value.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-I18N-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-009",
+      "level": 3,
+      "area": "I18N",
+      "title": "User guide per shipped language",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/i18n/R-I18N-009.md",
+      "statement": "The user guide shall exist in every shipped user interface language, and the button and field names it quotes shall equal the user interface texts of that language.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-010",
+      "level": 3,
+      "area": "I18N",
+      "title": "No user-visible text outside the message catalogue",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/i18n/R-I18N-010.md",
+      "statement": "Every text the web client shows (text, placeholders, titles, ARIA labels, confirmation and prompt dialogs) shall come from the message catalogue; only user data and a short allowlist of symbols (\"×\", \"↑\", the brand name) may appear literally.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-i18n-fluent"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-I18N-003"
           }
         ]
       },
@@ -3811,6 +4079,9 @@
       "incoming": {
         "required_by": [
           {
+            "source": "R-I18N-007"
+          },
+          {
             "source": "R-LIB-015"
           }
         ]
@@ -4056,6 +4327,9 @@
             "source": "R-ACL-005"
           },
           {
+            "source": "R-I18N-006"
+          },
+          {
             "source": "R-LIB-012"
           },
           {
@@ -4104,6 +4378,9 @@
       },
       "incoming": {
         "required_by": [
+          {
+            "source": "R-I18N-006"
+          },
           {
             "source": "R-LIB-010"
           },
@@ -6265,6 +6542,9 @@
           }
         ],
         "required_by": [
+          {
+            "source": "R-I18N-001"
+          },
           {
             "source": "R-LIB-016"
           },
