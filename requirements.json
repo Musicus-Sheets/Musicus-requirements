@@ -3546,13 +3546,23 @@
       "area": "I18N",
       "title": "User interface in the browser's language",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/i18n/R-I18N-001.md",
       "statement": "The web client shall show its user interface in the first language of the browser's preferred languages (`navigator.languages`) that Musicus ships, compared by language subtag (\"de-AT\" selects German), and shall set `lang` of the HTML document to that language. Musicus shall offer no language setting and shall store nothing about the language, neither on the server nor on the device.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/locale.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::negotiation_takes_the_first_shipped_language"
           }
         ],
         "depends_on": [
@@ -3584,13 +3594,23 @@
       "area": "I18N",
       "title": "English when no browser language is shipped",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/i18n/R-I18N-002.md",
       "statement": "When none of the browser's preferred languages is shipped, the web client shall show its user interface in English.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::negotiation_takes_the_first_shipped_language"
           }
         ],
         "depends_on": [
@@ -3607,13 +3627,23 @@
       "area": "I18N",
       "title": "English fallback per message",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/i18n/R-I18N-003.md",
       "statement": "When a message is missing in the chosen language, the web client shall show the English message in its place; it shall never show a message key or an empty text.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::missing_messages_fall_back_to_english_per_message"
           }
         ],
         "decided_in": [
@@ -3698,13 +3728,23 @@
       "area": "I18N",
       "title": "Dates, times and numbers in the UI language",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/i18n/R-I18N-005.md",
       "statement": "The web client shall format dates, times, file sizes and other numbers by the conventions of the user interface language (through the browser's `Intl` API), and shall choose plural forms by that language's rules.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/locale.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::english_messages_and_plurals"
           }
         ],
         "decided_in": [
