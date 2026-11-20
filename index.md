@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 0 | 29 | 0 | 0 | 34 |
-| 3 Requirements | 22 | 0 | 34 | 68 | 0 | 124 |
+| 2 Features | 5 | 0 | 30 | 0 | 0 | 35 |
+| 3 Requirements | 23 | 0 | 34 | 75 | 0 | 132 |
 
 ## Goals and features
 
@@ -45,6 +45,7 @@ flowchart LR
   F_LIB_001["F-LIB-001<br/>Scores and parts with metadata"]
   F_LIB_002["F-LIB-002<br/>Library search"]
   F_LIB_003["F-LIB-003<br/>Extended metadata"]
+  F_LIB_004["F-LIB-004<br/>Mass import of a sheet archive"]
   F_OFF_001["F-OFF-001<br/>Encrypted offline app"]
   F_OPS_001["F-OPS-001<br/>Simple installation"]
   F_OPS_002["F-OPS-002<br/>Backup and restore"]
@@ -84,6 +85,7 @@ flowchart LR
   F_LIB_001 --> G_001
   F_LIB_002 --> G_001
   F_LIB_003 --> G_001
+  F_LIB_004 --> G_001
   F_OFF_001 --> G_007
   F_OPS_001 --> G_005
   F_OPS_002 --> G_005
@@ -153,10 +155,19 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-LIB-012](requirements/lib/R-LIB-012.md) Existing parts survive the change of part names `verified`
   - [R-LIB-013](requirements/lib/R-LIB-013.md) Tags entered as chips `verified`
   - [R-LIB-014](requirements/lib/R-LIB-014.md) Suggestions of existing tags and families `verified`
+  - [R-LIB-015](requirements/lib/R-LIB-015.md) Archive number of a piece `verified`
 - [F-LIB-002](features/F-LIB-002.md) Library search `implemented`
   - [R-LIB-004](requirements/lib/R-LIB-004.md) Search `verified`
 - [F-LIB-003](features/F-LIB-003.md) Extended metadata `proposed`
   - [R-LIB-007](requirements/lib/R-LIB-007.md) Extended score metadata `proposed`
+- [F-LIB-004](features/F-LIB-004.md) Mass import of a sheet archive `implemented`
+  - [R-LIB-016](requirements/lib/R-LIB-016.md) Import a folder of PDF files `verified`
+  - [R-LIB-017](requirements/lib/R-LIB-017.md) File name patterns `verified`
+  - [R-LIB-018](requirements/lib/R-LIB-018.md) Part names in file names `verified`
+  - [R-LIB-019](requirements/lib/R-LIB-019.md) Review of an import `verified`
+  - [R-LIB-020](requirements/lib/R-LIB-020.md) Instrument aliases of the import `verified`
+  - [R-LIB-021](requirements/lib/R-LIB-021.md) Commit and undo of an import `verified`
+  - [R-LIB-022](requirements/lib/R-LIB-022.md) Further import sources (OCR, inventory list) `proposed`
 - [F-PROG-001](features/F-PROG-001.md) Concert programmes `implemented`
   - [R-PROG-001](requirements/prog/R-PROG-001.md) Programme content `verified`
   - [R-PROG-002](requirements/prog/R-PROG-002.md) Members see their programmes `verified`
@@ -417,6 +428,14 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-LIB-012](requirements/lib/R-LIB-012.md) | Existing parts survive the change of part names | must | verified | F-LIB-001 |
 | [R-LIB-013](requirements/lib/R-LIB-013.md) | Tags entered as chips | should | verified | F-LIB-001 |
 | [R-LIB-014](requirements/lib/R-LIB-014.md) | Suggestions of existing tags and families | should | verified | F-LIB-001 |
+| [R-LIB-015](requirements/lib/R-LIB-015.md) | Archive number of a piece | should | verified | F-LIB-001 |
+| [R-LIB-016](requirements/lib/R-LIB-016.md) | Import a folder of PDF files | should | verified | F-LIB-004 |
+| [R-LIB-017](requirements/lib/R-LIB-017.md) | File name patterns | should | verified | F-LIB-004 |
+| [R-LIB-018](requirements/lib/R-LIB-018.md) | Part names in file names | should | verified | F-LIB-004 |
+| [R-LIB-019](requirements/lib/R-LIB-019.md) | Review of an import | should | verified | F-LIB-004 |
+| [R-LIB-020](requirements/lib/R-LIB-020.md) | Instrument aliases of the import | should | verified | F-LIB-004 |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | Commit and undo of an import | should | verified | F-LIB-004 |
+| [R-LIB-022](requirements/lib/R-LIB-022.md) | Further import sources (OCR, inventory list) | could | proposed | F-LIB-004 |
 
 ### FILE – Sheet files
 
@@ -606,6 +625,29 @@ All links other than `refines`.
 | [R-LIB-013](requirements/lib/R-LIB-013.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
 | [R-LIB-014](requirements/lib/R-LIB-014.md) | depends_on | [R-LIB-013](requirements/lib/R-LIB-013.md) |  |
 | [R-LIB-014](requirements/lib/R-LIB-014.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-LIB-015](requirements/lib/R-LIB-015.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
+| [R-LIB-015](requirements/lib/R-LIB-015.md) | depends_on | [R-LIB-004](requirements/lib/R-LIB-004.md) |  |
+| [R-LIB-016](requirements/lib/R-LIB-016.md) | depends_on | [R-FILE-001](requirements/file/R-FILE-001.md) |  |
+| [R-LIB-016](requirements/lib/R-LIB-016.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
+| [R-LIB-016](requirements/lib/R-LIB-016.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-LIB-016](requirements/lib/R-LIB-016.md) | depends_on | [R-SEC-001](requirements/sec/R-SEC-001.md) |  |
+| [R-LIB-017](requirements/lib/R-LIB-017.md) | depends_on | [R-LIB-015](requirements/lib/R-LIB-015.md) |  |
+| [R-LIB-018](requirements/lib/R-LIB-018.md) | depends_on | [R-LIB-010](requirements/lib/R-LIB-010.md) |  |
+| [R-LIB-018](requirements/lib/R-LIB-018.md) | depends_on | [R-LIB-011](requirements/lib/R-LIB-011.md) |  |
+| [R-LIB-018](requirements/lib/R-LIB-018.md) | depends_on | [R-LIB-003](requirements/lib/R-LIB-003.md) |  |
+| [R-LIB-018](requirements/lib/R-LIB-018.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
+| [R-LIB-019](requirements/lib/R-LIB-019.md) | depends_on | [R-LIB-017](requirements/lib/R-LIB-017.md) |  |
+| [R-LIB-019](requirements/lib/R-LIB-019.md) | depends_on | [R-LIB-018](requirements/lib/R-LIB-018.md) |  |
+| [R-LIB-019](requirements/lib/R-LIB-019.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-LIB-020](requirements/lib/R-LIB-020.md) | depends_on | [R-LIB-003](requirements/lib/R-LIB-003.md) |  |
+| [R-LIB-020](requirements/lib/R-LIB-020.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-LIB-019](requirements/lib/R-LIB-019.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-LIB-001](requirements/lib/R-LIB-001.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-LIB-002](requirements/lib/R-LIB-002.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-FILE-002](requirements/file/R-FILE-002.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
+| [R-LIB-021](requirements/lib/R-LIB-021.md) | depends_on | [R-PERF-006](requirements/perf/R-PERF-006.md) |  |
+| [R-LIB-022](requirements/lib/R-LIB-022.md) | depends_on | [R-LIB-019](requirements/lib/R-LIB-019.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-ANN-012](requirements/ann/R-ANN-012.md) |  |
 | [R-OFF-003](requirements/off/R-OFF-003.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
