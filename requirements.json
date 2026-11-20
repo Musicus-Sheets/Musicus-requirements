@@ -4438,7 +4438,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-019.md",
-      "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including the list of voices of a part, edit several pieces at once (genre, composer, arranger), and skip single files. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
+      "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including any number of instruments and voices of a part (adding and removing them as in the part editor), edit several pieces at once (genre, composer, arranger), and skip single files. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
       "links": {
         "refines": [
           {
@@ -4468,6 +4468,12 @@
           },
           {
             "target": "crates/musicus-api/src/import/review.rs::contradictions_overrides_and_layout_warnings"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::several_instruments_and_voices_chosen_in_the_review"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_of_flat_numbered_files_groups_by_number_and_keeps_changes"
           },
           {
             "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
