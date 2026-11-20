@@ -19,6 +19,8 @@ links:
     - crates/musicus-api/src/naming.rs
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-web/src/pages/forms.rs
+    - crates/musicus-web/src/names.rs
+    - crates/musicus-i18n/locales/en/names.ftl
 ---
 
 # R-LIB-010 Part names derived from instruments, key and voices
@@ -32,5 +34,5 @@ When a part has no custom name, the system shall name it after its instruments, 
 - Trumpet, B♭, voice 1 gives "Trumpet in B♭ 1"; Klarinette with voices 1 and 2 gives "Klarinette 1 & 2"; Flöte and Oboe with voices 1 and 2 give "Flöte / Oboe 1 & 2"; voices 1, 2, 3 give "… 1 & 2 & 3"; Flute and Piccolo without key and voice give "Flute / Piccolo"; voice 2 without instrument and key gives "Part 2"; nothing at all gives "Unnamed part".
 - A custom name ("Solo Cornet") replaces the derived name; clearing it brings the derived name back.
 - Renaming an instrument renames the derived names of its parts.
-- The parts of a score are listed by name, numbers by value ("… 2" before "… 10"); parts with several voices by their first voice, then the next ("… 1", "… 1 & 2", "… 2").
+- The web client composes the name in the user interface language from the components the server sends (R-I18N-006); the parts of a score are listed by name, numbers by value ("… 2" before "… 10"); parts with several voices by their first voice, then the next ("… 1", "… 1 & 2", "… 2").
 - While adding or editing a part, the web client shows the resulting name live and offers the derived name as placeholder of "Custom name (optional)".

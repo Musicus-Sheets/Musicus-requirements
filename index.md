@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
-| 3 Requirements | 23 | 0 | 34 | 76 | 0 | 133 |
+| 3 Requirements | 24 | 0 | 38 | 80 | 0 | 142 |
 
 ## Goals and features
 
@@ -145,7 +145,16 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-FILE-003](requirements/file/R-FILE-003.md) Page count and thumbnail `verified`
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
 - [F-I18N-001](features/F-I18N-001.md) Musicus in the user's language `accepted`
+  - [R-I18N-001](requirements/i18n/R-I18N-001.md) User interface in the browser's language `implemented`
+  - [R-I18N-002](requirements/i18n/R-I18N-002.md) English when no browser language is shipped `implemented`
+  - [R-I18N-003](requirements/i18n/R-I18N-003.md) English fallback per message `implemented`
   - [R-I18N-004](requirements/i18n/R-I18N-004.md) Errors as codes, no text from the server `verified`
+  - [R-I18N-005](requirements/i18n/R-I18N-005.md) Dates, times and numbers in the UI language `implemented`
+  - [R-I18N-006](requirements/i18n/R-I18N-006.md) Data as entered; derived names composed in the browser `verified`
+  - [R-I18N-007](requirements/i18n/R-I18N-007.md) Parts found by components and every key spelling `verified`
+  - [R-I18N-008](requirements/i18n/R-I18N-008.md) Lists sorted by the rules of the UI language `verified`
+  - [R-I18N-009](requirements/i18n/R-I18N-009.md) User guide per shipped language `proposed`
+  - [R-I18N-010](requirements/i18n/R-I18N-010.md) No user-visible text outside the message catalogue `verified`
 - [F-LIB-001](features/F-LIB-001.md) Scores and parts with metadata `implemented`
   - [R-LIB-001](requirements/lib/R-LIB-001.md) Score metadata `verified`
   - [R-LIB-002](requirements/lib/R-LIB-002.md) Part metadata `verified`
@@ -576,7 +585,16 @@ The system is built with a small, consistent technology stack that a small team 
 
 | ID | Title | Priority | Status | Refines |
 | --- | --- | --- | --- | --- |
+| [R-I18N-001](requirements/i18n/R-I18N-001.md) | User interface in the browser's language | should | implemented | F-I18N-001 |
+| [R-I18N-002](requirements/i18n/R-I18N-002.md) | English when no browser language is shipped | should | implemented | F-I18N-001 |
+| [R-I18N-003](requirements/i18n/R-I18N-003.md) | English fallback per message | should | implemented | F-I18N-001 |
 | [R-I18N-004](requirements/i18n/R-I18N-004.md) | Errors as codes, no text from the server | should | verified | F-I18N-001 |
+| [R-I18N-005](requirements/i18n/R-I18N-005.md) | Dates, times and numbers in the UI language | should | implemented | F-I18N-001 |
+| [R-I18N-006](requirements/i18n/R-I18N-006.md) | Data as entered; derived names composed in the browser | should | verified | F-I18N-001 |
+| [R-I18N-007](requirements/i18n/R-I18N-007.md) | Parts found by components and every key spelling | should | verified | F-I18N-001 |
+| [R-I18N-008](requirements/i18n/R-I18N-008.md) | Lists sorted by the rules of the UI language | should | verified | F-I18N-001 |
+| [R-I18N-009](requirements/i18n/R-I18N-009.md) | User guide per shipped language | could | proposed | F-I18N-001 |
+| [R-I18N-010](requirements/i18n/R-I18N-010.md) | No user-visible text outside the message catalogue | should | verified | F-I18N-001 |
 
 ## Cross links
 
@@ -619,7 +637,16 @@ All links other than `refines`.
 | [R-FILE-005](requirements/file/R-FILE-005.md) | depends_on | [R-ACL-002](requirements/acl/R-ACL-002.md) |  |
 | [R-FILE-007](requirements/file/R-FILE-007.md) | conflicts_with | [R-PERF-007](requirements/perf/R-PERF-007.md) | No-store means every reload downloads the sheets again; operators who accept browser caches can switch to 'immutable'. |
 | [R-FILE-009](requirements/file/R-FILE-009.md) | conflicts_with | [R-FILE-004](requirements/file/R-FILE-004.md) | Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent. |
+| [R-I18N-001](requirements/i18n/R-I18N-001.md) | depends_on | [R-SEC-001](requirements/sec/R-SEC-001.md) |  |
+| [R-I18N-002](requirements/i18n/R-I18N-002.md) | depends_on | [R-I18N-001](requirements/i18n/R-I18N-001.md) |  |
+| [R-I18N-003](requirements/i18n/R-I18N-003.md) | depends_on | [R-I18N-001](requirements/i18n/R-I18N-001.md) |  |
 | [R-I18N-004](requirements/i18n/R-I18N-004.md) | depends_on | [R-SEC-008](requirements/sec/R-SEC-008.md) |  |
+| [R-I18N-005](requirements/i18n/R-I18N-005.md) | depends_on | [R-I18N-001](requirements/i18n/R-I18N-001.md) |  |
+| [R-I18N-006](requirements/i18n/R-I18N-006.md) | depends_on | [R-LIB-010](requirements/lib/R-LIB-010.md) |  |
+| [R-I18N-006](requirements/i18n/R-I18N-006.md) | depends_on | [R-LIB-011](requirements/lib/R-LIB-011.md) |  |
+| [R-I18N-007](requirements/i18n/R-I18N-007.md) | depends_on | [R-LIB-004](requirements/lib/R-LIB-004.md) |  |
+| [R-I18N-008](requirements/i18n/R-I18N-008.md) | depends_on | [R-I18N-001](requirements/i18n/R-I18N-001.md) |  |
+| [R-I18N-010](requirements/i18n/R-I18N-010.md) | depends_on | [R-I18N-003](requirements/i18n/R-I18N-003.md) |  |
 | [R-LIB-002](requirements/lib/R-LIB-002.md) | depends_on | [R-LIB-003](requirements/lib/R-LIB-003.md) |  |
 | [R-LIB-005](requirements/lib/R-LIB-005.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
 | [R-LIB-006](requirements/lib/R-LIB-006.md) | depends_on | [R-FILE-003](requirements/file/R-FILE-003.md) |  |
