@@ -3700,6 +3700,9 @@
           },
           {
             "target": "crates/musicus-web/src/errors.rs"
+          },
+          {
+            "target": "crates/musicus-i18n/locales/en/errors.ftl"
           }
         ],
         "verified_by": [
@@ -3723,6 +3726,9 @@
           },
           {
             "target": "crates/musicus-web/src/errors.rs::every_code_has_a_sentence"
+          },
+          {
+            "target": "crates/musicus-web/src/errors.rs::every_text_comes_from_the_catalogue"
           }
         ]
       },
