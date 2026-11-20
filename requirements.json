@@ -3912,13 +3912,32 @@
       "area": "I18N",
       "title": "No user-visible text outside the message catalogue",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-010.md",
       "statement": "Every text the web client shows (text, placeholders, titles, ARIA labels, confirmation and prompt dialogs) shall come from the message catalogue; only user data and a short allowlist of symbols (\"×\", \"↑\", the brand name) may appear literally.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-i18n/locales/en"
+          },
+          {
+            "target": "scripts/check-ui-literals.py"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "scripts/check-ui-literals.py"
+          },
+          {
+            "target": "e2e/pseudo.mjs"
+          },
+          {
+            "target": "crates/musicus-i18n/tests/catalogue.rs::every_english_message_is_used"
           }
         ],
         "decided_in": [

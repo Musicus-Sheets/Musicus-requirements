@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
-| 3 Requirements | 24 | 2 | 38 | 78 | 0 | 142 |
+| 3 Requirements | 24 | 1 | 38 | 79 | 0 | 142 |
 
 ## Goals and features
 
@@ -154,7 +154,7 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-I18N-007](requirements/i18n/R-I18N-007.md) Parts found by components and every key spelling `verified`
   - [R-I18N-008](requirements/i18n/R-I18N-008.md) Lists sorted by the rules of the UI language `accepted`
   - [R-I18N-009](requirements/i18n/R-I18N-009.md) User guide per shipped language `proposed`
-  - [R-I18N-010](requirements/i18n/R-I18N-010.md) No user-visible text outside the message catalogue `accepted`
+  - [R-I18N-010](requirements/i18n/R-I18N-010.md) No user-visible text outside the message catalogue `verified`
 - [F-LIB-001](features/F-LIB-001.md) Scores and parts with metadata `implemented`
   - [R-LIB-001](requirements/lib/R-LIB-001.md) Score metadata `verified`
   - [R-LIB-002](requirements/lib/R-LIB-002.md) Part metadata `verified`
@@ -594,7 +594,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-I18N-007](requirements/i18n/R-I18N-007.md) | Parts found by components and every key spelling | should | verified | F-I18N-001 |
 | [R-I18N-008](requirements/i18n/R-I18N-008.md) | Lists sorted by the rules of the UI language | should | accepted | F-I18N-001 |
 | [R-I18N-009](requirements/i18n/R-I18N-009.md) | User guide per shipped language | could | proposed | F-I18N-001 |
-| [R-I18N-010](requirements/i18n/R-I18N-010.md) | No user-visible text outside the message catalogue | should | accepted | F-I18N-001 |
+| [R-I18N-010](requirements/i18n/R-I18N-010.md) | No user-visible text outside the message catalogue | should | verified | F-I18N-001 |
 
 ## Cross links
 
