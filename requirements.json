@@ -585,6 +585,30 @@
       }
     },
     {
+      "id": "F-I18N-001",
+      "level": 2,
+      "area": "I18N",
+      "title": "Musicus in the user's language",
+      "priority": "should",
+      "status": "accepted",
+      "path": "features/F-I18N-001.md",
+      "statement": "Musicus shall show its user interface, dates, numbers, error messages, part names and sort order in the language of the user's browser (English if that language is not available), while all data is stored and shown exactly as entered.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-I18N-004"
+          }
+        ]
+      }
+    },
+    {
       "id": "F-LIB-001",
       "level": 2,
       "area": "LIB",
@@ -1339,6 +1363,9 @@
           },
           {
             "source": "F-FILE-001"
+          },
+          {
+            "source": "F-I18N-001"
           },
           {
             "source": "F-LIB-001"
@@ -3481,6 +3508,63 @@
         "refines": [
           {
             "target": "F-PERF-002"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-I18N-004",
+      "level": 3,
+      "area": "I18N",
+      "title": "Errors as codes, no text from the server",
+      "priority": "should",
+      "status": "verified",
+      "path": "requirements/i18n/R-I18N-004.md",
+      "statement": "The server shall send no text meant for users in error responses and import results: every error, every reason why a piece was not imported, why a staged import file was skipped or rejected, and every import note shall be a stable code with typed arguments (numbers, field names, the user's own data such as a path or a title). An error response may carry an English `message` for API users and logs; the web client shall not show it, except for a code it does not know (a newer server). The client shall have a text for every code.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-I18N-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-SEC-008"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/error.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/error.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/errors.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/error.rs::examples_cover_every_code"
+          },
+          {
+            "target": "crates/musicus-api/src/error.rs::codes_are_unique_snake_case_and_round_trip"
+          },
+          {
+            "target": "crates/musicus-api/src/error.rs::wire_format"
+          },
+          {
+            "target": "crates/musicus-server/src/error.rs::responses_carry_code_args_and_an_english_message"
+          },
+          {
+            "target": "crates/musicus-server/tests/no_prose.rs::error_bodies_are_built_from_codes_only"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::import_stages_reviews_commits_and_undoes"
+          },
+          {
+            "target": "crates/musicus-web/src/errors.rs::every_code_has_a_sentence"
           }
         ]
       },
@@ -6400,7 +6484,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-I18N-004"
+          }
+        ]
+      }
     },
     {
       "id": "R-SEC-009",

@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 0 | 30 | 0 | 0 | 35 |
-| 3 Requirements | 23 | 0 | 34 | 75 | 0 | 132 |
+| 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
+| 3 Requirements | 23 | 0 | 34 | 76 | 0 | 133 |
 
 ## Goals and features
 
@@ -42,6 +42,7 @@ flowchart LR
   F_FILE_001["F-FILE-001<br/>Upload sheets as PDF, with versions"]
   F_FILE_002["F-FILE-002<br/>Fast and safe delivery of sheets"]
   F_FILE_003["F-FILE-003<br/>MusicXML sheets"]
+  F_I18N_001["F-I18N-001<br/>Musicus in the user's language"]
   F_LIB_001["F-LIB-001<br/>Scores and parts with metadata"]
   F_LIB_002["F-LIB-002<br/>Library search"]
   F_LIB_003["F-LIB-003<br/>Extended metadata"]
@@ -82,6 +83,7 @@ flowchart LR
   F_FILE_002 --> G_002
   F_FILE_002 --> G_004
   F_FILE_003 --> G_007
+  F_I18N_001 --> G_001
   F_LIB_001 --> G_001
   F_LIB_002 --> G_001
   F_LIB_003 --> G_001
@@ -142,6 +144,8 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-FILE-002](requirements/file/R-FILE-002.md) File versions `verified`
   - [R-FILE-003](requirements/file/R-FILE-003.md) Page count and thumbnail `verified`
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
+- [F-I18N-001](features/F-I18N-001.md) Musicus in the user's language `accepted`
+  - [R-I18N-004](requirements/i18n/R-I18N-004.md) Errors as codes, no text from the server `verified`
 - [F-LIB-001](features/F-LIB-001.md) Scores and parts with metadata `implemented`
   - [R-LIB-001](requirements/lib/R-LIB-001.md) Score metadata `verified`
   - [R-LIB-002](requirements/lib/R-LIB-002.md) Part metadata `verified`
@@ -568,6 +572,12 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-TECH-002](requirements/tech/R-TECH-002.md) | Client technology | must | implemented | F-TECH-001 |
 | [R-TECH-003](requirements/tech/R-TECH-003.md) | Shared API types | must | implemented | F-TECH-001 |
 
+### I18N – Languages and localisation
+
+| ID | Title | Priority | Status | Refines |
+| --- | --- | --- | --- | --- |
+| [R-I18N-004](requirements/i18n/R-I18N-004.md) | Errors as codes, no text from the server | should | verified | F-I18N-001 |
+
 ## Cross links
 
 All links other than `refines`.
@@ -609,6 +619,7 @@ All links other than `refines`.
 | [R-FILE-005](requirements/file/R-FILE-005.md) | depends_on | [R-ACL-002](requirements/acl/R-ACL-002.md) |  |
 | [R-FILE-007](requirements/file/R-FILE-007.md) | conflicts_with | [R-PERF-007](requirements/perf/R-PERF-007.md) | No-store means every reload downloads the sheets again; operators who accept browser caches can switch to 'immutable'. |
 | [R-FILE-009](requirements/file/R-FILE-009.md) | conflicts_with | [R-FILE-004](requirements/file/R-FILE-004.md) | Files stay immutable; only unreferenced files are removed, and only after a grace period so that older backups stay consistent. |
+| [R-I18N-004](requirements/i18n/R-I18N-004.md) | depends_on | [R-SEC-008](requirements/sec/R-SEC-008.md) |  |
 | [R-LIB-002](requirements/lib/R-LIB-002.md) | depends_on | [R-LIB-003](requirements/lib/R-LIB-003.md) |  |
 | [R-LIB-005](requirements/lib/R-LIB-005.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
 | [R-LIB-006](requirements/lib/R-LIB-006.md) | depends_on | [R-FILE-003](requirements/file/R-FILE-003.md) |  |
