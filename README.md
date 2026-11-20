@@ -40,6 +40,7 @@ they appear as features and requirements like everything else.
 | `OPS` | Installation and operation |
 | `OFF` | Offline app (future) |
 | `TECH` | Technology constraints |
+| `I18N` | Languages and localisation (UI language, formats, error texts) |
 
 ## File format
 

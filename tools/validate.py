@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIRS = {1: "goals", 2: "features", 3: "requirements"}
 PREFIX = {"G": 1, "F": 2, "R": 3}
 LEVEL_NAME = {1: "Goal", 2: "Feature", 3: "Requirement"}
-ID_RE = re.compile(r"^(G-\d{3}|[FR]-[A-Z]+-\d{3})$")
+ID_RE = re.compile(r"^(G-\d{3}|[FR]-[A-Z][A-Z0-9]*-\d{3})$")
 STATUSES = ["proposed", "accepted", "implemented", "verified", "deprecated"]
 PRIORITIES = ["must", "should", "could"]
 REQ_LINKS = ["refines", "depends_on", "constrains", "conflicts_with"]
@@ -50,6 +50,7 @@ AREAS = {
     "OPS": "Installation and operation",
     "OFF": "Offline app",
     "TECH": "Technology constraints",
+    "I18N": "Languages and localisation",
 }
 
 
