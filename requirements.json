@@ -3871,13 +3871,34 @@
       "area": "I18N",
       "title": "Lists sorted by the rules of the UI language",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-008.md",
       "statement": "The web client shall sort every displayed list of names (library, parts of a piece, instruments, groups, users, programme pieces, picker entries, import review) with the collation of the user interface language, ignoring case and comparing numbers by value.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/locale.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/names.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/picker.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/pseudo.mjs"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-i18n-fluent"
           }
         ],
         "depends_on": [
