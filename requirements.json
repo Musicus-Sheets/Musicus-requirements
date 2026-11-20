@@ -4300,7 +4300,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-017.md",
-      "statement": "The import shall read piece and part data from the file paths (relative to the selected folder) with a pattern made of the placeholders `{number}`, `{title}`, `{composer}`, `{arranger}`, `{genre}`, `{part}`, `{*}` (ignored text), optional segments `[…]` and literal text. It shall offer the presets \"Folder per piece\" `[{genre}/][{number} ]{title}[ - {composer}]/{part}.pdf` (default), \"Category / piece\" `{genre}/[{number} ]{title}[ - {composer}]/{part}.pdf`, \"One folder, title in the file name\" `{title} - {part}.pdf` and \"One folder, archive number in the file name\" `{number}Stimme{*}_{part}.pdf`, shall pre-select the preset that matches the most files, and shall let the librarian choose another preset or edit the pattern with a live preview. Files are grouped into pieces by archive number (leading zeros and separators ignored) or, without number, by title and composer.",
+      "statement": "The import shall read piece and part data from the file paths (relative to the selected folder) with a pattern made of the placeholders `{number}`, `{title}`, `{composer}`, `{arranger}`, `{genre}`, `{part}`, `{*}` (ignored text), optional segments `[…]` and literal text. Separators shall be tolerant: a space in the pattern also matches `_`, and values are trimmed of `-`, `–` and spaces at both ends. The presets shall describe general archive layouts, not the naming habits of one ensemble: \"Folder per piece\" `[{genre}/][{number} ]{title}[ - {composer}]/{part}.pdf` (default), \"Number and part in the file name\" `{number} {part}.pdf` and \"Title and part in the file name\" `[{number} ]{title} - {part}.pdf`. The import shall pre-select the preset that matches the most files (ties: more part names with a known instrument, then more part names understood completely, then the preset order), and shall let the librarian choose another preset or edit the pattern with a live preview. Files are grouped into pieces by archive number (leading zeros and separators ignored) or, without number, by title and composer.",
       "links": {
         "refines": [
           {
@@ -4317,10 +4317,13 @@
             "target": "crates/musicus-api/src/import/pattern.rs::folder_preset"
           },
           {
-            "target": "crates/musicus-api/src/import/pattern.rs::flat_number_preset_ignores_counters"
+            "target": "crates/musicus-api/src/import/pattern.rs::flat_number_preset_accepts_common_separators"
           },
           {
-            "target": "crates/musicus-api/src/import/pattern.rs::flat_title_and_category"
+            "target": "crates/musicus-api/src/import/pattern.rs::flat_title_preset_with_and_without_number"
+          },
+          {
+            "target": "crates/musicus-api/src/import/pattern.rs::values_are_cleaned_of_separators"
           },
           {
             "target": "crates/musicus-api/src/import/pattern.rs::custom_patterns"
@@ -4330,6 +4333,9 @@
           },
           {
             "target": "crates/musicus-api/src/import/mod.rs::detection_picks_the_preset_that_parses_most_files"
+          },
+          {
+            "target": "crates/musicus-api/src/import/mod.rs::detection_ties_are_decided_sensibly_and_deterministically"
           },
           {
             "target": "crates/musicus-api/src/import/review.rs::files_are_grouped_into_pieces"
@@ -4369,7 +4375,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-018.md",
-      "statement": "The import shall read instrument(s), key and voices from the part text of a file name in any order, in German or English, with common abbreviations and without spaces (`Klarinette 2 in B`, `Bb Clarinet II`, `Klar2B`, `KlarinetteEb`, `Trp 1`, `Pos. 3`). A part may contain several voices (R-LIB-002): voices joined by `+`, `&`, `/`, `,`, `und` or `and` (`Trompete 1+2`, `1/2`, `1 & 2`, `I+II`) shall give the voices \"1\" and \"2\" in the order written; voices that only stand next to each other (`Trompete 1 2`) shall also be read as several voices but flagged for review, as the second number may be a copy or page number. It shall never assume a key: a name without key gives no key. German key names (`B` = B♭, `Es`, `As`, `Des`, `Ges`, `H` = B♮) shall be read only when the batch's naming language is German; the language shall be suggested from the instrument words found. A letter that is ambiguous in the batch's language shall be flagged for review and left empty. \"Partitur\" (full score; also \"Score\", \"Full score\") and \"Direktion\" (also \"Direction\", \"Dirigierstimme\", \"Conductor\", \"Conductor score\", \"Condensed score\") shall be two different instruments. Abbreviations and guessed words shall be flagged for review.",
+      "statement": "The import shall read instrument(s), key and voices from the part text of a file name in any order, in German or English, with common abbreviations and without spaces (`Klarinette 2 in B`, `Bb Clarinet II`, `Klar2B`, `KlarinetteEb`, `Trp 1`, `Pos. 3`). A part may contain several voices (R-LIB-002): voices joined by `+`, `&`, `/`, `,`, `und` or `and` (`Trompete 1+2`, `1/2`, `1 & 2`, `I+II`) shall give the voices \"1\" and \"2\" in the order written; voices that only stand next to each other (`Trompete 1 2`) shall also be read as several voices but flagged for review, as the second number may be a copy or page number. It shall never assume a key: a name without key gives no key. German key names (`B` = B♭, `Es`, `As`, `Des`, `Ges`, `H` = B♮) shall be read only when the batch's naming language is German; the language shall be suggested from the instrument words found. A letter that is ambiguous in the batch's language shall be flagged for review and left empty. \"Partitur\" (full score; also \"Score\", \"Full score\") and \"Direktion\" (also \"Direction\", \"Dirigierstimme\", \"Conductor\", \"Conductor score\", \"Condensed score\") shall be two different instruments. Abbreviations and guessed words shall be flagged for review. An instrument named several times in one part name (full word and abbreviation, German and English word) shall be read once, at its first place.",
       "links": {
         "refines": [
           {
@@ -4413,6 +4419,9 @@
             "target": "crates/musicus-api/src/import/parts.rs::several_voices"
           },
           {
+            "target": "crates/musicus-api/src/import/parts.rs::an_instrument_named_twice_is_listed_once"
+          },
+          {
             "target": "crates/musicus-api/src/import/review.rs::partitur_and_direktion_need_their_own_instruments"
           }
         ],
@@ -4438,7 +4447,7 @@
       "priority": "should",
       "status": "verified",
       "path": "requirements/lib/R-LIB-019.md",
-      "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including any number of instruments and voices of a part (adding and removing them as in the part editor), edit several pieces at once (genre, composer, arranger), and skip single files. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
+      "statement": "Before anything is created, the import shall show one row per proposed piece with its parts. Every value shall show where it comes from (file name, dictionary, stored alias, library, librarian) and a colour: green = sure, yellow = please check (abbreviation, guessed word, ambiguous key, numbers read as voices without a separator between them, a similar or matching piece already exists), red = unknown or contradictory (blocks the commit). Each part shall show a small preview of page 1, its resulting name and the groups that will be able to read it. A piece with the same archive number, or the same title and composer, as an existing piece shall be offered as \"add the parts to the existing piece\", which the librarian must confirm. Librarians shall be able to correct every value, including any number of instruments and voices of a part (adding and removing them as in the part editor), edit several pieces at once (genre, composer, arranger), and skip single files. Each instrument shall be listed once per part: words that resolve to the same library instrument (also through a stored alias) and the same unknown word count once, in the review, the part name, the readers and the committed part; adding an instrument the part already has changes nothing. Where the system detection has analysed a file, a part named as full score with one staff per system, or a single-instrument part with four or more staves per system, shall be flagged.",
       "links": {
         "refines": [
           {
@@ -4471,6 +4480,9 @@
           },
           {
             "target": "crates/musicus-api/src/import/review.rs::several_instruments_and_voices_chosen_in_the_review"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs::an_instrument_detected_twice_is_listed_once"
           },
           {
             "target": "crates/musicus-server/tests/api.rs::import_of_flat_numbered_files_groups_by_number_and_keeps_changes"
