@@ -2784,7 +2784,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/ann/R-ANN-009.md",
-      "statement": "When the reader opens, the web client shall show the set linked to the current programme, else the default set; when a member draws without any set, it shall create one named after the programme or 'My annotations'; members can switch sets or hide all markings.",
+      "statement": "When the reader opens, the web client shall show the set linked to the current programme, else the default set; when a member draws without any set, it shall create one named after the programme, or an unnamed one shown as 'My annotations' in the user interface language (R-I18N-006); members can switch sets or hide all markings.",
       "links": {
         "refines": [
           {
@@ -2804,6 +2804,12 @@
         "implemented_by": [
           {
             "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/names.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/annotations.rs"
           }
         ]
       },
@@ -3766,13 +3772,41 @@
       "area": "I18N",
       "title": "Data as entered; derived names composed in the browser",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-006.md",
       "statement": "The system shall store and show titles, composers, tags, notes, instrument names, families, group names, voices, custom part names, programme texts and annotation-set names exactly as entered and shall never translate them. The server shall send the components of a part name (custom name, instruments with their names, key code, voices) instead of a composed name; the web client shall compose the derived part name, the key names and the name of an unnamed annotation set in the user interface language.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/names.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0009_i18n_names.sql"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-api/src/naming.rs::words_come_from_the_caller"
+          },
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::english_part_names_and_search_tables"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::migration_0009_unnames_default_sets_and_keeps_their_pages"
+          },
+          {
+            "target": "e2e/smoke.mjs"
           }
         ],
         "depends_on": [
@@ -3792,13 +3826,35 @@
       "area": "I18N",
       "title": "Parts found by components and every key spelling",
       "priority": "should",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-007.md",
       "statement": "The library search shall find a part by its custom name, its instrument names, its voices and its key in every spelling of the shipped languages (code, glyph and local names such as \"Bb\", \"B♭\", German \"B\"; \"Eb\", \"E♭\", \"Es\"), and shall ignore the connecting words of part names of the shipped languages (English \"in\") unless the query consists only of such words.",
       "links": {
         "refines": [
           {
             "target": "F-I18N-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/part_index.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-i18n/build.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/part_index.rs::index_text_has_components_and_key_spellings"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/library.rs::fts_terms_quote_words_and_drop_operators"
+          },
+          {
+            "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
           }
         ],
         "depends_on": [
@@ -4113,6 +4169,9 @@
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0009_i18n_names.sql"
           }
         ]
       },
@@ -4358,6 +4417,12 @@
           },
           {
             "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/names.rs"
+          },
+          {
+            "target": "crates/musicus-i18n/locales/en/names.ftl"
           }
         ]
       },
@@ -4413,6 +4478,12 @@
           },
           {
             "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/names.rs"
+          },
+          {
+            "target": "crates/musicus-i18n/locales/en/names.ftl"
           }
         ]
       },

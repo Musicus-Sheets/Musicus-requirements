@@ -14,6 +14,8 @@ links:
     - crates/musicus-api/src/naming.rs
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-web/src/pages/forms.rs
+    - crates/musicus-web/src/names.rs
+    - crates/musicus-i18n/locales/en/names.ftl
 ---
 
 # R-LIB-011 Keys from a fixed list

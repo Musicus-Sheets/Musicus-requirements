@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
-| 3 Requirements | 24 | 4 | 38 | 76 | 0 | 142 |
+| 3 Requirements | 24 | 2 | 38 | 78 | 0 | 142 |
 
 ## Goals and features
 
@@ -150,8 +150,8 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-I18N-003](requirements/i18n/R-I18N-003.md) English fallback per message `implemented`
   - [R-I18N-004](requirements/i18n/R-I18N-004.md) Errors as codes, no text from the server `verified`
   - [R-I18N-005](requirements/i18n/R-I18N-005.md) Dates, times and numbers in the UI language `implemented`
-  - [R-I18N-006](requirements/i18n/R-I18N-006.md) Data as entered; derived names composed in the browser `accepted`
-  - [R-I18N-007](requirements/i18n/R-I18N-007.md) Parts found by components and every key spelling `accepted`
+  - [R-I18N-006](requirements/i18n/R-I18N-006.md) Data as entered; derived names composed in the browser `verified`
+  - [R-I18N-007](requirements/i18n/R-I18N-007.md) Parts found by components and every key spelling `verified`
   - [R-I18N-008](requirements/i18n/R-I18N-008.md) Lists sorted by the rules of the UI language `accepted`
   - [R-I18N-009](requirements/i18n/R-I18N-009.md) User guide per shipped language `proposed`
   - [R-I18N-010](requirements/i18n/R-I18N-010.md) No user-visible text outside the message catalogue `accepted`
@@ -590,8 +590,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-I18N-003](requirements/i18n/R-I18N-003.md) | English fallback per message | should | implemented | F-I18N-001 |
 | [R-I18N-004](requirements/i18n/R-I18N-004.md) | Errors as codes, no text from the server | should | verified | F-I18N-001 |
 | [R-I18N-005](requirements/i18n/R-I18N-005.md) | Dates, times and numbers in the UI language | should | implemented | F-I18N-001 |
-| [R-I18N-006](requirements/i18n/R-I18N-006.md) | Data as entered; derived names composed in the browser | should | accepted | F-I18N-001 |
-| [R-I18N-007](requirements/i18n/R-I18N-007.md) | Parts found by components and every key spelling | should | accepted | F-I18N-001 |
+| [R-I18N-006](requirements/i18n/R-I18N-006.md) | Data as entered; derived names composed in the browser | should | verified | F-I18N-001 |
+| [R-I18N-007](requirements/i18n/R-I18N-007.md) | Parts found by components and every key spelling | should | verified | F-I18N-001 |
 | [R-I18N-008](requirements/i18n/R-I18N-008.md) | Lists sorted by the rules of the UI language | should | accepted | F-I18N-001 |
 | [R-I18N-009](requirements/i18n/R-I18N-009.md) | User guide per shipped language | could | proposed | F-I18N-001 |
 | [R-I18N-010](requirements/i18n/R-I18N-010.md) | No user-visible text outside the message catalogue | should | accepted | F-I18N-001 |
