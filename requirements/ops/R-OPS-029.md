@@ -2,7 +2,7 @@
 id: R-OPS-029
 level: 3
 title: Program files for every supported system
-priority: should
+priority: must
 status: accepted
 links:
   refines: [F-OPS-006]
