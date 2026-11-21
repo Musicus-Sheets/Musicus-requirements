@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
-| 3 Requirements | 24 | 0 | 34 | 84 | 0 | 142 |
+| 2 Features | 5 | 5 | 30 | 0 | 0 | 40 |
+| 3 Requirements | 28 | 28 | 34 | 84 | 0 | 174 |
 
 ## Goals and features
 
@@ -52,6 +52,9 @@ flowchart LR
   F_OPS_002["F-OPS-002<br/>Backup and restore"]
   F_OPS_003["F-OPS-003<br/>Health monitoring"]
   F_OPS_004["F-OPS-004<br/>Encrypted connections"]
+  F_OPS_005["F-OPS-005<br/>Updates and downgrades"]
+  F_OPS_006["F-OPS-006<br/>Supported platforms"]
+  F_OPS_007["F-OPS-007<br/>Known version"]
   F_PERF_001["F-PERF-001<br/>Runs on small hardware"]
   F_PERF_002["F-PERF-002<br/>Everyone opens the same piece at once"]
   F_PROG_001["F-PROG-001<br/>Concert programmes"]
@@ -62,6 +65,7 @@ flowchart LR
   F_SEC_001["F-SEC-001<br/>Nothing stored on the device"]
   F_SEC_002["F-SEC-002<br/>Protection against common attacks"]
   F_TECH_001["F-TECH-001<br/>Rust backend and Dioxus client"]
+  F_TECH_002["F-TECH-002<br/>Prepared for replacing storage and engines"]
   F_ACC_001 --> G_006
   F_ACC_001 --> G_002
   F_ACC_002 --> G_004
@@ -95,6 +99,10 @@ flowchart LR
   F_OPS_003 --> G_005
   F_OPS_004 --> G_006
   F_OPS_004 --> G_005
+  F_OPS_005 --> G_005
+  F_OPS_005 --> G_006
+  F_OPS_006 --> G_005
+  F_OPS_007 --> G_005
   F_PERF_001 --> G_005
   F_PERF_002 --> G_004
   F_PROG_001 --> G_004
@@ -106,12 +114,15 @@ flowchart LR
   F_SEC_001 --> G_006
   F_SEC_002 --> G_006
   F_TECH_001 --> G_008
+  F_TECH_002 --> G_008
   F_ACC_004 -. depends_on .-> F_ACC_003
   F_ANN_002 -. depends_on .-> F_PROG_001
   F_ANN_005 -. depends_on .-> F_FILE_001
   F_ANN_006 -. conflicts_with .-> F_ANN_004
   F_FILE_002 -. depends_on .-> F_ACL_001
   F_OFF_001 -. conflicts_with .-> F_SEC_001
+  F_OPS_005 -. depends_on .-> F_OPS_002
+  F_OPS_006 -. depends_on .-> F_OPS_001
   F_PERF_001 -. constrains .-> F_FILE_002
   F_PERF_001 -. constrains .-> F_ACC_001
   F_PERF_001 -. constrains .-> F_OPS_001
@@ -312,10 +323,42 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
   - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
+  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `accepted`
+  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `accepted`
+  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `accepted`
 - [F-OPS-003](features/F-OPS-003.md) Health monitoring `implemented`
   - [R-OPS-007](requirements/ops/R-OPS-007.md) Health check `verified`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
+- [F-OPS-005](features/F-OPS-005.md) Updates and downgrades `accepted`
+  - [R-OPS-010](requirements/ops/R-OPS-010.md) Update by replacing the container image `accepted`
+  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `accepted`
+  - [R-OPS-012](requirements/ops/R-OPS-012.md) No data loss on upgrade `accepted`
+  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `accepted`
+  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `accepted`
+  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `accepted`
+  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `accepted`
+  - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
+  - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
+  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
+  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
+  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
+  - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
+- [F-OPS-006](features/F-OPS-006.md) Supported platforms `accepted`
+  - [R-OPS-026](requirements/ops/R-OPS-026.md) Plain program on Linux, Windows and macOS `accepted`
+  - [R-OPS-027](requirements/ops/R-OPS-027.md) Raspberry Pi `accepted`
+  - [R-OPS-028](requirements/ops/R-OPS-028.md) Container images for amd64 and arm64 `accepted`
+  - [R-OPS-029](requirements/ops/R-OPS-029.md) Program files for every supported system `proposed`
+  - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `proposed`
+  - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `proposed`
+  - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `proposed`
+- [F-OPS-007](features/F-OPS-007.md) Known version `accepted`
+  - [R-OPS-033](requirements/ops/R-OPS-033.md) Version endpoint `accepted`
+  - [R-OPS-034](requirements/ops/R-OPS-034.md) Version in the user interface `accepted`
+  - [R-OPS-035](requirements/ops/R-OPS-035.md) Version on the documentation `accepted`
+  - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements tagged per release `accepted`
 - [F-PERF-001](features/F-PERF-001.md) Runs on small hardware `implemented`
   - [R-PERF-001](requirements/perf/R-PERF-001.md) Memory use `implemented`
   - [R-PERF-002](requirements/perf/R-PERF-002.md) Bounded password hashing `implemented`
@@ -350,8 +393,27 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
   - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
+  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `accepted`
+  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `accepted`
+  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `accepted`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
+- [F-OPS-005](features/F-OPS-005.md) Updates and downgrades `accepted`
+  - [R-OPS-010](requirements/ops/R-OPS-010.md) Update by replacing the container image `accepted`
+  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `accepted`
+  - [R-OPS-012](requirements/ops/R-OPS-012.md) No data loss on upgrade `accepted`
+  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `accepted`
+  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `accepted`
+  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `accepted`
+  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `accepted`
+  - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
+  - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
+  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
+  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
+  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
+  - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
 - [F-SEC-001](features/F-SEC-001.md) Nothing stored on the device `implemented`
   - [R-SEC-001](requirements/sec/R-SEC-001.md) No persistent data in the web client `implemented`
 - [F-SEC-002](features/F-SEC-002.md) Protection against common attacks `implemented`
@@ -386,6 +448,11 @@ The system is built with a small, consistent technology stack that a small team 
   - [R-TECH-001](requirements/tech/R-TECH-001.md) Server technology `implemented`
   - [R-TECH-002](requirements/tech/R-TECH-002.md) Client technology `implemented`
   - [R-TECH-003](requirements/tech/R-TECH-003.md) Shared API types `implemented`
+- [F-TECH-002](features/F-TECH-002.md) Prepared for replacing storage and engines `accepted`
+  - [R-TECH-004](requirements/tech/R-TECH-004.md) Database access in storage modules `accepted`
+  - [R-TECH-005](requirements/tech/R-TECH-005.md) File store interface `accepted`
+  - [R-TECH-006](requirements/tech/R-TECH-006.md) PDF engine behind one module `accepted`
+  - [R-TECH-007](requirements/tech/R-TECH-007.md) Conformance tests for replaceable parts `accepted`
 
 ## Requirements by area
 
@@ -551,7 +618,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-PERF-007](requirements/perf/R-PERF-007.md) | Playing without network | must | implemented | F-PERF-002 |
 | [R-PERF-008](requirements/perf/R-PERF-008.md) | System detection budget | should | implemented | F-PERF-001 |
 
-### OPS – Installation and operation
+### OPS – Installation, operation and updates
 
 | ID | Title | Priority | Status | Refines |
 | --- | --- | --- | --- | --- |
@@ -564,6 +631,34 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-007](requirements/ops/R-OPS-007.md) | Health check | must | verified | F-OPS-003 |
 | [R-OPS-008](requirements/ops/R-OPS-008.md) | Graceful shutdown | must | implemented | F-OPS-001 |
 | [R-OPS-009](requirements/ops/R-OPS-009.md) | Continuous database replication | could | proposed | F-OPS-002 |
+| [R-OPS-010](requirements/ops/R-OPS-010.md) | Update by replacing the container image | must | accepted | F-OPS-005 |
+| [R-OPS-011](requirements/ops/R-OPS-011.md) | Upgrade from any older release | must | accepted | F-OPS-005 |
+| [R-OPS-012](requirements/ops/R-OPS-012.md) | No data loss on upgrade | must | accepted | F-OPS-005 |
+| [R-OPS-013](requirements/ops/R-OPS-013.md) | Data of a removed feature comes back on downgrade | must | accepted | F-OPS-005 |
+| [R-OPS-014](requirements/ops/R-OPS-014.md) | Downgrade window | must | accepted | F-OPS-005 |
+| [R-OPS-015](requirements/ops/R-OPS-015.md) | Clear refusal outside the downgrade window | must | accepted | F-OPS-005 |
+| [R-OPS-016](requirements/ops/R-OPS-016.md) | Data created only in the newer release on downgrade | must | accepted | F-OPS-005 |
+| [R-OPS-017](requirements/ops/R-OPS-017.md) | Going back never widens access | must | accepted | F-OPS-005 |
+| [R-OPS-018](requirements/ops/R-OPS-018.md) | Patch releases contain no database changes | must | accepted | F-OPS-005 |
+| [R-OPS-019](requirements/ops/R-OPS-019.md) | Snapshot before database updates | must | accepted | F-OPS-005, F-OPS-002 |
+| [R-OPS-020](requirements/ops/R-OPS-020.md) | Automatic restore after a failed update | must | accepted | F-OPS-005 |
+| [R-OPS-021](requirements/ops/R-OPS-021.md) | Backup never changes the database | must | accepted | F-OPS-002 |
+| [R-OPS-022](requirements/ops/R-OPS-022.md) | Restore command | must | accepted | F-OPS-002 |
+| [R-OPS-023](requirements/ops/R-OPS-023.md) | Preview database updates merged per release | must | accepted | F-OPS-005 |
+| [R-OPS-024](requirements/ops/R-OPS-024.md) | Release builds contain no preview updates | must | accepted | F-OPS-005 |
+| [R-OPS-025](requirements/ops/R-OPS-025.md) | No online check for new versions | must | accepted | F-OPS-005 |
+| [R-OPS-026](requirements/ops/R-OPS-026.md) | Plain program on Linux, Windows and macOS | must | accepted | F-OPS-006 |
+| [R-OPS-027](requirements/ops/R-OPS-027.md) | Raspberry Pi | must | accepted | F-OPS-006 |
+| [R-OPS-028](requirements/ops/R-OPS-028.md) | Container images for amd64 and arm64 | must | accepted | F-OPS-006 |
+| [R-OPS-029](requirements/ops/R-OPS-029.md) | Program files for every supported system | should | proposed | F-OPS-006 |
+| [R-OPS-030](requirements/ops/R-OPS-030.md) | Web client inside the program | should | proposed | F-OPS-006 |
+| [R-OPS-031](requirements/ops/R-OPS-031.md) | Usual data folder of the operating system | could | proposed | F-OPS-006 |
+| [R-OPS-032](requirements/ops/R-OPS-032.md) | Automated tests on every supported platform | should | proposed | F-OPS-006 |
+| [R-OPS-033](requirements/ops/R-OPS-033.md) | Version endpoint | must | accepted | F-OPS-007 |
+| [R-OPS-034](requirements/ops/R-OPS-034.md) | Version in the user interface | must | accepted | F-OPS-007 |
+| [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | accepted | F-OPS-007 |
+| [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements tagged per release | must | accepted | F-OPS-007 |
+| [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | accepted | F-OPS-002 |
 
 ### OFF – Offline app
 
@@ -580,6 +675,10 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-TECH-001](requirements/tech/R-TECH-001.md) | Server technology | must | implemented | F-TECH-001 |
 | [R-TECH-002](requirements/tech/R-TECH-002.md) | Client technology | must | implemented | F-TECH-001 |
 | [R-TECH-003](requirements/tech/R-TECH-003.md) | Shared API types | must | implemented | F-TECH-001 |
+| [R-TECH-004](requirements/tech/R-TECH-004.md) | Database access in storage modules | should | accepted | F-TECH-002 |
+| [R-TECH-005](requirements/tech/R-TECH-005.md) | File store interface | should | accepted | F-TECH-002 |
+| [R-TECH-006](requirements/tech/R-TECH-006.md) | PDF engine behind one module | should | accepted | F-TECH-002 |
+| [R-TECH-007](requirements/tech/R-TECH-007.md) | Conformance tests for replaceable parts | should | accepted | F-TECH-002 |
 
 ### I18N – Languages and localisation
 
@@ -608,6 +707,8 @@ All links other than `refines`.
 | [F-ANN-006](features/F-ANN-006.md) | conflicts_with | [F-ANN-004](features/F-ANN-004.md) | Sharing is explicit and read-only; private sets stay private. |
 | [F-FILE-002](features/F-FILE-002.md) | depends_on | [F-ACL-001](features/F-ACL-001.md) |  |
 | [F-OFF-001](features/F-OFF-001.md) | conflicts_with | [F-SEC-001](features/F-SEC-001.md) | F-SEC-001 applies to the web client. The app stores data only encrypted, with a key in the OS keystore and a time-limited offline lease. |
+| [F-OPS-005](features/F-OPS-005.md) | depends_on | [F-OPS-002](features/F-OPS-002.md) |  |
+| [F-OPS-006](features/F-OPS-006.md) | depends_on | [F-OPS-001](features/F-OPS-001.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-FILE-002](features/F-FILE-002.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-ACC-001](features/F-ACC-001.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-OPS-001](features/F-OPS-001.md) |  |
@@ -689,6 +790,30 @@ All links other than `refines`.
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
 | [R-OFF-002](requirements/off/R-OFF-002.md) | depends_on | [R-ANN-012](requirements/ann/R-ANN-012.md) |  |
 | [R-OFF-003](requirements/off/R-OFF-003.md) | depends_on | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-OPS-010](requirements/ops/R-OPS-010.md) | depends_on | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
+| [R-OPS-010](requirements/ops/R-OPS-010.md) | depends_on | [R-OPS-004](requirements/ops/R-OPS-004.md) |  |
+| [R-OPS-010](requirements/ops/R-OPS-010.md) | constrains | [R-OPS-003](requirements/ops/R-OPS-003.md) |  |
+| [R-OPS-011](requirements/ops/R-OPS-011.md) | constrains | [R-OPS-004](requirements/ops/R-OPS-004.md) |  |
+| [R-OPS-013](requirements/ops/R-OPS-013.md) | depends_on | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
+| [R-OPS-014](requirements/ops/R-OPS-014.md) | depends_on | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
+| [R-OPS-015](requirements/ops/R-OPS-015.md) | depends_on | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
+| [R-OPS-017](requirements/ops/R-OPS-017.md) | constrains | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-OPS-017](requirements/ops/R-OPS-017.md) | constrains | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
+| [R-OPS-019](requirements/ops/R-OPS-019.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
+| [R-OPS-019](requirements/ops/R-OPS-019.md) | conflicts_with | [R-FILE-009](requirements/file/R-FILE-009.md) | A future removal of unused files must treat files referenced by a kept snapshot as used. |
+| [R-OPS-020](requirements/ops/R-OPS-020.md) | depends_on | [R-OPS-019](requirements/ops/R-OPS-019.md) |  |
+| [R-OPS-021](requirements/ops/R-OPS-021.md) | constrains | [R-OPS-005](requirements/ops/R-OPS-005.md) |  |
+| [R-OPS-024](requirements/ops/R-OPS-024.md) | depends_on | [R-OPS-023](requirements/ops/R-OPS-023.md) |  |
+| [R-OPS-025](requirements/ops/R-OPS-025.md) | constrains | [R-OPS-010](requirements/ops/R-OPS-010.md) |  |
+| [R-OPS-026](requirements/ops/R-OPS-026.md) | depends_on | [R-OPS-001](requirements/ops/R-OPS-001.md) |  |
+| [R-OPS-027](requirements/ops/R-OPS-027.md) | depends_on | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
+| [R-OPS-029](requirements/ops/R-OPS-029.md) | depends_on | [R-OPS-026](requirements/ops/R-OPS-026.md) |  |
+| [R-OPS-030](requirements/ops/R-OPS-030.md) | constrains | [R-OPS-001](requirements/ops/R-OPS-001.md) |  |
+| [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-026](requirements/ops/R-OPS-026.md) |  |
+| [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-027](requirements/ops/R-OPS-027.md) |  |
+| [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
+| [R-OPS-034](requirements/ops/R-OPS-034.md) | depends_on | [R-OPS-033](requirements/ops/R-OPS-033.md) |  |
+| [R-OPS-037](requirements/ops/R-OPS-037.md) | conflicts_with | [R-ANN-018](requirements/ann/R-ANN-018.md) | Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again. |
 | [R-PERF-002](requirements/perf/R-PERF-002.md) | constrains | [R-ACC-004](requirements/acc/R-ACC-004.md) |  |
 | [R-PERF-003](requirements/perf/R-PERF-003.md) | constrains | [R-FILE-005](requirements/file/R-FILE-005.md) |  |
 | [R-PERF-004](requirements/perf/R-PERF-004.md) | constrains | [R-PERF-001](requirements/perf/R-PERF-001.md) |  |
@@ -720,3 +845,8 @@ All links other than `refines`.
 | [R-READ-019](requirements/read/R-READ-019.md) | conflicts_with | [R-SEC-001](requirements/sec/R-SEC-001.md) | Layouts are kept in memory only, like the sheets. |
 | [R-SEC-001](requirements/sec/R-SEC-001.md) | depends_on | [R-FILE-007](requirements/file/R-FILE-007.md) |  |
 | [R-SEC-009](requirements/sec/R-SEC-009.md) | conflicts_with | [R-FILE-004](requirements/file/R-FILE-004.md) | The personalised copy is generated on delivery and never stored as a blob; the original stays immutable and content-addressed. |
+| [R-TECH-004](requirements/tech/R-TECH-004.md) | constrains | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
+| [R-TECH-005](requirements/tech/R-TECH-005.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
+| [R-TECH-007](requirements/tech/R-TECH-007.md) | depends_on | [R-TECH-004](requirements/tech/R-TECH-004.md) |  |
+| [R-TECH-007](requirements/tech/R-TECH-007.md) | depends_on | [R-TECH-005](requirements/tech/R-TECH-005.md) |  |
+| [R-TECH-007](requirements/tech/R-TECH-007.md) | depends_on | [R-TECH-006](requirements/tech/R-TECH-006.md) |  |

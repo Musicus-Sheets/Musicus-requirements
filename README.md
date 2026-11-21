@@ -37,7 +37,7 @@ they appear as features and requirements like everything else.
 | `ANN` | Annotations |
 | `SEC` | Security and privacy |
 | `PERF` | Performance and resource use |
-| `OPS` | Installation and operation |
+| `OPS` | Installation, operation, updates and platforms |
 | `OFF` | Offline app (future) |
 | `TECH` | Technology constraints |
 | `I18N` | Languages and localisation (UI language, formats, error texts) |

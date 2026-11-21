@@ -47,7 +47,7 @@ AREAS = {
     "ANN": "Annotations",
     "SEC": "Security and privacy",
     "PERF": "Performance and resources",
-    "OPS": "Installation and operation",
+    "OPS": "Installation, operation and updates",
     "OFF": "Offline app",
     "TECH": "Technology constraints",
     "I18N": "Languages and localisation",

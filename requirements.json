@@ -862,6 +862,11 @@
           {
             "source": "R-SEC-007"
           }
+        ],
+        "required_by": [
+          {
+            "source": "F-OPS-006"
+          }
         ]
       }
     },
@@ -897,6 +902,23 @@
           },
           {
             "source": "R-OPS-009"
+          },
+          {
+            "source": "R-OPS-019"
+          },
+          {
+            "source": "R-OPS-021"
+          },
+          {
+            "source": "R-OPS-022"
+          },
+          {
+            "source": "R-OPS-037"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "F-OPS-005"
           }
         ]
       }
@@ -948,6 +970,162 @@
         "refined_by": [
           {
             "source": "R-OPS-006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-005",
+      "level": 2,
+      "area": "OPS",
+      "title": "Updates and downgrades",
+      "priority": "must",
+      "status": "accepted",
+      "path": "features/F-OPS-005.md",
+      "statement": "A volunteer administrator updates Musicus by replacing the program or the container image. Every newer release can be installed over any older one without losing data, and for a limited time a newer installation can be taken back to an older release by starting that release again.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          },
+          {
+            "target": "G-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-010"
+          },
+          {
+            "source": "R-OPS-011"
+          },
+          {
+            "source": "R-OPS-012"
+          },
+          {
+            "source": "R-OPS-013"
+          },
+          {
+            "source": "R-OPS-014"
+          },
+          {
+            "source": "R-OPS-015"
+          },
+          {
+            "source": "R-OPS-016"
+          },
+          {
+            "source": "R-OPS-017"
+          },
+          {
+            "source": "R-OPS-018"
+          },
+          {
+            "source": "R-OPS-019"
+          },
+          {
+            "source": "R-OPS-020"
+          },
+          {
+            "source": "R-OPS-023"
+          },
+          {
+            "source": "R-OPS-024"
+          },
+          {
+            "source": "R-OPS-025"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-006",
+      "level": 2,
+      "area": "OPS",
+      "title": "Supported platforms",
+      "priority": "must",
+      "status": "accepted",
+      "path": "features/F-OPS-006.md",
+      "statement": "Musicus runs with Docker Compose (the preferred way) and as a plain program on Linux, Windows and macOS, including 64-bit Raspberry Pi computers.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-OPS-001"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-026"
+          },
+          {
+            "source": "R-OPS-027"
+          },
+          {
+            "source": "R-OPS-028"
+          },
+          {
+            "source": "R-OPS-029"
+          },
+          {
+            "source": "R-OPS-030"
+          },
+          {
+            "source": "R-OPS-031"
+          },
+          {
+            "source": "R-OPS-032"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-007",
+      "level": 2,
+      "area": "OPS",
+      "title": "Known version",
+      "priority": "must",
+      "status": "accepted",
+      "path": "features/F-OPS-007.md",
+      "statement": "Everyone can see which version of Musicus runs, and every document of a release names the version it describes.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-005"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-033"
+          },
+          {
+            "source": "R-OPS-034"
+          },
+          {
+            "source": "R-OPS-035"
+          },
+          {
+            "source": "R-OPS-036"
           }
         ]
       }
@@ -1371,6 +1549,39 @@
       }
     },
     {
+      "id": "F-TECH-002",
+      "level": 2,
+      "area": "TECH",
+      "title": "Prepared for replacing storage and engines",
+      "priority": "should",
+      "status": "accepted",
+      "path": "features/F-TECH-002.md",
+      "statement": "The database, the file store and the PDF engine of the server are each used through one owned module, so that any of them could later be replaced without changing the rest of the program. No second implementation is built now.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-008"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-TECH-004"
+          },
+          {
+            "source": "R-TECH-005"
+          },
+          {
+            "source": "R-TECH-006"
+          },
+          {
+            "source": "R-TECH-007"
+          }
+        ]
+      }
+    },
+    {
       "id": "G-001",
       "level": 1,
       "area": null,
@@ -1539,6 +1750,15 @@
             "source": "F-OPS-004"
           },
           {
+            "source": "F-OPS-005"
+          },
+          {
+            "source": "F-OPS-006"
+          },
+          {
+            "source": "F-OPS-007"
+          },
+          {
             "source": "F-PERF-001"
           }
         ]
@@ -1573,6 +1793,9 @@
           },
           {
             "source": "F-OPS-004"
+          },
+          {
+            "source": "F-OPS-005"
           },
           {
             "source": "F-SEC-001"
@@ -1618,6 +1841,9 @@
         "refined_by": [
           {
             "source": "F-TECH-001"
+          },
+          {
+            "source": "F-TECH-002"
           }
         ]
       }
@@ -2277,7 +2503,13 @@
       "incoming": {
         "constrained_by": [
           {
+            "source": "R-OPS-017"
+          },
+          {
             "source": "R-PERF-005"
+          },
+          {
+            "source": "R-TECH-004"
           }
         ],
         "required_by": [
@@ -3133,7 +3365,14 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "R-OPS-037",
+            "note": "Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again."
+          }
+        ]
+      }
     },
     {
       "id": "R-ANN-019",
@@ -3364,6 +3603,12 @@
           },
           {
             "source": "R-OFF-002"
+          },
+          {
+            "source": "R-OPS-019"
+          },
+          {
+            "source": "R-TECH-005"
           }
         ]
       }
@@ -3526,7 +3771,14 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "conflicts_with": [
+          {
+            "source": "R-OPS-019",
+            "note": "A future removal of unused files must treat files referenced by a kept snapshot as used."
+          }
+        ]
+      }
     },
     {
       "id": "R-FILE-010",
@@ -5295,7 +5547,18 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-030"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-OPS-026"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-002",
@@ -5344,7 +5607,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-010"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-004",
@@ -5371,9 +5640,17 @@
         ]
       },
       "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-011"
+          }
+        ],
         "required_by": [
           {
             "source": "R-LIB-012"
+          },
+          {
+            "source": "R-OPS-010"
           }
         ]
       }
@@ -5402,7 +5679,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-021"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-006",
@@ -5511,6 +5794,777 @@
         "refines": [
           {
             "target": "F-OPS-002"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-010",
+      "level": 3,
+      "area": "OPS",
+      "title": "Update by replacing the container image",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-010.md",
+      "statement": "When the administrator replaces the container image of a Docker Compose installation with a newer release (`docker compose pull` followed by `docker compose up -d`), the system shall start on the new release with all data and settings, without any further step.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-028"
+          },
+          {
+            "target": "R-OPS-004"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-003"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-025"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-011",
+      "level": 3,
+      "area": "OPS",
+      "title": "Upgrade from any older release",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-011.md",
+      "statement": "The system shall upgrade the data directory of any earlier release, from 1.0.0 on, directly to the current release at start, without requiring intermediate releases to be installed first.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-004"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-012",
+      "level": 3,
+      "area": "OPS",
+      "title": "No data loss on upgrade",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-012.md",
+      "statement": "When the system upgrades a data directory, it shall keep all data, except data that belongs to a feature the release notes explicitly name as removed.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-013",
+      "level": 3,
+      "area": "OPS",
+      "title": "Data of a removed feature comes back on downgrade",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-013.md",
+      "statement": "When a release removes a feature, the system shall keep that feature's stored data unchanged for as long as an older release that has the feature can still be started (R-OPS-014), so that it is available again after a downgrade to such a release.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-014"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-014",
+      "level": 3,
+      "area": "OPS",
+      "title": "Downgrade window",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-014.md",
+      "statement": "When an older release is started on a data directory last used by a newer release, the system shall start and keep the data if the older release is (a) of one of the three minor releases before the newer one, (b) the release the installation was upgraded from, within three months after that upgrade, or (c) of the same minor release as the newer one.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-018"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-017"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-OPS-013"
+          },
+          {
+            "source": "R-OPS-015"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-015",
+      "level": 3,
+      "area": "OPS",
+      "title": "Clear refusal outside the downgrade window",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-015.md",
+      "statement": "When a release is started on a data directory that it may not use (outside the downgrade window), the system shall not change the data directory, shall exit with an error, and shall name the oldest release that can be started on it.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-014"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-016",
+      "level": 3,
+      "area": "OPS",
+      "title": "Data created only in the newer release on downgrade",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-016.md",
+      "statement": "When an installation is taken back to an older release, data that only the newer release can represent shall be dropped, all other data shall stay, and after the next upgrade the newer release shall rebuild its own data from the data as the older release left it.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-017",
+      "level": 3,
+      "area": "OPS",
+      "title": "Going back never widens access",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-017.md",
+      "statement": "When an installation is taken back to an older release, no user shall be able to read a part, file, programme or annotation that the newer release denied them.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-ACL-001"
+          },
+          {
+            "target": "R-OPS-014"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-018",
+      "level": 3,
+      "area": "OPS",
+      "title": "Patch releases contain no database changes",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-018.md",
+      "statement": "A patch release (X.Y.Z with Z > 0) shall contain no database update.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-014"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-019",
+      "level": 3,
+      "area": "OPS",
+      "title": "Snapshot before database updates",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-019.md",
+      "statement": "Before the system applies a database update at start, it shall write a consistent copy of the database into the data directory and keep the three most recent of these copies.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          },
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-004"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-FILE-009",
+            "note": "A future removal of unused files must treat files referenced by a kept snapshot as used."
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-020"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-020",
+      "level": 3,
+      "area": "OPS",
+      "title": "Automatic restore after a failed update",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-020.md",
+      "statement": "When a database update fails at start, the system shall put back the snapshot taken before it, and stop with a message that says the update failed, that the data is unchanged and which release ran before.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-019"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-021",
+      "level": 3,
+      "area": "OPS",
+      "title": "Backup never changes the database",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-021.md",
+      "statement": "The backup command shall copy the database as it is and shall never apply database updates.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-005"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-022",
+      "level": 3,
+      "area": "OPS",
+      "title": "Restore command",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-022.md",
+      "statement": "The system shall provide a command that replaces the database of a stopped installation with a backup or snapshot and keeps the replaced database.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-023",
+      "level": 3,
+      "area": "OPS",
+      "title": "Preview database updates merged per release",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-023.md",
+      "statement": "The release process shall merge all database updates made during development (preview updates) into one database update per release, such that a development database that has applied all of them accepts the release update without running it again.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-024"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-024",
+      "level": 3,
+      "area": "OPS",
+      "title": "Release builds contain no preview updates",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-024.md",
+      "statement": "A release build shall refuse to start if it contains preview database updates.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-023"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-025",
+      "level": 3,
+      "area": "OPS",
+      "title": "No online check for new versions",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-025.md",
+      "statement": "The system shall never contact the internet to look for newer releases.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-010"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-026",
+      "level": 3,
+      "area": "OPS",
+      "title": "Plain program on Linux, Windows and macOS",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-026.md",
+      "statement": "The server shall run as a plain program, without Docker, on Linux, Windows and macOS.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-001"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-032"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-OPS-029"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-027",
+      "level": 3,
+      "area": "OPS",
+      "title": "Raspberry Pi",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-027.md",
+      "statement": "The system shall run on a Raspberry Pi 3, 4, 5 or newer with a 64-bit operating system, both with Docker Compose and as a plain program.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-028"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-032"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-028",
+      "level": 3,
+      "area": "OPS",
+      "title": "Container images for amd64 and arm64",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-028.md",
+      "statement": "Each release shall publish one container image for linux/amd64 and linux/arm64 under its version tag.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ]
+      },
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-032"
+          }
+        ],
+        "required_by": [
+          {
+            "source": "R-OPS-010"
+          },
+          {
+            "source": "R-OPS-027"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-029",
+      "level": 3,
+      "area": "OPS",
+      "title": "Program files for every supported system",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-029.md",
+      "statement": "Each release shall publish a ready-to-run program for every system and architecture of R-OPS-026, with checksums.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-026"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-030",
+      "level": 3,
+      "area": "OPS",
+      "title": "Web client inside the program",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-030.md",
+      "statement": "The plain program shall contain the web client, so that it runs without a separate web folder.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-001"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-031",
+      "level": 3,
+      "area": "OPS",
+      "title": "Usual data folder of the operating system",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-031.md",
+      "statement": "When no data directory is configured, the plain program shall use the usual folder for application data of the operating system.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-032",
+      "level": 3,
+      "area": "OPS",
+      "title": "Automated tests on every supported platform",
+      "priority": "should",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-032.md",
+      "statement": "The continuous integration shall build and test the server on every system and architecture of R-OPS-026 and build the container image for both architectures of R-OPS-028.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-026"
+          },
+          {
+            "target": "R-OPS-027"
+          },
+          {
+            "target": "R-OPS-028"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-033",
+      "level": 3,
+      "area": "OPS",
+      "title": "Version endpoint",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-033.md",
+      "statement": "The system shall answer `GET /api/version` without login with the version of the running release.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-007"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-034"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-034",
+      "level": 3,
+      "area": "OPS",
+      "title": "Version in the user interface",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-034.md",
+      "statement": "The web client shall show the version of the running release to every user, for example in an \"About\" view.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-007"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-033"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-035",
+      "level": 3,
+      "area": "OPS",
+      "title": "Version on the documentation",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-035.md",
+      "statement": "The user guide and the technical documentation of a release shall name that release's version on their title page, and the user guide site shall name it on every page.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-007"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-036",
+      "level": 3,
+      "area": "OPS",
+      "title": "Requirements tagged per release",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-036.md",
+      "statement": "For each release, the requirements repository shall have a git tag with the release version on the commit that the release pins.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-007"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-037",
+      "level": 3,
+      "area": "OPS",
+      "title": "Unencrypted backups and exports with guidance",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-037.md",
+      "statement": "Backups, snapshots and exports shall be written unencrypted, and the operating documentation shall state that they need the same protection as the data directory.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-002"
+          }
+        ],
+        "conflicts_with": [
+          {
+            "target": "R-ANN-018",
+            "note": "Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again."
           }
         ]
       },
@@ -7089,6 +8143,117 @@
         "decided_in": [
           {
             "target": "tech:d-shared-types"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-TECH-004",
+      "level": 3,
+      "area": "TECH",
+      "title": "Database access in storage modules",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/tech/R-TECH-004.md",
+      "statement": "All database access of the server shall go through storage modules, one per data area; request handlers shall contain no SQL.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-002"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-ACL-001"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-TECH-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-TECH-005",
+      "level": 3,
+      "area": "TECH",
+      "title": "File store interface",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/tech/R-TECH-005.md",
+      "statement": "The server shall read and write stored files only through the file store module, without using its file system paths elsewhere.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-FILE-004"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-TECH-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-TECH-006",
+      "level": 3,
+      "area": "TECH",
+      "title": "PDF engine behind one module",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/tech/R-TECH-006.md",
+      "statement": "The server shall use its PDF library only through one module that offers page count, thumbnail and page rendering.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-002"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-TECH-007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-TECH-007",
+      "level": 3,
+      "area": "TECH",
+      "title": "Conformance tests for replaceable parts",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/tech/R-TECH-007.md",
+      "statement": "The storage modules, the file store and the PDF engine shall each have a test suite that states the behaviour any replacement must keep.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-TECH-002"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-TECH-004"
+          },
+          {
+            "target": "R-TECH-005"
+          },
+          {
+            "target": "R-TECH-006"
           }
         ]
       },
