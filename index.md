@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 5 | 30 | 0 | 0 | 40 |
-| 3 Requirements | 28 | 32 | 34 | 84 | 0 | 178 |
+| 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
+| 3 Requirements | 28 | 39 | 34 | 84 | 0 | 185 |
 
 ## Goals and features
 
@@ -55,6 +55,7 @@ flowchart LR
   F_OPS_005["F-OPS-005<br/>Updates and downgrades"]
   F_OPS_006["F-OPS-006<br/>Supported platforms"]
   F_OPS_007["F-OPS-007<br/>Known version"]
+  F_OPS_008["F-OPS-008<br/>Open devices survive restarts and updates"]
   F_PERF_001["F-PERF-001<br/>Runs on small hardware"]
   F_PERF_002["F-PERF-002<br/>Everyone opens the same piece at once"]
   F_PROG_001["F-PROG-001<br/>Concert programmes"]
@@ -103,6 +104,8 @@ flowchart LR
   F_OPS_005 --> G_006
   F_OPS_006 --> G_005
   F_OPS_007 --> G_005
+  F_OPS_008 --> G_004
+  F_OPS_008 --> G_005
   F_PERF_001 --> G_005
   F_PERF_002 --> G_004
   F_PROG_001 --> G_004
@@ -123,6 +126,7 @@ flowchart LR
   F_OFF_001 -. conflicts_with .-> F_SEC_001
   F_OPS_005 -. depends_on .-> F_OPS_002
   F_OPS_006 -. depends_on .-> F_OPS_001
+  F_OPS_008 -. depends_on .-> F_OPS_005
   F_PERF_001 -. constrains .-> F_FILE_002
   F_PERF_001 -. constrains .-> F_ACC_001
   F_PERF_001 -. constrains .-> F_OPS_001
@@ -271,6 +275,13 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-FILE-005](requirements/file/R-FILE-005.md) Access check on every download `verified`
   - [R-FILE-006](requirements/file/R-FILE-006.md) Conditional and partial downloads `verified`
   - [R-FILE-007](requirements/file/R-FILE-007.md) Configurable client caching `verified`
+- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `accepted`
+  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `accepted`
+  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `accepted`
+  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `accepted`
+  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `accepted`
+  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved markings survive a server outage `accepted`
+  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `accepted`
 - [F-PERF-002](features/F-PERF-002.md) Everyone opens the same piece at once `implemented`
   - [R-FILE-010](requirements/file/R-FILE-010.md) Smaller scanned sheets `proposed`
   - [R-PERF-003](requirements/perf/R-PERF-003.md) Burst of downloads `implemented`
@@ -358,11 +369,19 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `proposed`
   - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `proposed`
   - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `proposed`
+  - [R-OPS-042](requirements/ops/R-OPS-042.md) Plain program on macOS with Intel processors `accepted`
 - [F-OPS-007](features/F-OPS-007.md) Known version `accepted`
   - [R-OPS-033](requirements/ops/R-OPS-033.md) Version endpoint `accepted`
   - [R-OPS-034](requirements/ops/R-OPS-034.md) Version in the user interface `accepted`
   - [R-OPS-035](requirements/ops/R-OPS-035.md) Version on the documentation `accepted`
   - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements tagged per release `accepted`
+- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `accepted`
+  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `accepted`
+  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `accepted`
+  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `accepted`
+  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `accepted`
+  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved markings survive a server outage `accepted`
+  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `accepted`
 - [F-PERF-001](features/F-PERF-001.md) Runs on small hardware `implemented`
   - [R-PERF-001](requirements/perf/R-PERF-001.md) Memory use `implemented`
   - [R-PERF-002](requirements/perf/R-PERF-002.md) Bounded password hashing `implemented`
@@ -671,6 +690,13 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | accepted | F-OPS-005 |
 | [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | Patch releases write no new kinds of stored values | must | accepted | F-OPS-005 |
+| [R-OPS-042](requirements/ops/R-OPS-042.md) | Plain program on macOS with Intel processors | should | accepted | F-OPS-006 |
+| [R-OPS-043](requirements/ops/R-OPS-043.md) | Orderly shutdown with a shutting-down answer | must | accepted | F-OPS-008 |
+| [R-OPS-044](requirements/ops/R-OPS-044.md) | Client notices for a stopping or unreachable server | must | accepted | F-OPS-008 |
+| [R-OPS-045](requirements/ops/R-OPS-045.md) | Reachable while starting | must | accepted | F-OPS-008 |
+| [R-OPS-046](requirements/ops/R-OPS-046.md) | Client notice while the server starts | must | accepted | F-OPS-008 |
+| [R-OPS-047](requirements/ops/R-OPS-047.md) | Unsaved markings survive a server outage | must | accepted | F-OPS-008 |
+| [R-OPS-048](requirements/ops/R-OPS-048.md) | Switch to a new version at a safe moment | must | accepted | F-OPS-008 |
 
 ### OFF – Offline app
 
@@ -721,6 +747,7 @@ All links other than `refines`.
 | [F-OFF-001](features/F-OFF-001.md) | conflicts_with | [F-SEC-001](features/F-SEC-001.md) | F-SEC-001 applies to the web client. The app stores data only encrypted, with a key in the OS keystore and a time-limited offline lease. |
 | [F-OPS-005](features/F-OPS-005.md) | depends_on | [F-OPS-002](features/F-OPS-002.md) |  |
 | [F-OPS-006](features/F-OPS-006.md) | depends_on | [F-OPS-001](features/F-OPS-001.md) |  |
+| [F-OPS-008](features/F-OPS-008.md) | depends_on | [F-OPS-005](features/F-OPS-005.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-FILE-002](features/F-FILE-002.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-ACC-001](features/F-ACC-001.md) |  |
 | [F-PERF-001](features/F-PERF-001.md) | constrains | [F-OPS-001](features/F-OPS-001.md) |  |
@@ -809,8 +836,8 @@ All links other than `refines`.
 | [R-OPS-013](requirements/ops/R-OPS-013.md) | depends_on | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
 | [R-OPS-014](requirements/ops/R-OPS-014.md) | depends_on | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
 | [R-OPS-015](requirements/ops/R-OPS-015.md) | depends_on | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
+| [R-OPS-017](requirements/ops/R-OPS-017.md) | depends_on | [R-OPS-016](requirements/ops/R-OPS-016.md) |  |
 | [R-OPS-017](requirements/ops/R-OPS-017.md) | constrains | [R-ACL-001](requirements/acl/R-ACL-001.md) |  |
-| [R-OPS-017](requirements/ops/R-OPS-017.md) | constrains | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
 | [R-OPS-019](requirements/ops/R-OPS-019.md) | depends_on | [R-FILE-004](requirements/file/R-FILE-004.md) |  |
 | [R-OPS-019](requirements/ops/R-OPS-019.md) | conflicts_with | [R-FILE-009](requirements/file/R-FILE-009.md) | A future removal of unused files must treat files referenced by a kept snapshot as used. |
 | [R-OPS-020](requirements/ops/R-OPS-020.md) | depends_on | [R-OPS-019](requirements/ops/R-OPS-019.md) |  |
@@ -837,6 +864,16 @@ All links other than `refines`.
 | [R-OPS-040](requirements/ops/R-OPS-040.md) | constrains | [R-OPS-024](requirements/ops/R-OPS-024.md) |  |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | depends_on | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | constrains | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
+| [R-OPS-042](requirements/ops/R-OPS-042.md) | depends_on | [R-OPS-026](requirements/ops/R-OPS-026.md) |  |
+| [R-OPS-043](requirements/ops/R-OPS-043.md) | constrains | [R-OPS-008](requirements/ops/R-OPS-008.md) |  |
+| [R-OPS-044](requirements/ops/R-OPS-044.md) | depends_on | [R-OPS-043](requirements/ops/R-OPS-043.md) |  |
+| [R-OPS-045](requirements/ops/R-OPS-045.md) | depends_on | [R-OPS-019](requirements/ops/R-OPS-019.md) |  |
+| [R-OPS-045](requirements/ops/R-OPS-045.md) | constrains | [R-OPS-007](requirements/ops/R-OPS-007.md) |  |
+| [R-OPS-046](requirements/ops/R-OPS-046.md) | depends_on | [R-OPS-045](requirements/ops/R-OPS-045.md) |  |
+| [R-OPS-047](requirements/ops/R-OPS-047.md) | depends_on | [R-ANN-011](requirements/ann/R-ANN-011.md) |  |
+| [R-OPS-047](requirements/ops/R-OPS-047.md) | constrains | [R-SEC-001](requirements/sec/R-SEC-001.md) |  |
+| [R-OPS-048](requirements/ops/R-OPS-048.md) | depends_on | [R-OPS-033](requirements/ops/R-OPS-033.md) |  |
+| [R-OPS-048](requirements/ops/R-OPS-048.md) | depends_on | [R-OPS-047](requirements/ops/R-OPS-047.md) |  |
 | [R-PERF-002](requirements/perf/R-PERF-002.md) | constrains | [R-ACC-004](requirements/acc/R-ACC-004.md) |  |
 | [R-PERF-003](requirements/perf/R-PERF-003.md) | constrains | [R-FILE-005](requirements/file/R-FILE-005.md) |  |
 | [R-PERF-004](requirements/perf/R-PERF-004.md) | constrains | [R-PERF-001](requirements/perf/R-PERF-001.md) |  |

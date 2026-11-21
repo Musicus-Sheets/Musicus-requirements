@@ -1059,6 +1059,11 @@
           {
             "source": "R-OPS-041"
           }
+        ],
+        "required_by": [
+          {
+            "source": "F-OPS-008"
+          }
         ]
       }
     },
@@ -1105,6 +1110,9 @@
           },
           {
             "source": "R-OPS-032"
+          },
+          {
+            "source": "R-OPS-042"
           }
         ]
       }
@@ -1138,6 +1146,53 @@
           },
           {
             "source": "R-OPS-036"
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-OPS-008",
+      "level": 2,
+      "area": "OPS",
+      "title": "Open devices survive restarts and updates",
+      "priority": "must",
+      "status": "accepted",
+      "path": "features/F-OPS-008.md",
+      "statement": "When the server stops, is unreachable, starts or comes back with a new version, the tablets and computers that have Musicus open tell their users what is happening in plain words, keep showing what is already loaded, keep unsaved markings in memory and save them as soon as the server is back, and switch to a new version only at a moment when nobody is reading or drawing.",
+      "links": {
+        "refines": [
+          {
+            "target": "G-004"
+          },
+          {
+            "target": "G-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "F-OPS-005"
+          }
+        ]
+      },
+      "incoming": {
+        "refined_by": [
+          {
+            "source": "R-OPS-043"
+          },
+          {
+            "source": "R-OPS-044"
+          },
+          {
+            "source": "R-OPS-045"
+          },
+          {
+            "source": "R-OPS-046"
+          },
+          {
+            "source": "R-OPS-047"
+          },
+          {
+            "source": "R-OPS-048"
           }
         ]
       }
@@ -1717,6 +1772,9 @@
             "source": "F-FILE-002"
           },
           {
+            "source": "F-OPS-008"
+          },
+          {
             "source": "F-PERF-002"
           },
           {
@@ -1769,6 +1827,9 @@
           },
           {
             "source": "F-OPS-007"
+          },
+          {
+            "source": "F-OPS-008"
           },
           {
             "source": "F-PERF-001"
@@ -3132,7 +3193,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-047"
+          }
+        ]
+      }
     },
     {
       "id": "R-ANN-012",
@@ -5768,7 +5835,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-045"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-008",
@@ -5791,7 +5864,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-043"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-009",
@@ -5961,9 +6040,6 @@
       "incoming": {
         "constrained_by": [
           {
-            "source": "R-OPS-017"
-          },
-          {
             "source": "R-OPS-041"
           }
         ],
@@ -6026,7 +6102,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-017"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-017",
@@ -6036,19 +6118,21 @@
       "priority": "must",
       "status": "accepted",
       "path": "requirements/ops/R-OPS-017.md",
-      "statement": "When an installation is taken back to an older release, no user shall be able to read a part, file, programme or annotation that the newer release denied them.",
+      "statement": "When an installation is taken back to an older release, no user shall be able to read a part, file, programme or annotation that the newer release denied them; anything an older release cannot fully understand shall be invisible to it.",
       "links": {
         "refines": [
           {
             "target": "F-OPS-005"
           }
         ],
+        "depends_on": [
+          {
+            "target": "R-OPS-016"
+          }
+        ],
         "constrains": [
           {
             "target": "R-ACL-001"
-          },
-          {
-            "target": "R-OPS-014"
           }
         ],
         "decided_in": [
@@ -6141,6 +6225,9 @@
         "required_by": [
           {
             "source": "R-OPS-020"
+          },
+          {
+            "source": "R-OPS-045"
           }
         ]
       }
@@ -6352,6 +6439,9 @@
         "required_by": [
           {
             "source": "R-OPS-029"
+          },
+          {
+            "source": "R-OPS-042"
           }
         ]
       }
@@ -6530,6 +6620,9 @@
         "required_by": [
           {
             "source": "R-OPS-034"
+          },
+          {
+            "source": "R-OPS-048"
           }
         ]
       }
@@ -6754,6 +6847,208 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-042",
+      "level": 3,
+      "area": "OPS",
+      "title": "Plain program on macOS with Intel processors",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-042.md",
+      "statement": "The server should run as a plain program on macOS on Intel (x86_64) computers.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-006"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-026"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-043",
+      "level": 3,
+      "area": "OPS",
+      "title": "Orderly shutdown with a shutting-down answer",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-043.md",
+      "statement": "When the server receives the stop signal, it shall accept no further changes and answer every request that needs it with a dedicated \"shutting down\" status, finish the writes already in progress, close the database cleanly and then exit.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-008"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-044"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-044",
+      "level": 3,
+      "area": "OPS",
+      "title": "Client notices for a stopping or unreachable server",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-044.md",
+      "statement": "When the server answers \"shutting down\" or cannot be reached, the web client shall show a banner (\"Server is shutting down\" or \"Server not reachable\"), keep everything already loaded readable, and block only the actions that need the server.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-043"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-045",
+      "level": 3,
+      "area": "OPS",
+      "title": "Reachable while starting",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-045.md",
+      "statement": "When the server starts, it shall listen at once and answer every request with a dedicated \"starting\" status until the snapshot, the database updates and the start-up checks are done.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-019"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-007"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-046"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-046",
+      "level": 3,
+      "area": "OPS",
+      "title": "Client notice while the server starts",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-046.md",
+      "statement": "When the server answers \"starting\", the web client shall show the banner \"Server is starting\" and remove it by itself as soon as the server is ready, by polling a status endpoint.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-045"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-047",
+      "level": 3,
+      "area": "OPS",
+      "title": "Unsaved markings survive a server outage",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-047.md",
+      "statement": "While the server is shutting down, starting or unreachable, the web client shall keep markings drawn in that time in the memory of the open tab and save them automatically when the server is back, without storing them on the device.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-ANN-011"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-SEC-001"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-048"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-048",
+      "level": 3,
+      "area": "OPS",
+      "title": "Switch to a new version at a safe moment",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-048.md",
+      "statement": "When the server comes back with another version than the open web client, the client shall show \"Musicus has been updated\", save anything pending and then reload automatically, but never while the user is reading or drawing.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-008"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-033"
+          },
+          {
+            "target": "R-OPS-047"
           }
         ]
       },
@@ -7975,6 +8270,11 @@
           {
             "source": "R-READ-019",
             "note": "Layouts are kept in memory only, like the sheets."
+          }
+        ],
+        "constrained_by": [
+          {
+            "source": "R-OPS-047"
           }
         ],
         "required_by": [
