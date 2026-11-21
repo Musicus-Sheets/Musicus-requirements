@@ -3,7 +3,7 @@ id: R-OPS-030
 level: 3
 title: Web client inside the program
 priority: should
-status: proposed
+status: accepted
 links:
   refines: [F-OPS-006]
   constrains: [R-OPS-001]
@@ -22,4 +22,4 @@ The plain program shall contain the web client, so that it runs without a separa
 
 ## Notes
 
-Proposed to make the plain program one file on every system; today `--web-dir` must point to a separate folder.
+User decision: the plain program is a single file on every system. Today `--web-dir` must point to a separate folder. The container image may keep serving the client from the embedded copy too.

@@ -6513,9 +6513,9 @@
       "area": "OPS",
       "title": "Program files for every supported system",
       "priority": "should",
-      "status": "proposed",
+      "status": "accepted",
       "path": "requirements/ops/R-OPS-029.md",
-      "statement": "Each release shall publish a ready-to-run program for every system and architecture of R-OPS-026, with checksums.",
+      "statement": "Each published release shall offer a ready-to-run program archive, built by the continuous integration, for every system and architecture of R-OPS-026 and R-OPS-042, together with a `SHA256SUMS` file.",
       "links": {
         "refines": [
           {
@@ -6525,6 +6525,9 @@
         "depends_on": [
           {
             "target": "R-OPS-026"
+          },
+          {
+            "target": "R-OPS-030"
           }
         ]
       },
@@ -6536,7 +6539,7 @@
       "area": "OPS",
       "title": "Web client inside the program",
       "priority": "should",
-      "status": "proposed",
+      "status": "accepted",
       "path": "requirements/ops/R-OPS-030.md",
       "statement": "The plain program shall contain the web client, so that it runs without a separate web folder.",
       "links": {
@@ -6551,15 +6554,21 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-029"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-031",
       "level": 3,
       "area": "OPS",
       "title": "Usual data folder of the operating system",
-      "priority": "could",
-      "status": "proposed",
+      "priority": "should",
+      "status": "accepted",
       "path": "requirements/ops/R-OPS-031.md",
       "statement": "When no data directory is configured, the plain program shall use the usual folder for application data of the operating system.",
       "links": {
@@ -6577,9 +6586,9 @@
       "area": "OPS",
       "title": "Automated tests on every supported platform",
       "priority": "should",
-      "status": "proposed",
+      "status": "accepted",
       "path": "requirements/ops/R-OPS-032.md",
-      "statement": "The continuous integration shall build and test the server on every system and architecture of R-OPS-026 and build the container image for both architectures of R-OPS-028.",
+      "statement": "The continuous integration shall run the platform-dependent checks (the Rust tests, building the program and a short start test of the built program) on every system and architecture of R-OPS-026 and R-OPS-042, and run the checks that are the same on every platform on Linux only.",
       "links": {
         "refines": [
           {

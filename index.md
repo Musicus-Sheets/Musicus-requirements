@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 28 | 39 | 34 | 84 | 0 | 185 |
+| 3 Requirements | 24 | 43 | 34 | 84 | 0 | 185 |
 
 ## Goals and features
 
@@ -365,10 +365,10 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-026](requirements/ops/R-OPS-026.md) Plain program on Linux, Windows and macOS `accepted`
   - [R-OPS-027](requirements/ops/R-OPS-027.md) Raspberry Pi `accepted`
   - [R-OPS-028](requirements/ops/R-OPS-028.md) Container images for amd64 and arm64 `accepted`
-  - [R-OPS-029](requirements/ops/R-OPS-029.md) Program files for every supported system `proposed`
-  - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `proposed`
-  - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `proposed`
-  - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `proposed`
+  - [R-OPS-029](requirements/ops/R-OPS-029.md) Program files for every supported system `accepted`
+  - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `accepted`
+  - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `accepted`
+  - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `accepted`
   - [R-OPS-042](requirements/ops/R-OPS-042.md) Plain program on macOS with Intel processors `accepted`
 - [F-OPS-007](features/F-OPS-007.md) Known version `accepted`
   - [R-OPS-033](requirements/ops/R-OPS-033.md) Version endpoint `accepted`
@@ -677,10 +677,10 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-026](requirements/ops/R-OPS-026.md) | Plain program on Linux, Windows and macOS | must | accepted | F-OPS-006 |
 | [R-OPS-027](requirements/ops/R-OPS-027.md) | Raspberry Pi | must | accepted | F-OPS-006 |
 | [R-OPS-028](requirements/ops/R-OPS-028.md) | Container images for amd64 and arm64 | must | accepted | F-OPS-006 |
-| [R-OPS-029](requirements/ops/R-OPS-029.md) | Program files for every supported system | should | proposed | F-OPS-006 |
-| [R-OPS-030](requirements/ops/R-OPS-030.md) | Web client inside the program | should | proposed | F-OPS-006 |
-| [R-OPS-031](requirements/ops/R-OPS-031.md) | Usual data folder of the operating system | could | proposed | F-OPS-006 |
-| [R-OPS-032](requirements/ops/R-OPS-032.md) | Automated tests on every supported platform | should | proposed | F-OPS-006 |
+| [R-OPS-029](requirements/ops/R-OPS-029.md) | Program files for every supported system | should | accepted | F-OPS-006 |
+| [R-OPS-030](requirements/ops/R-OPS-030.md) | Web client inside the program | should | accepted | F-OPS-006 |
+| [R-OPS-031](requirements/ops/R-OPS-031.md) | Usual data folder of the operating system | should | accepted | F-OPS-006 |
+| [R-OPS-032](requirements/ops/R-OPS-032.md) | Automated tests on every supported platform | should | accepted | F-OPS-006 |
 | [R-OPS-033](requirements/ops/R-OPS-033.md) | Version endpoint | must | accepted | F-OPS-007 |
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | Version in the user interface | must | accepted | F-OPS-007 |
 | [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | accepted | F-OPS-007 |
@@ -847,6 +847,7 @@ All links other than `refines`.
 | [R-OPS-026](requirements/ops/R-OPS-026.md) | depends_on | [R-OPS-001](requirements/ops/R-OPS-001.md) |  |
 | [R-OPS-027](requirements/ops/R-OPS-027.md) | depends_on | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
 | [R-OPS-029](requirements/ops/R-OPS-029.md) | depends_on | [R-OPS-026](requirements/ops/R-OPS-026.md) |  |
+| [R-OPS-029](requirements/ops/R-OPS-029.md) | depends_on | [R-OPS-030](requirements/ops/R-OPS-030.md) |  |
 | [R-OPS-030](requirements/ops/R-OPS-030.md) | constrains | [R-OPS-001](requirements/ops/R-OPS-001.md) |  |
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-026](requirements/ops/R-OPS-026.md) |  |
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-027](requirements/ops/R-OPS-027.md) |  |
