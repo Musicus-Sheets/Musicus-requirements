@@ -3552,7 +3552,7 @@
       "area": "I18N",
       "title": "User interface in the browser's language",
       "priority": "should",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-001.md",
       "statement": "The web client shall show its user interface in the first language of the browser's preferred languages (`navigator.languages`) that Musicus ships, compared by language subtag (\"de-AT\" selects German), and shall set `lang` of the HTML document to that language. Musicus shall offer no language setting and shall store nothing about the language, neither on the server nor on the device.",
       "links": {
@@ -3564,11 +3564,17 @@
         "implemented_by": [
           {
             "target": "crates/musicus-web/src/locale.rs"
+          },
+          {
+            "target": "crates/musicus-i18n/locales/de"
           }
         ],
         "verified_by": [
           {
             "target": "crates/musicus-i18n/src/lib.rs::negotiation_takes_the_first_shipped_language"
+          },
+          {
+            "target": "e2e/german.mjs"
           }
         ],
         "depends_on": [
@@ -3600,7 +3606,7 @@
       "area": "I18N",
       "title": "English when no browser language is shipped",
       "priority": "should",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-002.md",
       "statement": "When none of the browser's preferred languages is shipped, the web client shall show its user interface in English.",
       "links": {
@@ -3617,6 +3623,9 @@
         "verified_by": [
           {
             "target": "crates/musicus-i18n/src/lib.rs::negotiation_takes_the_first_shipped_language"
+          },
+          {
+            "target": "e2e/german.mjs"
           }
         ],
         "depends_on": [
@@ -3633,7 +3642,7 @@
       "area": "I18N",
       "title": "English fallback per message",
       "priority": "should",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-003.md",
       "statement": "When a message is missing in the chosen language, the web client shall show the English message in its place; it shall never show a message key or an empty text.",
       "links": {
@@ -3650,6 +3659,9 @@
         "verified_by": [
           {
             "target": "crates/musicus-i18n/src/lib.rs::missing_messages_fall_back_to_english_per_message"
+          },
+          {
+            "target": "crates/musicus-i18n/tests/catalogue.rs::complete_languages_have_every_english_message"
           }
         ],
         "decided_in": [
@@ -3740,7 +3752,7 @@
       "area": "I18N",
       "title": "Dates, times and numbers in the UI language",
       "priority": "should",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/i18n/R-I18N-005.md",
       "statement": "The web client shall format dates, times, file sizes and other numbers by the conventions of the user interface language (through the browser's `Intl` API), and shall choose plural forms by that language's rules.",
       "links": {
@@ -3757,6 +3769,12 @@
         "verified_by": [
           {
             "target": "crates/musicus-i18n/src/lib.rs::english_messages_and_plurals"
+          },
+          {
+            "target": "crates/musicus-i18n/src/lib.rs::german_plurals_and_selectors"
+          },
+          {
+            "target": "e2e/german.mjs"
           }
         ],
         "decided_in": [
@@ -3809,6 +3827,12 @@
             "target": "crates/musicus-i18n/src/lib.rs::english_part_names_and_search_tables"
           },
           {
+            "target": "crates/musicus-i18n/src/lib.rs::german_part_names_and_key_names"
+          },
+          {
+            "target": "e2e/german.mjs"
+          },
+          {
             "target": "crates/musicus-server/tests/api.rs::migration_0009_unnames_default_sets_and_keeps_their_pages"
           },
           {
@@ -3850,6 +3874,9 @@
           },
           {
             "target": "crates/musicus-i18n/build.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/0010_german_key_spellings.sql"
           }
         ],
         "verified_by": [
@@ -3861,6 +3888,12 @@
           },
           {
             "target": "crates/musicus-server/tests/api.rs::part_names_keys_and_part_search"
+          },
+          {
+            "target": "crates/musicus-server/src/part_index.rs::indexed_key_spellings_are_current"
+          },
+          {
+            "target": "e2e/german.mjs"
           }
         ],
         "depends_on": [
@@ -3900,6 +3933,9 @@
         "verified_by": [
           {
             "target": "e2e/pseudo.mjs"
+          },
+          {
+            "target": "e2e/german.mjs"
           }
         ],
         "decided_in": [

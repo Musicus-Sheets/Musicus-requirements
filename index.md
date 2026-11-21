@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 1 | 30 | 0 | 0 | 36 |
-| 3 Requirements | 24 | 0 | 38 | 80 | 0 | 142 |
+| 3 Requirements | 24 | 0 | 34 | 84 | 0 | 142 |
 
 ## Goals and features
 
@@ -145,11 +145,11 @@ The ensemble keeps its sheet music in one digital library that librarians mainta
   - [R-FILE-003](requirements/file/R-FILE-003.md) Page count and thumbnail `verified`
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
 - [F-I18N-001](features/F-I18N-001.md) Musicus in the user's language `accepted`
-  - [R-I18N-001](requirements/i18n/R-I18N-001.md) User interface in the browser's language `implemented`
-  - [R-I18N-002](requirements/i18n/R-I18N-002.md) English when no browser language is shipped `implemented`
-  - [R-I18N-003](requirements/i18n/R-I18N-003.md) English fallback per message `implemented`
+  - [R-I18N-001](requirements/i18n/R-I18N-001.md) User interface in the browser's language `verified`
+  - [R-I18N-002](requirements/i18n/R-I18N-002.md) English when no browser language is shipped `verified`
+  - [R-I18N-003](requirements/i18n/R-I18N-003.md) English fallback per message `verified`
   - [R-I18N-004](requirements/i18n/R-I18N-004.md) Errors as codes, no text from the server `verified`
-  - [R-I18N-005](requirements/i18n/R-I18N-005.md) Dates, times and numbers in the UI language `implemented`
+  - [R-I18N-005](requirements/i18n/R-I18N-005.md) Dates, times and numbers in the UI language `verified`
   - [R-I18N-006](requirements/i18n/R-I18N-006.md) Data as entered; derived names composed in the browser `verified`
   - [R-I18N-007](requirements/i18n/R-I18N-007.md) Parts found by components and every key spelling `verified`
   - [R-I18N-008](requirements/i18n/R-I18N-008.md) Lists sorted by the rules of the UI language `verified`
@@ -585,11 +585,11 @@ The system is built with a small, consistent technology stack that a small team 
 
 | ID | Title | Priority | Status | Refines |
 | --- | --- | --- | --- | --- |
-| [R-I18N-001](requirements/i18n/R-I18N-001.md) | User interface in the browser's language | should | implemented | F-I18N-001 |
-| [R-I18N-002](requirements/i18n/R-I18N-002.md) | English when no browser language is shipped | should | implemented | F-I18N-001 |
-| [R-I18N-003](requirements/i18n/R-I18N-003.md) | English fallback per message | should | implemented | F-I18N-001 |
+| [R-I18N-001](requirements/i18n/R-I18N-001.md) | User interface in the browser's language | should | verified | F-I18N-001 |
+| [R-I18N-002](requirements/i18n/R-I18N-002.md) | English when no browser language is shipped | should | verified | F-I18N-001 |
+| [R-I18N-003](requirements/i18n/R-I18N-003.md) | English fallback per message | should | verified | F-I18N-001 |
 | [R-I18N-004](requirements/i18n/R-I18N-004.md) | Errors as codes, no text from the server | should | verified | F-I18N-001 |
-| [R-I18N-005](requirements/i18n/R-I18N-005.md) | Dates, times and numbers in the UI language | should | implemented | F-I18N-001 |
+| [R-I18N-005](requirements/i18n/R-I18N-005.md) | Dates, times and numbers in the UI language | should | verified | F-I18N-001 |
 | [R-I18N-006](requirements/i18n/R-I18N-006.md) | Data as entered; derived names composed in the browser | should | verified | F-I18N-001 |
 | [R-I18N-007](requirements/i18n/R-I18N-007.md) | Parts found by components and every key spelling | should | verified | F-I18N-001 |
 | [R-I18N-008](requirements/i18n/R-I18N-008.md) | Lists sorted by the rules of the UI language | should | verified | F-I18N-001 |
