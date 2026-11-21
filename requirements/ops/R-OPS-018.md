@@ -22,4 +22,4 @@ A patch release (X.Y.Z with Z > 0) shall contain no database update.
 
 ## Notes
 
-Old minors get no new patches; fixes go into the next release (user decision). This is what makes R-OPS-014 (c) hold without any mechanism.
+Old minors get no new patches; fixes go into the next release (user decision). This is what makes R-OPS-014 (c) hold without any mechanism. Checked by the release check (R-OPS-040); new kinds of stored values without a structure change are covered by R-OPS-041.
