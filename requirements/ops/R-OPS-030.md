@@ -2,7 +2,7 @@
 id: R-OPS-030
 level: 3
 title: Web client inside the program
-priority: should
+priority: must
 status: accepted
 links:
   refines: [F-OPS-006]
