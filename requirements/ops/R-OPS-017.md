@@ -6,7 +6,8 @@ priority: must
 status: accepted
 links:
   refines: [F-OPS-005]
-  constrains: [R-ACL-001, R-OPS-014]
+  depends_on: [R-OPS-016]
+  constrains: [R-ACL-001]
   decided_in: [tech:d-update-model]
 ---
 
@@ -14,13 +15,16 @@ links:
 
 ## Statement
 
-When an installation is taken back to an older release, no user shall be able to read a part, file, programme or annotation that the newer release denied them.
+When an installation is taken back to an older release, no user shall be able to read a part, file, programme or annotation that the newer release denied them; anything an older release cannot fully understand shall be invisible to it.
 
 ## Acceptance criteria
 
-- Test for every release that adds a restriction of access (for example grant expiry, R-ACL-006): a user denied by the restriction in release N is also denied after the downgrade to every release that may start.
-- Each such change is classified as a removal in the release's database update (see the plan) and named in the release notes.
+- Test for every release that adds a restriction of access (for example a grant with an expiry date, R-ACL-006): after the downgrade to every release inside the window, the restricted item gives no access at all (less access than in the newer release, never more).
+- The restricted item is stored outside the structures the older release reads (for example the grant leaves the old grant table and lives in a new table with its expiry); the older release never sees it.
+- After the next upgrade the item does not come back (R-OPS-016); librarians grant it again by hand.
+- The downgrade window (R-OPS-014) is not shortened by the restriction.
+- The release notes of a release that introduces a restriction say that a downgrade removes the restricted items and that they must be granted again.
 
 ## Notes
 
-An older release does not know a newer restriction and would ignore it. The newer release therefore either mirrors the restriction into the data the older release reads (for example removes an expired grant from the old grant table), or, where that is impossible, raises the oldest release allowed to start as soon as the restriction is used, which shortens the downgrade window (R-OPS-014). Interpretation of the user's rule "changes that restrict access always count as removals"; to confirm.
+Fail closed: an older release ignores what it does not know, so a restriction it cannot read must take the restricted item away from it rather than leave it with its old, wider meaning. This replaces the earlier rule that a restriction could raise the oldest release allowed to start (user decision).

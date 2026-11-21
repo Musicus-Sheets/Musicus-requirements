@@ -21,4 +21,4 @@ Each release shall publish one container image for linux/amd64 and linux/arm64 u
 
 ## Notes
 
-Docker Desktop on Windows and macOS uses the same Linux images. Today images are built locally for the host only. Registry (for example GitHub Container Registry) to be decided at implementation.
+Docker Desktop on Windows and macOS uses the same Linux images. Today images are built locally for the host only. Open: registry and image name are decided when the release workflow is built (Docker Hub and/or GitHub Container Registry likely).

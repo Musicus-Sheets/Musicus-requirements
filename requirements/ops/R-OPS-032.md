@@ -17,7 +17,7 @@ The continuous integration shall build and test the server on every system and a
 
 ## Acceptance criteria
 
-- `cargo test` of the server runs in CI on Linux x86_64, Linux arm64, Windows and macOS for every pull request.
+- `cargo test` of the server runs in CI on Linux x86_64, Linux arm64, Windows x86_64 and macOS arm64 for every pull request; macOS x86_64 is built and smoke-tested as in R-OPS-042.
 - The image build for linux/amd64 and linux/arm64 runs at least for every release.
 
 ## Notes
