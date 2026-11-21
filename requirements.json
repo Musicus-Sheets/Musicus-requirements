@@ -1046,6 +1046,18 @@
           },
           {
             "source": "R-OPS-025"
+          },
+          {
+            "source": "R-OPS-038"
+          },
+          {
+            "source": "R-OPS-039"
+          },
+          {
+            "source": "R-OPS-040"
+          },
+          {
+            "source": "R-OPS-041"
           }
         ]
       }
@@ -5950,6 +5962,9 @@
         "constrained_by": [
           {
             "source": "R-OPS-017"
+          },
+          {
+            "source": "R-OPS-041"
           }
         ],
         "required_by": [
@@ -6066,9 +6081,23 @@
         ]
       },
       "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-038"
+          },
+          {
+            "source": "R-OPS-039"
+          },
+          {
+            "source": "R-OPS-040"
+          }
+        ],
         "required_by": [
           {
             "source": "R-OPS-014"
+          },
+          {
+            "source": "R-OPS-041"
           }
         ]
       }
@@ -6220,6 +6249,15 @@
         "required_by": [
           {
             "source": "R-OPS-024"
+          },
+          {
+            "source": "R-OPS-038"
+          },
+          {
+            "source": "R-OPS-039"
+          },
+          {
+            "source": "R-OPS-040"
           }
         ]
       }
@@ -6250,7 +6288,16 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "constrained_by": [
+          {
+            "source": "R-OPS-038"
+          },
+          {
+            "source": "R-OPS-040"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-025",
@@ -6565,6 +6612,148 @@
           {
             "target": "R-ANN-018",
             "note": "Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again."
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-038",
+      "level": 3,
+      "area": "OPS",
+      "title": "Database check in pull requests",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-038.md",
+      "statement": "The continuous integration shall fail a pull request that changes the database other than through a new preview database update.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-023"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-018"
+          },
+          {
+            "target": "R-OPS-024"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-040"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R-OPS-039",
+      "level": 3,
+      "area": "OPS",
+      "title": "Notice for pull requests that change the database",
+      "priority": "should",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-039.md",
+      "statement": "When a pull request adds a preview database update, the continuous integration shall mark it with the label `db-change` and a short note that the next release must be a minor release, without blocking the pull request.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-023"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-018"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-040",
+      "level": 3,
+      "area": "OPS",
+      "title": "Release check",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-040.md",
+      "statement": "On a release branch `release/<version>`, the continuous integration shall fail if the release's database updates do not match its version: a patch release may contain no database change, and a minor or major release may only replace all previews by one merged update for its version.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-023"
+          },
+          {
+            "target": "R-OPS-038"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-018"
+          },
+          {
+            "target": "R-OPS-024"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-041",
+      "level": 3,
+      "area": "OPS",
+      "title": "Patch releases write no new kinds of stored values",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-041.md",
+      "statement": "A patch release shall not store kinds of values that an earlier release of the same minor cannot read, even without a change of the database structure.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-018"
+          }
+        ],
+        "constrains": [
+          {
+            "target": "R-OPS-014"
+          }
+        ],
+        "decided_in": [
+          {
+            "target": "tech:d-update-model"
           }
         ]
       },

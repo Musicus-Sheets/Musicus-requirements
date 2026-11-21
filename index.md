@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 5 | 30 | 0 | 0 | 40 |
-| 3 Requirements | 28 | 28 | 34 | 84 | 0 | 174 |
+| 3 Requirements | 28 | 32 | 34 | 84 | 0 | 178 |
 
 ## Goals and features
 
@@ -346,6 +346,10 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
+  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
+  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
+  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
+  - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
 - [F-OPS-006](features/F-OPS-006.md) Supported platforms `accepted`
   - [R-OPS-026](requirements/ops/R-OPS-026.md) Plain program on Linux, Windows and macOS `accepted`
   - [R-OPS-027](requirements/ops/R-OPS-027.md) Raspberry Pi `accepted`
@@ -414,6 +418,10 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
+  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
+  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
+  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
+  - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
 - [F-SEC-001](features/F-SEC-001.md) Nothing stored on the device `implemented`
   - [R-SEC-001](requirements/sec/R-SEC-001.md) No persistent data in the web client `implemented`
 - [F-SEC-002](features/F-SEC-002.md) Protection against common attacks `implemented`
@@ -659,6 +667,10 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | accepted | F-OPS-007 |
 | [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements tagged per release | must | accepted | F-OPS-007 |
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | accepted | F-OPS-002 |
+| [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | accepted | F-OPS-005 |
+| [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | accepted | F-OPS-005 |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |
+| [R-OPS-041](requirements/ops/R-OPS-041.md) | Patch releases write no new kinds of stored values | must | accepted | F-OPS-005 |
 
 ### OFF – Offline app
 
@@ -814,6 +826,17 @@ All links other than `refines`.
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | depends_on | [R-OPS-033](requirements/ops/R-OPS-033.md) |  |
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | conflicts_with | [R-ANN-018](requirements/ann/R-ANN-018.md) | Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again. |
+| [R-OPS-038](requirements/ops/R-OPS-038.md) | depends_on | [R-OPS-023](requirements/ops/R-OPS-023.md) |  |
+| [R-OPS-038](requirements/ops/R-OPS-038.md) | constrains | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
+| [R-OPS-038](requirements/ops/R-OPS-038.md) | constrains | [R-OPS-024](requirements/ops/R-OPS-024.md) |  |
+| [R-OPS-039](requirements/ops/R-OPS-039.md) | depends_on | [R-OPS-023](requirements/ops/R-OPS-023.md) |  |
+| [R-OPS-039](requirements/ops/R-OPS-039.md) | constrains | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | depends_on | [R-OPS-023](requirements/ops/R-OPS-023.md) |  |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | depends_on | [R-OPS-038](requirements/ops/R-OPS-038.md) |  |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | constrains | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | constrains | [R-OPS-024](requirements/ops/R-OPS-024.md) |  |
+| [R-OPS-041](requirements/ops/R-OPS-041.md) | depends_on | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
+| [R-OPS-041](requirements/ops/R-OPS-041.md) | constrains | [R-OPS-014](requirements/ops/R-OPS-014.md) |  |
 | [R-PERF-002](requirements/perf/R-PERF-002.md) | constrains | [R-ACC-004](requirements/acc/R-ACC-004.md) |  |
 | [R-PERF-003](requirements/perf/R-PERF-003.md) | constrains | [R-FILE-005](requirements/file/R-FILE-005.md) |  |
 | [R-PERF-004](requirements/perf/R-PERF-004.md) | constrains | [R-PERF-001](requirements/perf/R-PERF-001.md) |  |
