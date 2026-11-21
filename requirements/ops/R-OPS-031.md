@@ -2,8 +2,8 @@
 id: R-OPS-031
 level: 3
 title: Usual data folder of the operating system
-priority: could
-status: proposed
+priority: should
+status: accepted
 links:
   refines: [F-OPS-006]
 ---
