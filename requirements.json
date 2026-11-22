@@ -1058,6 +1058,9 @@
           },
           {
             "source": "R-OPS-041"
+          },
+          {
+            "source": "R-OPS-049"
           }
         ],
         "required_by": [
@@ -1113,6 +1116,9 @@
           },
           {
             "source": "R-OPS-042"
+          },
+          {
+            "source": "R-OPS-049"
           }
         ]
       }
@@ -1146,6 +1152,9 @@
           },
           {
             "source": "R-OPS-036"
+          },
+          {
+            "source": "R-OPS-049"
           }
         ]
       }
@@ -6611,6 +6620,9 @@
           },
           {
             "source": "R-OPS-027"
+          },
+          {
+            "source": "R-OPS-049"
           }
         ]
       }
@@ -6639,7 +6651,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-049"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-030",
@@ -6715,7 +6733,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-049"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-033",
@@ -6835,17 +6859,23 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-049"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-036",
       "level": 3,
       "area": "OPS",
-      "title": "Requirements tagged per release",
+      "title": "Requirements and documentation tagged per release",
       "priority": "must",
       "status": "accepted",
       "path": "requirements/ops/R-OPS-036.md",
-      "statement": "For each release, the requirements repository shall have a git tag with the release version on the commit that the release pins.",
+      "statement": "For each release, the requirements repository and the documentation repositories (technical documentation and user guide) shall have a git tag with the release version on the commit that the release pins.",
       "links": {
         "refines": [
           {
@@ -6986,7 +7016,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-049"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-041",
@@ -7218,6 +7254,47 @@
           },
           {
             "target": "R-OPS-047"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-049",
+      "level": 3,
+      "area": "OPS",
+      "title": "Release pipeline publishes only when everything succeeded",
+      "priority": "must",
+      "status": "accepted",
+      "path": "requirements/ops/R-OPS-049.md",
+      "statement": "A release shall be built, checked and published by one automated pipeline that publishes nothing unless every build and check of the release succeeded.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-005"
+          },
+          {
+            "target": "F-OPS-006"
+          },
+          {
+            "target": "F-OPS-007"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-028"
+          },
+          {
+            "target": "R-OPS-029"
+          },
+          {
+            "target": "R-OPS-032"
+          },
+          {
+            "target": "R-OPS-035"
+          },
+          {
+            "target": "R-OPS-040"
           }
         ]
       },
