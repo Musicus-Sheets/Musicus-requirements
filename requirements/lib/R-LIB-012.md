@@ -9,8 +9,7 @@ links:
   depends_on: [R-LIB-010, R-LIB-011, R-OPS-004]
   verified_by: [crates/musicus-server/tests/api.rs::migration_0002_keeps_old_parts]
   implemented_by:
-    - crates/musicus-server/migrations/1.0.0.sql
-    - crates/musicus-server/tests/fixtures/legacy-0001-0010.sql
+    - crates/musicus-server/migrations/preview/0002-part-names.sql
     - crates/musicus-server/src/part_index.rs
 ---
 
@@ -28,4 +27,4 @@ When a database created before part names were derived is opened, the system sha
 
 ## Notes
 
-The conversion was done by the development migration 0002, which the 1.0.0 baseline replaced (a-update-runner); it applies to development databases only. Its text is kept in the test fixture, and the test replays it on such a database before the update runner recognises it.
+The conversion is the development migration 0002 of the sqlx time, now the preview `0002-part-names` (text unchanged, a-update-runner); it concerns development databases only. The test applies the previews before 0002 to a database, writes old data and opens it with the full program.
