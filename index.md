@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 27 | 45 | 90 | 0 | 186 |
+| 3 Requirements | 24 | 25 | 46 | 91 | 0 | 186 |
 
 ## Goals and features
 
@@ -367,8 +367,8 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-027](requirements/ops/R-OPS-027.md) Raspberry Pi `accepted`
   - [R-OPS-028](requirements/ops/R-OPS-028.md) Container images for amd64 and arm64 `accepted`
   - [R-OPS-029](requirements/ops/R-OPS-029.md) Program files for every supported system `accepted`
-  - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `accepted`
-  - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `accepted`
+  - [R-OPS-030](requirements/ops/R-OPS-030.md) Web client inside the program `verified`
+  - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `implemented`
   - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `accepted`
   - [R-OPS-042](requirements/ops/R-OPS-042.md) Plain program on macOS with Intel processors `accepted`
   - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
@@ -682,8 +682,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-027](requirements/ops/R-OPS-027.md) | Raspberry Pi | must | accepted | F-OPS-006 |
 | [R-OPS-028](requirements/ops/R-OPS-028.md) | Container images for amd64 and arm64 | must | accepted | F-OPS-006 |
 | [R-OPS-029](requirements/ops/R-OPS-029.md) | Program files for every supported system | must | accepted | F-OPS-006 |
-| [R-OPS-030](requirements/ops/R-OPS-030.md) | Web client inside the program | must | accepted | F-OPS-006 |
-| [R-OPS-031](requirements/ops/R-OPS-031.md) | Usual data folder of the operating system | should | accepted | F-OPS-006 |
+| [R-OPS-030](requirements/ops/R-OPS-030.md) | Web client inside the program | must | verified | F-OPS-006 |
+| [R-OPS-031](requirements/ops/R-OPS-031.md) | Usual data folder of the operating system | should | implemented | F-OPS-006 |
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | Automated tests on every supported platform | should | accepted | F-OPS-006 |
 | [R-OPS-033](requirements/ops/R-OPS-033.md) | Version endpoint | must | verified | F-OPS-007 |
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | Version in the user interface | must | verified | F-OPS-007 |
