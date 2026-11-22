@@ -3,9 +3,15 @@ id: R-OPS-035
 level: 3
 title: Version on the documentation
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-007]
+  implemented_by:
+    - docs/user-guide/main.typ
+    - docs/user-guide/build.sh
+    - docs/technical/main.typ
+    - docs/technical/build.sh
+    - scripts/build-guide-site.sh
 ---
 
 # R-OPS-035 Version on the documentation
@@ -22,4 +28,9 @@ The user guide and the technical documentation of a release shall name that rele
 
 ## Notes
 
-Partly in place: both title pages show a hand-written "0.1", and the guide site's version bar shows the release tag (docs/agents a-guide-site).
+Both title pages take the version from their build (`build.sh [version]` → `typst --input
+version=…`; else `$MUSICUS_VERSION`, else the workspace version of the main repository's
+`Cargo.toml`, else "dev"). The guide site passes each release's workspace version and shows
+the release in its version bar on every page; it warns when a release tag differs from the
+workspace version at that tag. Open: the release check (release workflow) that fails on a
+difference; until then the warning of the guide site is the only check.

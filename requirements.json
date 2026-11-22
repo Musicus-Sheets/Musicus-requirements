@@ -6723,13 +6723,29 @@
       "area": "OPS",
       "title": "Version endpoint",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-033.md",
       "statement": "The system shall answer `GET /api/version` without login with the version of the running release.",
       "links": {
         "refines": [
           {
             "target": "F-OPS-007"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/api.rs::version_is_public_and_matches_the_program"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/dto.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs"
           }
         ]
       },
@@ -6750,7 +6766,7 @@
       "area": "OPS",
       "title": "Version in the user interface",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-034.md",
       "statement": "The web client shall show the version of the running release to every user, for example in an \"About\" view.",
       "links": {
@@ -6763,6 +6779,25 @@
           {
             "target": "R-OPS-033"
           }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/smoke.mjs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/about.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/api.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/login.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/account.rs"
+          }
         ]
       },
       "incoming": {}
@@ -6773,13 +6808,30 @@
       "area": "OPS",
       "title": "Version on the documentation",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-035.md",
       "statement": "The user guide and the technical documentation of a release shall name that release's version on their title page, and the user guide site shall name it on every page.",
       "links": {
         "refines": [
           {
             "target": "F-OPS-007"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "docs/user-guide/main.typ"
+          },
+          {
+            "target": "docs/user-guide/build.sh"
+          },
+          {
+            "target": "docs/technical/main.typ"
+          },
+          {
+            "target": "docs/technical/build.sh"
+          },
+          {
+            "target": "scripts/build-guide-site.sh"
           }
         ]
       },
