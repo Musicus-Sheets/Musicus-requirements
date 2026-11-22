@@ -25,4 +25,4 @@ On a release branch `release/<version>`, the continuous integration shall fail i
 
 ## Notes
 
-Enforces R-OPS-018 and R-OPS-024 before a release is published. Implemented with phase 0. Other release checks (version on the title pages, requirements tag) belong to the same workflow.
+Enforces R-OPS-018 and R-OPS-024 before a release is published. Implemented with phase 0. Runs in stage 1 of the release pipeline (R-OPS-049) together with the other release checks (version in `Cargo.toml` = branch name, version on the title pages); the tags of the requirements and documentation repositories are created by hand (R-OPS-036).
