@@ -17,7 +17,7 @@ links:
   implemented_by:
     - crates/musicus-api/src/naming.rs
     - crates/musicus-server/src/routes/library.rs
-    - crates/musicus-server/migrations/0005_part_voices.sql
+    - crates/musicus-server/migrations/1.0.0.sql
     - crates/musicus-web/src/pages/score_edit.rs
     - crates/musicus-web/src/pages/forms.rs
 ---

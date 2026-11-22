@@ -3,11 +3,17 @@ id: R-OPS-011
 level: 3
 title: Upgrade from any older release
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   constrains: [R-OPS-004]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/runner.rs
+    - crates/musicus-server/src/db.rs
+  verified_by:
+    - crates/musicus-server/tests/updates.rs::fresh_install_runs_every_update_and_writes_the_marker
+    - crates/musicus-server/tests/updates.rs::baseline_equals_the_development_migrations
 ---
 
 # R-OPS-011 Upgrade from any older release

@@ -4147,7 +4147,7 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0009_i18n_names.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           }
         ],
         "verified_by": [
@@ -4207,7 +4207,7 @@
             "target": "crates/musicus-i18n/build.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0010_german_key_spellings.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           }
         ],
         "verified_by": [
@@ -4450,7 +4450,7 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0005_part_voices.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           },
           {
             "target": "crates/musicus-web/src/pages/score_edit.rs"
@@ -4511,7 +4511,7 @@
             "target": "crates/musicus-web/src/pages/instruments.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0001_init.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           }
         ]
       },
@@ -4572,19 +4572,10 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0001_init.sql"
-          },
-          {
-            "target": "crates/musicus-server/migrations/0002_part_names.sql"
-          },
-          {
-            "target": "crates/musicus-server/migrations/0006_archive_number.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/0009_i18n_names.sql"
           }
         ]
       },
@@ -4950,7 +4941,10 @@
         ],
         "implemented_by": [
           {
-            "target": "crates/musicus-server/migrations/0002_part_names.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
+          },
+          {
+            "target": "crates/musicus-server/tests/fixtures/legacy-0001-0010.sql"
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
@@ -5085,7 +5079,7 @@
         ],
         "implemented_by": [
           {
-            "target": "crates/musicus-server/migrations/0006_archive_number.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           },
           {
             "target": "crates/musicus-server/src/routes/library.rs"
@@ -5166,7 +5160,7 @@
             "target": "crates/musicus-server/src/routes/import.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0007_import.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           }
         ],
         "decided_in": [
@@ -5938,7 +5932,7 @@
       "area": "OPS",
       "title": "Upgrade from any older release",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-011.md",
       "statement": "The system shall upgrade the data directory of any earlier release, from 1.0.0 on, directly to the current release at start, without requiring intermediate releases to be installed first.",
       "links": {
@@ -5955,6 +5949,22 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/db.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::fresh_install_runs_every_update_and_writes_the_marker"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::baseline_equals_the_development_migrations"
           }
         ]
       },
@@ -5989,7 +5999,7 @@
       "area": "OPS",
       "title": "Data of a removed feature comes back on downgrade",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-013.md",
       "statement": "When a release removes a feature, the system shall keep that feature's stored data unchanged for as long as an older release that has the feature can still be started (R-OPS-014), so that it is available again after a downgrade to such a release.",
       "links": {
@@ -6007,6 +6017,16 @@
           {
             "target": "tech:d-update-model"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused"
+          }
         ]
       },
       "incoming": {}
@@ -6017,7 +6037,7 @@
       "area": "OPS",
       "title": "Downgrade window",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-014.md",
       "statement": "When an older release is started on a data directory last used by a newer release, the system shall start and keep the data if the older release is (a) of one of the three minor releases before the newer one, (b) the release the installation was upgraded from, within three months after that upgrade, or (c) of the same minor release as the newer one.",
       "links": {
@@ -6034,6 +6054,37 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/window.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          },
+          {
+            "target": "crates/musicus-server/migrations/releases.txt"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/updates/window.rs::upgrade_source_stays_a_target_for_three_months"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/window.rs::previous_lines_count_in_release_order"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/window.rs::chained_upgrades"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/window.rs::patches_of_the_same_line"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::patches_of_the_same_line_replace_each_other"
           }
         ]
       },
@@ -6059,7 +6110,7 @@
       "area": "OPS",
       "title": "Clear refusal outside the downgrade window",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-015.md",
       "statement": "When a release is started on a data directory that it may not use (outside the downgrade window), the system shall not change the data directory, shall exit with an error, and shall name the oldest release that can be started on it.",
       "links": {
@@ -6077,6 +6128,19 @@
           {
             "target": "tech:d-update-model"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/mod.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused"
+          }
         ]
       },
       "incoming": {}
@@ -6087,7 +6151,7 @@
       "area": "OPS",
       "title": "Data created only in the newer release on downgrade",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-016.md",
       "statement": "When an installation is taken back to an older release, data that only the newer release can represent shall be dropped, all other data shall stay, and after the next upgrade the newer release shall rebuild its own data from the data as the older release left it.",
       "links": {
@@ -6099,6 +6163,19 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/part_index.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::downgrade_inside_the_window_and_rebuild_after_it"
           }
         ]
       },
@@ -6317,7 +6394,7 @@
       "area": "OPS",
       "title": "Preview database updates merged per release",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-023.md",
       "statement": "The release process shall merge all database updates made during development (preview updates) into one database update per release, such that a development database that has applied all of them accepts the release update without running it again.",
       "links": {
@@ -6329,6 +6406,28 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/file.rs"
+          },
+          {
+            "target": "crates/musicus-server/build.rs"
+          },
+          {
+            "target": "scripts/release-migrations.py"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::previews_are_merged_and_recognised_by_the_release_update"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::release_script_refuses_mistakes"
           }
         ]
       },
@@ -6355,7 +6454,7 @@
       "area": "OPS",
       "title": "Release builds contain no preview updates",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-024.md",
       "statement": "A release build shall refuse to start if it contains preview database updates.",
       "links": {
@@ -6372,6 +6471,22 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/build.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/updates/mod.rs::release_builds_refuse_previews"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::previews_are_merged_and_recognised_by_the_release_update"
           }
         ]
       },
@@ -7222,7 +7337,7 @@
             "target": "crates/musicus-server/src/access.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/0001_init.sql"
+            "target": "crates/musicus-server/migrations/1.0.0.sql"
           }
         ],
         "decided_in": [

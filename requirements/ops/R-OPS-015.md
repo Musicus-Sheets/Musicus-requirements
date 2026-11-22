@@ -3,11 +3,16 @@ id: R-OPS-015
 level: 3
 title: Clear refusal outside the downgrade window
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-014]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/runner.rs
+    - crates/musicus-server/src/updates/mod.rs
+  verified_by:
+    - crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused
 ---
 
 # R-OPS-015 Clear refusal outside the downgrade window

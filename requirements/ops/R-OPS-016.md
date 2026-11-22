@@ -3,10 +3,15 @@ id: R-OPS-016
 level: 3
 title: Data created only in the newer release on downgrade
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/runner.rs
+    - crates/musicus-server/src/part_index.rs
+  verified_by:
+    - crates/musicus-server/tests/updates.rs::downgrade_inside_the_window_and_rebuild_after_it
 ---
 
 # R-OPS-016 Data created only in the newer release on downgrade
