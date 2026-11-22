@@ -3,11 +3,15 @@ id: R-OPS-013
 level: 3
 title: Data of a removed feature comes back on downgrade
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-014]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/runner.rs
+  verified_by:
+    - crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused
 ---
 
 # R-OPS-013 Data of a removed feature comes back on downgrade

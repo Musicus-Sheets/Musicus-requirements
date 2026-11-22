@@ -3,11 +3,22 @@ id: R-OPS-014
 level: 3
 title: Downgrade window
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-018]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/window.rs
+    - crates/musicus-server/src/updates/runner.rs
+    - crates/musicus-server/migrations/releases.txt
+  verified_by:
+    - crates/musicus-server/src/updates/window.rs::upgrade_source_stays_a_target_for_three_months
+    - crates/musicus-server/src/updates/window.rs::previous_lines_count_in_release_order
+    - crates/musicus-server/src/updates/window.rs::chained_upgrades
+    - crates/musicus-server/src/updates/window.rs::patches_of_the_same_line
+    - crates/musicus-server/tests/updates.rs::removal_runs_only_when_due_and_older_releases_are_then_refused
+    - crates/musicus-server/tests/updates.rs::patches_of_the_same_line_replace_each_other
 ---
 
 # R-OPS-014 Downgrade window

@@ -17,7 +17,7 @@ links:
     - crates/musicus-web/src/bridge.rs
     - crates/musicus-web/js/bridge.js
     - crates/musicus-server/src/routes/import.rs
-    - crates/musicus-server/migrations/0007_import.sql
+    - crates/musicus-server/migrations/1.0.0.sql
   decided_in: [tech:d-import-staging]
 ---
 

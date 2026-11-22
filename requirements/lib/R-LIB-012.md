@@ -9,7 +9,8 @@ links:
   depends_on: [R-LIB-010, R-LIB-011, R-OPS-004]
   verified_by: [crates/musicus-server/tests/api.rs::migration_0002_keeps_old_parts]
   implemented_by:
-    - crates/musicus-server/migrations/0002_part_names.sql
+    - crates/musicus-server/migrations/1.0.0.sql
+    - crates/musicus-server/tests/fixtures/legacy-0001-0010.sql
     - crates/musicus-server/src/part_index.rs
 ---
 
@@ -24,3 +25,7 @@ When a database created before part names were derived is opened, the system sha
 - Label "2nd Clarinet in Bb", voice 2, key "in Bb" becomes custom name "2nd Clarinet in Bb", voice "2", key code "Bb".
 - An empty label becomes no custom name; "Es" becomes "Eb"; "B" and "Es/F" stay as they are.
 - After the first start the library search finds old parts by their names.
+
+## Notes
+
+The conversion was done by the development migration 0002, which the 1.0.0 baseline replaced (a-update-runner); it applies to development databases only. Its text is kept in the test fixture, and the test replays it on such a database before the update runner recognises it.

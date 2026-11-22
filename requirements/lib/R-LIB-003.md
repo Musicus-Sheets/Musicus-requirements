@@ -11,7 +11,7 @@ links:
     - crates/musicus-server/src/routes/groups.rs
     - crates/musicus-server/src/error.rs
     - crates/musicus-web/src/pages/instruments.rs
-    - crates/musicus-server/migrations/0001_init.sql
+    - crates/musicus-server/migrations/1.0.0.sql
 ---
 
 # R-LIB-003 Controlled instrument vocabulary

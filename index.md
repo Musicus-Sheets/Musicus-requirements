@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 43 | 34 | 84 | 0 | 185 |
+| 3 Requirements | 24 | 36 | 41 | 84 | 0 | 185 |
 
 ## Goals and features
 
@@ -344,18 +344,18 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
 - [F-OPS-005](features/F-OPS-005.md) Updates and downgrades `accepted`
   - [R-OPS-010](requirements/ops/R-OPS-010.md) Update by replacing the container image `accepted`
-  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `accepted`
+  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `implemented`
   - [R-OPS-012](requirements/ops/R-OPS-012.md) No data loss on upgrade `accepted`
-  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `accepted`
-  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `accepted`
-  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `accepted`
-  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `accepted`
+  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `implemented`
+  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `implemented`
+  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `implemented`
+  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `implemented`
   - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
   - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
   - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
   - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
-  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
-  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
+  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
+  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
   - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
   - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
@@ -424,18 +424,18 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
 - [F-OPS-005](features/F-OPS-005.md) Updates and downgrades `accepted`
   - [R-OPS-010](requirements/ops/R-OPS-010.md) Update by replacing the container image `accepted`
-  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `accepted`
+  - [R-OPS-011](requirements/ops/R-OPS-011.md) Upgrade from any older release `implemented`
   - [R-OPS-012](requirements/ops/R-OPS-012.md) No data loss on upgrade `accepted`
-  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `accepted`
-  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `accepted`
-  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `accepted`
-  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `accepted`
+  - [R-OPS-013](requirements/ops/R-OPS-013.md) Data of a removed feature comes back on downgrade `implemented`
+  - [R-OPS-014](requirements/ops/R-OPS-014.md) Downgrade window `implemented`
+  - [R-OPS-015](requirements/ops/R-OPS-015.md) Clear refusal outside the downgrade window `implemented`
+  - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `implemented`
   - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
   - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
   - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
   - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
-  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `accepted`
-  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `accepted`
+  - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
+  - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
   - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
   - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
@@ -659,20 +659,20 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-008](requirements/ops/R-OPS-008.md) | Graceful shutdown | must | implemented | F-OPS-001 |
 | [R-OPS-009](requirements/ops/R-OPS-009.md) | Continuous database replication | could | proposed | F-OPS-002 |
 | [R-OPS-010](requirements/ops/R-OPS-010.md) | Update by replacing the container image | must | accepted | F-OPS-005 |
-| [R-OPS-011](requirements/ops/R-OPS-011.md) | Upgrade from any older release | must | accepted | F-OPS-005 |
+| [R-OPS-011](requirements/ops/R-OPS-011.md) | Upgrade from any older release | must | implemented | F-OPS-005 |
 | [R-OPS-012](requirements/ops/R-OPS-012.md) | No data loss on upgrade | must | accepted | F-OPS-005 |
-| [R-OPS-013](requirements/ops/R-OPS-013.md) | Data of a removed feature comes back on downgrade | must | accepted | F-OPS-005 |
-| [R-OPS-014](requirements/ops/R-OPS-014.md) | Downgrade window | must | accepted | F-OPS-005 |
-| [R-OPS-015](requirements/ops/R-OPS-015.md) | Clear refusal outside the downgrade window | must | accepted | F-OPS-005 |
-| [R-OPS-016](requirements/ops/R-OPS-016.md) | Data created only in the newer release on downgrade | must | accepted | F-OPS-005 |
+| [R-OPS-013](requirements/ops/R-OPS-013.md) | Data of a removed feature comes back on downgrade | must | implemented | F-OPS-005 |
+| [R-OPS-014](requirements/ops/R-OPS-014.md) | Downgrade window | must | implemented | F-OPS-005 |
+| [R-OPS-015](requirements/ops/R-OPS-015.md) | Clear refusal outside the downgrade window | must | implemented | F-OPS-005 |
+| [R-OPS-016](requirements/ops/R-OPS-016.md) | Data created only in the newer release on downgrade | must | implemented | F-OPS-005 |
 | [R-OPS-017](requirements/ops/R-OPS-017.md) | Going back never widens access | must | accepted | F-OPS-005 |
 | [R-OPS-018](requirements/ops/R-OPS-018.md) | Patch releases contain no database changes | must | accepted | F-OPS-005 |
 | [R-OPS-019](requirements/ops/R-OPS-019.md) | Snapshot before database updates | must | accepted | F-OPS-005, F-OPS-002 |
 | [R-OPS-020](requirements/ops/R-OPS-020.md) | Automatic restore after a failed update | must | accepted | F-OPS-005 |
 | [R-OPS-021](requirements/ops/R-OPS-021.md) | Backup never changes the database | must | accepted | F-OPS-002 |
 | [R-OPS-022](requirements/ops/R-OPS-022.md) | Restore command | must | accepted | F-OPS-002 |
-| [R-OPS-023](requirements/ops/R-OPS-023.md) | Preview database updates merged per release | must | accepted | F-OPS-005 |
-| [R-OPS-024](requirements/ops/R-OPS-024.md) | Release builds contain no preview updates | must | accepted | F-OPS-005 |
+| [R-OPS-023](requirements/ops/R-OPS-023.md) | Preview database updates merged per release | must | implemented | F-OPS-005 |
+| [R-OPS-024](requirements/ops/R-OPS-024.md) | Release builds contain no preview updates | must | implemented | F-OPS-005 |
 | [R-OPS-025](requirements/ops/R-OPS-025.md) | No online check for new versions | must | accepted | F-OPS-005 |
 | [R-OPS-026](requirements/ops/R-OPS-026.md) | Plain program on Linux, Windows and macOS | must | accepted | F-OPS-006 |
 | [R-OPS-027](requirements/ops/R-OPS-027.md) | Raspberry Pi | must | accepted | F-OPS-006 |

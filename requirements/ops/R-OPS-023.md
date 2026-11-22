@@ -3,10 +3,18 @@ id: R-OPS-023
 level: 3
 title: Preview database updates merged per release
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - crates/musicus-server/src/updates/runner.rs
+    - crates/musicus-server/src/updates/file.rs
+    - crates/musicus-server/build.rs
+    - scripts/release-migrations.py
+  verified_by:
+    - crates/musicus-server/tests/updates.rs::previews_are_merged_and_recognised_by_the_release_update
+    - crates/musicus-server/tests/updates.rs::release_script_refuses_mistakes
 ---
 
 # R-OPS-023 Preview database updates merged per release
@@ -23,4 +31,4 @@ The release process shall merge all database updates made during development (pr
 
 ## Notes
 
-Details (file layout `migrations/preview/NNNN-<topic>.sql`, the list of contained previews in the release update, the merge script) are a design to be confirmed during implementation. Needs an own small migration runner instead of `sqlx::migrate!`, which refuses unknown or merged migrations. The existing migrations 0001–0010 are collapsed into one 1.0.0 baseline at the first release.
+Implemented (a-update-runner): previews `crates/musicus-server/migrations/preview/NNNN-<topic>.sql`, the header line `-- @previews:` in the merged `migrations/X.Y.0.sql`, `scripts/release-migrations.py`. Preview removal parts never run on development databases; they run with the merged release update. The development migrations 0001–0010 became the baseline `migrations/1.0.0.sql`; databases that applied them are recognised once. Not yet checked automatically: "a merged preview is never edited" (database check, R-OPS-038).
