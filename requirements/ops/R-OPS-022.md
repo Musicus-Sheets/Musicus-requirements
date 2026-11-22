@@ -3,8 +3,13 @@ id: R-OPS-022
 level: 3
 title: Restore command
 priority: must
-status: accepted
+status: verified
 links:
+  verified_by:
+    - crates/musicus-server/tests/snapshots.rs::restore_replaces_the_database_and_keeps_the_old_one
+  implemented_by:
+    - crates/musicus-server/src/backup.rs
+    - crates/musicus-server/src/main.rs
   refines: [F-OPS-002]
   decided_in: [tech:d-update-model]
 ---
@@ -24,4 +29,4 @@ The system shall provide a command that replaces the database of a stopped insta
 
 ## Notes
 
-Replaces the manual procedure in the user guide (delete `-wal`/`-shm`, copy the file).
+Replaced the manual procedure of the user guide (delete `-wal`/`-shm`, copy the file). A running server is detected by an operating-system lock on `musicus.lock` in the data directory, held by `serve` and `create-admin`; servers of releases before this command hold none. The replaced database is kept as `snapshots/replaced-<time>.sqlite`.

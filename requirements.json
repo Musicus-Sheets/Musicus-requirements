@@ -5759,7 +5759,7 @@
             "target": "crates/musicus-server/src/main.rs"
           },
           {
-            "target": "crates/musicus-server/src/db.rs"
+            "target": "crates/musicus-server/src/backup.rs"
           }
         ]
       },
@@ -6280,10 +6280,26 @@
       "area": "OPS",
       "title": "Snapshot before database updates",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-019.md",
       "statement": "Before the system applies a database update at start, it shall write a consistent copy of the database into the data directory and keep the three most recent of these copies.",
       "links": {
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::a_snapshot_is_written_only_when_there_is_work_and_three_are_kept"
+          },
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::not_enough_space_refuses_before_any_update"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/start.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/snapshot.rs"
+          }
+        ],
         "refines": [
           {
             "target": "F-OPS-005"
@@ -6326,10 +6342,26 @@
       "area": "OPS",
       "title": "Automatic restore after a failed update",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-020.md",
       "statement": "When a database update fails at start, the system shall put back the snapshot taken before it, and stop with a message that says the update failed, that the data is unchanged and which release ran before.",
       "links": {
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::a_failed_update_puts_the_snapshot_back_and_is_not_retried"
+          },
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::a_failed_first_start_leaves_an_empty_data_directory"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/updates/start.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/guard.rs"
+          }
+        ],
         "refines": [
           {
             "target": "F-OPS-005"
@@ -6354,10 +6386,23 @@
       "area": "OPS",
       "title": "Backup never changes the database",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-021.md",
       "statement": "The backup command shall copy the database as it is and shall never apply database updates.",
       "links": {
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::backup_copies_a_newer_release_database_without_updating_it"
+          },
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::backup_works_while_the_server_writes"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/backup.rs"
+          }
+        ],
         "refines": [
           {
             "target": "F-OPS-002"
@@ -6382,10 +6427,23 @@
       "area": "OPS",
       "title": "Restore command",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-022.md",
       "statement": "The system shall provide a command that replaces the database of a stopped installation with a backup or snapshot and keeps the replaced database.",
       "links": {
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/snapshots.rs::restore_replaces_the_database_and_keeps_the_old_one"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/backup.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          }
+        ],
         "refines": [
           {
             "target": "F-OPS-002"
@@ -6909,10 +6967,15 @@
       "area": "OPS",
       "title": "Unencrypted backups and exports with guidance",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-037.md",
       "statement": "Backups, snapshots and exports shall be written unencrypted, and the operating documentation shall state that they need the same protection as the data directory.",
       "links": {
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/backup.rs"
+          }
+        ],
         "refines": [
           {
             "target": "F-OPS-002"

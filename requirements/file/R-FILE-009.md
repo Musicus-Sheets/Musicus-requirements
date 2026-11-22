@@ -20,3 +20,4 @@ The system shall offer operators a way to delete stored files that no part versi
 ## Acceptance criteria
 
 - Files referenced by a database backup taken before the grace period remain available.
+- Files referenced by any database in the data directory's `snapshots/` folder (snapshots before updates, failed and replaced databases) count as used.

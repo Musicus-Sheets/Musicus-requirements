@@ -3,8 +3,14 @@ id: R-OPS-019
 level: 3
 title: Snapshot before database updates
 priority: must
-status: accepted
+status: verified
 links:
+  verified_by:
+    - crates/musicus-server/tests/snapshots.rs::a_snapshot_is_written_only_when_there_is_work_and_three_are_kept
+    - crates/musicus-server/tests/snapshots.rs::not_enough_space_refuses_before_any_update
+  implemented_by:
+    - crates/musicus-server/src/updates/start.rs
+    - crates/musicus-server/src/updates/snapshot.rs
   refines: [F-OPS-005, F-OPS-002]
   depends_on: [R-FILE-004]
   conflicts_with:
