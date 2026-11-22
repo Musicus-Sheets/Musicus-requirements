@@ -15,7 +15,10 @@ links:
     - e2e/smoke.mjs
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
-    - crates/musicus-server/migrations/1.0.0.sql
+    - crates/musicus-server/migrations/preview/0001-init.sql
+    - crates/musicus-server/migrations/preview/0002-part-names.sql
+    - crates/musicus-server/migrations/preview/0006-archive-number.sql
+    - crates/musicus-server/migrations/preview/0009-i18n-names.sql
     - crates/musicus-server/src/part_index.rs
 ---
 

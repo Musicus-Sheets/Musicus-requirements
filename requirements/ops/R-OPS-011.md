@@ -13,7 +13,7 @@ links:
     - crates/musicus-server/src/db.rs
   verified_by:
     - crates/musicus-server/tests/updates.rs::fresh_install_runs_every_update_and_writes_the_marker
-    - crates/musicus-server/tests/updates.rs::baseline_equals_the_development_migrations
+    - crates/musicus-server/tests/updates.rs::previews_give_the_schema_of_the_sqlx_migrations
 ---
 
 # R-OPS-011 Upgrade from any older release
