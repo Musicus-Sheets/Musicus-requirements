@@ -27,6 +27,17 @@ DIRS = {1: "goals", 2: "features", 3: "requirements"}
 PREFIX = {"G": 1, "F": 2, "R": 3}
 LEVEL_NAME = {1: "Goal", 2: "Feature", 3: "Requirement"}
 ID_RE = re.compile(r"^(G-\d{3}|[FR]-[A-Z][A-Z0-9]*-\d{3})$")
+# Database update files are history: previews are merged and deleted at a release. Only the
+# release list keeps its path.
+UPDATE_DIR = "crates/musicus-server/migrations"
+UPDATE_DIR_ALLOWED = {"crates/musicus-server/migrations/releases.txt"}
+
+
+def is_update_file(path: str) -> bool:
+    p = path.strip().rstrip("/")
+    return (p == UPDATE_DIR or p.startswith(UPDATE_DIR + "/")) and p not in UPDATE_DIR_ALLOWED
+
+
 STATUSES = ["proposed", "accepted", "implemented", "verified", "deprecated"]
 PRIORITIES = ["must", "should", "could"]
 REQ_LINKS = ["refines", "depends_on", "constrains", "conflicts_with"]
@@ -234,6 +245,10 @@ def check_links(items: dict[str, Item], code_root: Path | None, report: Report) 
         for kind in ("verified_by", "implemented_by"):
             for link in item.links.get(kind, []):
                 path, _, test = link.target.partition("::")
+                if is_update_file(path):
+                    report.error(where, f"`{kind}` path `{path}`: reference code, tests or the schema snapshot, "
+                                        "not database update files (they are merged/deleted at a release)")
+                    continue
                 if code_root is None:
                     continue
                 full = code_root / path

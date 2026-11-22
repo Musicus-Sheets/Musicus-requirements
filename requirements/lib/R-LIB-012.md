@@ -9,8 +9,9 @@ links:
   depends_on: [R-LIB-010, R-LIB-011, R-OPS-004]
   verified_by: [crates/musicus-server/tests/api.rs::migration_0002_keeps_old_parts]
   implemented_by:
-    - crates/musicus-server/migrations/preview/0002-part-names.sql
     - crates/musicus-server/src/part_index.rs
+    - crates/musicus-server/src/routes/library.rs
+    - crates/musicus-server/src/updates/runner.rs
 ---
 
 # R-LIB-012 Existing parts survive the change of part names
