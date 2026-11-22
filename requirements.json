@@ -7053,6 +7053,41 @@
           {
             "target": "tech:d-update-model"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-api/src/dto.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/layout.rs"
+          },
+          {
+            "target": "crates/musicus-api/src/import/review.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/auth.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/auth.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/users.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/files.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/import.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/layout_edit.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/users.rs"
+          }
         ]
       },
       "incoming": {}
