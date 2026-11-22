@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 34 | 42 | 86 | 0 | 186 |
+| 3 Requirements | 24 | 32 | 44 | 86 | 0 | 186 |
 
 ## Goals and features
 
@@ -357,8 +357,8 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
-  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
-  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
+  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `implemented`
+  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `implemented`
   - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
   - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
   - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
@@ -440,8 +440,8 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
-  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `accepted`
-  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `accepted`
+  - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `implemented`
+  - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `implemented`
   - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
   - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
   - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
@@ -690,8 +690,8 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | implemented | F-OPS-007 |
 | [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements and documentation tagged per release | must | accepted | F-OPS-007 |
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | accepted | F-OPS-002 |
-| [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | accepted | F-OPS-005 |
-| [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | accepted | F-OPS-005 |
+| [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | implemented | F-OPS-005 |
+| [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | implemented | F-OPS-005 |
 | [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | Patch releases write no new kinds of stored values | must | accepted | F-OPS-005 |
 | [R-OPS-042](requirements/ops/R-OPS-042.md) | Plain program on macOS with Intel processors | should | accepted | F-OPS-006 |

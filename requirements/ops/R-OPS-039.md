@@ -3,11 +3,16 @@ id: R-OPS-039
 level: 3
 title: Notice for pull requests that change the database
 priority: should
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-023]
   constrains: [R-OPS-018]
+  implemented_by:
+    - .github/workflows/database.yml
+    - scripts/check-db-changes.py
+  verified_by:
+    - scripts/test_check_db_changes.py
 ---
 
 # R-OPS-039 Notice for pull requests that change the database
@@ -24,4 +29,4 @@ When a pull request adds a preview database update, the continuous integration s
 
 ## Notes
 
-Informational; the blocking rule is R-OPS-040. Implemented with phase 0.
+Informational; the blocking rule is R-OPS-040. Job `db-change` of the workflow `Database`: one comment, found again by a hidden marker and updated in place; label and comment are taken back when the pull request no longer adds a preview. Pull requests from forks get a read-only token and only the job summary.

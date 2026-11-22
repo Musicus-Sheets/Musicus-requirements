@@ -4154,6 +4154,9 @@
           },
           {
             "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ],
         "verified_by": [
@@ -4457,6 +4460,9 @@
           },
           {
             "target": "crates/musicus-web/src/pages/forms.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ]
       },
@@ -4509,6 +4515,9 @@
           },
           {
             "target": "crates/musicus-web/src/pages/instruments.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ]
       },
@@ -4570,6 +4579,9 @@
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ]
       },
@@ -5083,6 +5095,9 @@
           },
           {
             "target": "crates/musicus-web/src/pages/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ]
       },
@@ -5149,6 +5164,9 @@
           },
           {
             "target": "crates/musicus-server/src/routes/import.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ],
         "decided_in": [
@@ -6915,7 +6933,7 @@
       "area": "OPS",
       "title": "Database check in pull requests",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-038.md",
       "statement": "The continuous integration shall fail a pull request that changes the database other than through a new preview database update.",
       "links": {
@@ -6941,6 +6959,40 @@
           {
             "target": "tech:d-update-model"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": ".github/workflows/database.yml"
+          },
+          {
+            "target": "scripts/check-db-changes.py"
+          },
+          {
+            "target": "scripts/db-schema.sh"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/schema.rs"
+          },
+          {
+            "target": "crates/musicus-server/examples/db_schema.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "scripts/test_check_db_changes.py"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::db_check_script_unit_tests"
+          },
+          {
+            "target": "crates/musicus-server/tests/updates.rs::the_schema_snapshot_is_up_to_date"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/schema.rs::objects_are_sorted_and_laid_out"
+          }
         ]
       },
       "incoming": {
@@ -6957,7 +7009,7 @@
       "area": "OPS",
       "title": "Notice for pull requests that change the database",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-039.md",
       "statement": "When a pull request adds a preview database update, the continuous integration shall mark it with the label `db-change` and a short note that the next release must be a minor release, without blocking the pull request.",
       "links": {
@@ -6974,6 +7026,19 @@
         "constrains": [
           {
             "target": "R-OPS-018"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": ".github/workflows/database.yml"
+          },
+          {
+            "target": "scripts/check-db-changes.py"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "scripts/test_check_db_changes.py"
           }
         ]
       },
@@ -7492,6 +7557,9 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/access.rs"
+          },
+          {
+            "target": "crates/musicus-server/schema.sql"
           }
         ],
         "decided_in": [

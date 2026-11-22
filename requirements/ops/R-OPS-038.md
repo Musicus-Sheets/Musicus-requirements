@@ -3,12 +3,24 @@ id: R-OPS-038
 level: 3
 title: Database check in pull requests
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-023]
   constrains: [R-OPS-018, R-OPS-024]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - .github/workflows/database.yml
+    - scripts/check-db-changes.py
+    - scripts/db-schema.sh
+    - crates/musicus-server/src/updates/schema.rs
+    - crates/musicus-server/examples/db_schema.rs
+    - crates/musicus-server/schema.sql
+  verified_by:
+    - scripts/test_check_db_changes.py
+    - crates/musicus-server/tests/updates.rs::db_check_script_unit_tests
+    - crates/musicus-server/tests/updates.rs::the_schema_snapshot_is_up_to_date
+    - crates/musicus-server/src/updates/schema.rs::objects_are_sorted_and_laid_out
 ---
 
 # R-OPS-038 Database check in pull requests
@@ -26,4 +38,4 @@ The continuous integration shall fail a pull request that changes the database o
 
 ## Notes
 
-Implemented together with phase 0 (the new update runner and the preview layout), not earlier; until then migrations are `0001`–`0010` under `sqlx::migrate!`. The snapshot diff also makes every schema change visible in review. Code that expects a column no update creates is caught by the `test` job, not by this check.
+Job `db-check` of the workflow `Database` (Linux only, R-OPS-032); make it a required status check. The snapshot is generated with the real update runner on an empty database and also compared by `cargo test`. Two rules go beyond the criteria above: a new preview's number must be higher than every preview on `main` (development databases apply previews in merge order), and `migrations/releases.txt` changes only in a release pull request. A pull request that changes the snapshot's generator may change the snapshot without a preview. The snapshot diff also makes every schema change visible in review. Code that expects a column no update creates is caught by the `test` job, not by this check.

@@ -19,6 +19,7 @@ links:
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-web/src/pages/score_edit.rs
     - crates/musicus-web/src/pages/forms.rs
+    - crates/musicus-server/schema.sql
 ---
 
 # R-LIB-002 Part metadata
