@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 32 | 44 | 86 | 0 | 186 |
+| 3 Requirements | 24 | 27 | 45 | 90 | 0 | 186 |
 
 ## Goals and features
 
@@ -334,10 +334,10 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
   - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
-  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
-  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `accepted`
-  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `accepted`
-  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `verified`
+  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `verified`
+  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `verified`
+  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `implemented`
 - [F-OPS-003](features/F-OPS-003.md) Health monitoring `implemented`
   - [R-OPS-007](requirements/ops/R-OPS-007.md) Health check `verified`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
@@ -352,8 +352,8 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `implemented`
   - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
   - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
-  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
-  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `verified`
+  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `verified`
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
@@ -419,10 +419,10 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-FILE-009](requirements/file/R-FILE-009.md) Removal of unused files `proposed`
   - [R-OPS-005](requirements/ops/R-OPS-005.md) Online backup `implemented`
   - [R-OPS-009](requirements/ops/R-OPS-009.md) Continuous database replication `proposed`
-  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
-  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `accepted`
-  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `accepted`
-  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `verified`
+  - [R-OPS-021](requirements/ops/R-OPS-021.md) Backup never changes the database `verified`
+  - [R-OPS-022](requirements/ops/R-OPS-022.md) Restore command `verified`
+  - [R-OPS-037](requirements/ops/R-OPS-037.md) Unencrypted backups and exports with guidance `implemented`
 - [F-OPS-004](features/F-OPS-004.md) Encrypted connections `implemented`
   - [R-OPS-006](requirements/ops/R-OPS-006.md) HTTPS `implemented`
 - [F-OPS-005](features/F-OPS-005.md) Updates and downgrades `accepted`
@@ -435,8 +435,8 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-OPS-016](requirements/ops/R-OPS-016.md) Data created only in the newer release on downgrade `implemented`
   - [R-OPS-017](requirements/ops/R-OPS-017.md) Going back never widens access `accepted`
   - [R-OPS-018](requirements/ops/R-OPS-018.md) Patch releases contain no database changes `accepted`
-  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `accepted`
-  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `accepted`
+  - [R-OPS-019](requirements/ops/R-OPS-019.md) Snapshot before database updates `verified`
+  - [R-OPS-020](requirements/ops/R-OPS-020.md) Automatic restore after a failed update `verified`
   - [R-OPS-023](requirements/ops/R-OPS-023.md) Preview database updates merged per release `implemented`
   - [R-OPS-024](requirements/ops/R-OPS-024.md) Release builds contain no preview updates `implemented`
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
@@ -671,10 +671,10 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-016](requirements/ops/R-OPS-016.md) | Data created only in the newer release on downgrade | must | implemented | F-OPS-005 |
 | [R-OPS-017](requirements/ops/R-OPS-017.md) | Going back never widens access | must | accepted | F-OPS-005 |
 | [R-OPS-018](requirements/ops/R-OPS-018.md) | Patch releases contain no database changes | must | accepted | F-OPS-005 |
-| [R-OPS-019](requirements/ops/R-OPS-019.md) | Snapshot before database updates | must | accepted | F-OPS-005, F-OPS-002 |
-| [R-OPS-020](requirements/ops/R-OPS-020.md) | Automatic restore after a failed update | must | accepted | F-OPS-005 |
-| [R-OPS-021](requirements/ops/R-OPS-021.md) | Backup never changes the database | must | accepted | F-OPS-002 |
-| [R-OPS-022](requirements/ops/R-OPS-022.md) | Restore command | must | accepted | F-OPS-002 |
+| [R-OPS-019](requirements/ops/R-OPS-019.md) | Snapshot before database updates | must | verified | F-OPS-005, F-OPS-002 |
+| [R-OPS-020](requirements/ops/R-OPS-020.md) | Automatic restore after a failed update | must | verified | F-OPS-005 |
+| [R-OPS-021](requirements/ops/R-OPS-021.md) | Backup never changes the database | must | verified | F-OPS-002 |
+| [R-OPS-022](requirements/ops/R-OPS-022.md) | Restore command | must | verified | F-OPS-002 |
 | [R-OPS-023](requirements/ops/R-OPS-023.md) | Preview database updates merged per release | must | implemented | F-OPS-005 |
 | [R-OPS-024](requirements/ops/R-OPS-024.md) | Release builds contain no preview updates | must | implemented | F-OPS-005 |
 | [R-OPS-025](requirements/ops/R-OPS-025.md) | No online check for new versions | must | accepted | F-OPS-005 |
@@ -689,7 +689,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | Version in the user interface | must | verified | F-OPS-007 |
 | [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | implemented | F-OPS-007 |
 | [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements and documentation tagged per release | must | accepted | F-OPS-007 |
-| [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | accepted | F-OPS-002 |
+| [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | implemented | F-OPS-002 |
 | [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | implemented | F-OPS-005 |
 | [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | implemented | F-OPS-005 |
 | [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |

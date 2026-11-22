@@ -3,8 +3,10 @@ id: R-OPS-037
 level: 3
 title: Unencrypted backups and exports with guidance
 priority: must
-status: accepted
+status: implemented
 links:
+  implemented_by:
+    - crates/musicus-server/src/backup.rs
   refines: [F-OPS-002]
   conflicts_with:
     - id: R-ANN-018
