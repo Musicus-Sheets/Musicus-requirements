@@ -16,6 +16,7 @@ links:
     - crates/musicus-api/src/naming.rs
     - crates/musicus-web/src/pages/forms.rs
     - crates/musicus-web/src/pages/library.rs
+    - crates/musicus-server/schema.sql
 ---
 
 # R-LIB-015 Archive number of a piece

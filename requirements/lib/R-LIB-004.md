@@ -16,6 +16,7 @@ links:
   implemented_by:
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-server/src/part_index.rs
+    - crates/musicus-server/schema.sql
 ---
 
 # R-LIB-004 Search
