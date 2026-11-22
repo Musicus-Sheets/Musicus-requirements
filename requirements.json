@@ -4145,9 +4145,6 @@
           },
           {
             "target": "crates/musicus-server/src/routes/library.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0009-i18n-names.sql"
           }
         ],
         "verified_by": [
@@ -4205,9 +4202,6 @@
           },
           {
             "target": "crates/musicus-i18n/build.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0010-german-key-spellings.sql"
           }
         ],
         "verified_by": [
@@ -4450,9 +4444,6 @@
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
-            "target": "crates/musicus-server/migrations/preview/0005-part-voices.sql"
-          },
-          {
             "target": "crates/musicus-web/src/pages/score_edit.rs"
           },
           {
@@ -4509,9 +4500,6 @@
           },
           {
             "target": "crates/musicus-web/src/pages/instruments.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0001-init.sql"
           }
         ]
       },
@@ -4570,18 +4558,6 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/routes/library.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0001-init.sql"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0002-part-names.sql"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0006-archive-number.sql"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0009-i18n-names.sql"
           },
           {
             "target": "crates/musicus-server/src/part_index.rs"
@@ -4950,10 +4926,13 @@
         ],
         "implemented_by": [
           {
-            "target": "crates/musicus-server/migrations/preview/0002-part-names.sql"
+            "target": "crates/musicus-server/src/part_index.rs"
           },
           {
-            "target": "crates/musicus-server/src/part_index.rs"
+            "target": "crates/musicus-server/src/routes/library.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/updates/runner.rs"
           }
         ]
       },
@@ -5085,9 +5064,6 @@
         ],
         "implemented_by": [
           {
-            "target": "crates/musicus-server/migrations/preview/0006-archive-number.sql"
-          },
-          {
             "target": "crates/musicus-server/src/routes/library.rs"
           },
           {
@@ -5164,9 +5140,6 @@
           },
           {
             "target": "crates/musicus-server/src/routes/import.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0007-import.sql"
           }
         ],
         "decided_in": [
@@ -5714,7 +5687,12 @@
             "target": "crates/musicus-server/src/db.rs"
           },
           {
-            "target": "crates/musicus-server/migrations"
+            "target": "crates/musicus-server/src/updates"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/updates.rs::fresh_install_runs_every_update_and_writes_the_marker"
           }
         ]
       },
@@ -7350,9 +7328,6 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/access.rs"
-          },
-          {
-            "target": "crates/musicus-server/migrations/preview/0001-init.sql"
           }
         ],
         "decided_in": [

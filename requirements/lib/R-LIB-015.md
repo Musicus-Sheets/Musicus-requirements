@@ -12,7 +12,6 @@ links:
     - crates/musicus-api/src/naming.rs::archive_numbers
     - crates/musicus-api/src/dto.rs::score_input_trims_the_archive_number
   implemented_by:
-    - crates/musicus-server/migrations/preview/0006-archive-number.sql
     - crates/musicus-server/src/routes/library.rs
     - crates/musicus-api/src/naming.rs
     - crates/musicus-web/src/pages/forms.rs

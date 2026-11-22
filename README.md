@@ -118,6 +118,11 @@ Every link is stored once, in the item it starts from. The opposite direction
 | `implemented_by` | File or directory in the main repository | `crates/musicus-server/src/access.rs` |
 | `decided_in` | Decision record in the technical documentation, as `tech:<label>` | `tech:d-access` |
 
+Never reference database update files (`crates/musicus-server/migrations/…`, except
+`migrations/releases.txt`) in `verified_by` / `implemented_by`: previews are merged and deleted at
+a release. Reference the code and tests instead, or the schema snapshot `crates/musicus-server/schema.sql`
+once it exists. The validator rejects such paths.
+
 A link target is either a plain ID / path, or an object with `id` and `note`
 when the link needs an explanation. There is deliberately no generic
 "relates to" link: every link must say what the connection means.

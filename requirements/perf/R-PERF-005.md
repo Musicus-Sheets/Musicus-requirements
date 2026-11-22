@@ -9,7 +9,6 @@ links:
   constrains: [R-ACL-001]
   implemented_by:
     - crates/musicus-server/src/access.rs
-    - crates/musicus-server/migrations/preview/0001-init.sql
   decided_in: [tech:d-access]
 ---
 
