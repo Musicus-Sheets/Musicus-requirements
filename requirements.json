@@ -5657,6 +5657,20 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/config.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/listen.rs::default_accepts_ipv4_and_ipv6"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs::falls_back_to_ipv4_when_ipv6_is_missing"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs::explicit_addresses_are_bound_as_given"
           }
         ]
       },
@@ -5795,6 +5809,9 @@
           },
           {
             "target": "deploy/Caddyfile"
+          },
+          {
+            "target": "deploy/nginx.conf.example"
           }
         ]
       },
@@ -5832,6 +5849,9 @@
           },
           {
             "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs"
           }
         ],
         "decided_in": [
