@@ -860,6 +860,9 @@
             "source": "R-OPS-008"
           },
           {
+            "source": "R-OPS-050"
+          },
+          {
             "source": "R-SEC-007"
           }
         ],
@@ -5683,7 +5686,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-050"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-003",
@@ -7543,6 +7552,29 @@
           },
           {
             "target": "R-OPS-040"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-050",
+      "level": 3,
+      "area": "OPS",
+      "title": "Listen on several addresses at once",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-050.md",
+      "statement": "The plain program shall accept a list of listening addresses (e.g. `MUSICUS_LISTEN=127.0.0.1:8080,[::1]:8080`) and serve the same application on each of them.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-002"
           }
         ]
       },

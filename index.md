@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 25 | 45 | 92 | 0 | 186 |
+| 3 Requirements | 25 | 25 | 45 | 92 | 0 | 187 |
 
 ## Goals and features
 
@@ -328,6 +328,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-003](requirements/ops/R-OPS-003.md) Container `implemented`
   - [R-OPS-004](requirements/ops/R-OPS-004.md) Automatic migrations `implemented`
   - [R-OPS-008](requirements/ops/R-OPS-008.md) Graceful shutdown `implemented`
+  - [R-OPS-050](requirements/ops/R-OPS-050.md) Listen on several addresses at once `proposed`
   - [R-SEC-007](requirements/sec/R-SEC-007.md) Minimal, unprivileged container `implemented`
 - [F-OPS-002](features/F-OPS-002.md) Backup and restore `implemented`
   - [R-FILE-004](requirements/file/R-FILE-004.md) Immutable, content-addressed storage `verified`
@@ -702,6 +703,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-047](requirements/ops/R-OPS-047.md) | Unsaved markings survive a server outage | must | accepted | F-OPS-008 |
 | [R-OPS-048](requirements/ops/R-OPS-048.md) | Switch to a new version at a safe moment | must | accepted | F-OPS-008 |
 | [R-OPS-049](requirements/ops/R-OPS-049.md) | Release pipeline publishes only when everything succeeded | must | accepted | F-OPS-005, F-OPS-006, F-OPS-007 |
+| [R-OPS-050](requirements/ops/R-OPS-050.md) | Listen on several addresses at once | could | proposed | F-OPS-001 |
 
 ### OFF – Offline app
 
@@ -885,6 +887,7 @@ All links other than `refines`.
 | [R-OPS-049](requirements/ops/R-OPS-049.md) | depends_on | [R-OPS-032](requirements/ops/R-OPS-032.md) |  |
 | [R-OPS-049](requirements/ops/R-OPS-049.md) | depends_on | [R-OPS-035](requirements/ops/R-OPS-035.md) |  |
 | [R-OPS-049](requirements/ops/R-OPS-049.md) | depends_on | [R-OPS-040](requirements/ops/R-OPS-040.md) |  |
+| [R-OPS-050](requirements/ops/R-OPS-050.md) | depends_on | [R-OPS-002](requirements/ops/R-OPS-002.md) |  |
 | [R-PERF-002](requirements/perf/R-PERF-002.md) | constrains | [R-ACC-004](requirements/acc/R-ACC-004.md) |  |
 | [R-PERF-003](requirements/perf/R-PERF-003.md) | constrains | [R-FILE-005](requirements/file/R-FILE-005.md) |  |
 | [R-PERF-004](requirements/perf/R-PERF-004.md) | constrains | [R-PERF-001](requirements/perf/R-PERF-001.md) |  |
