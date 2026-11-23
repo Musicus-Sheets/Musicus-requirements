@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 24 | 25 | 46 | 91 | 0 | 186 |
+| 3 Requirements | 24 | 25 | 45 | 92 | 0 | 186 |
 
 ## Goals and features
 
@@ -324,7 +324,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
 
 - [F-OPS-001](features/F-OPS-001.md) Simple installation `implemented`
   - [R-OPS-001](requirements/ops/R-OPS-001.md) One program, one data directory `implemented`
-  - [R-OPS-002](requirements/ops/R-OPS-002.md) Configuration `implemented`
+  - [R-OPS-002](requirements/ops/R-OPS-002.md) Configuration `verified`
   - [R-OPS-003](requirements/ops/R-OPS-003.md) Container `implemented`
   - [R-OPS-004](requirements/ops/R-OPS-004.md) Automatic migrations `implemented`
   - [R-OPS-008](requirements/ops/R-OPS-008.md) Graceful shutdown `implemented`
@@ -654,7 +654,7 @@ The system is built with a small, consistent technology stack that a small team 
 | ID | Title | Priority | Status | Refines |
 | --- | --- | --- | --- | --- |
 | [R-OPS-001](requirements/ops/R-OPS-001.md) | One program, one data directory | must | implemented | F-OPS-001 |
-| [R-OPS-002](requirements/ops/R-OPS-002.md) | Configuration | must | implemented | F-OPS-001 |
+| [R-OPS-002](requirements/ops/R-OPS-002.md) | Configuration | must | verified | F-OPS-001 |
 | [R-OPS-003](requirements/ops/R-OPS-003.md) | Container | must | implemented | F-OPS-001 |
 | [R-OPS-004](requirements/ops/R-OPS-004.md) | Automatic migrations | must | implemented | F-OPS-001 |
 | [R-OPS-005](requirements/ops/R-OPS-005.md) | Online backup | must | implemented | F-OPS-002 |

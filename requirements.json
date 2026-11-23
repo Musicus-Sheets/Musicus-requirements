@@ -5645,7 +5645,7 @@
       "area": "OPS",
       "title": "Configuration",
       "priority": "must",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-002.md",
       "statement": "The server shall read every setting from a command-line option or an equivalent MUSICUS_* environment variable.",
       "links": {
@@ -5663,6 +5663,15 @@
           }
         ],
         "verified_by": [
+          {
+            "target": "crates/musicus-server/src/config.rs::every_setting_has_a_musicus_environment_variable"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::listen_is_read_from_the_environment"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::listen_default_is_dual_stack"
+          },
           {
             "target": "crates/musicus-server/src/listen.rs::default_accepts_ipv4_and_ipv6"
           },
