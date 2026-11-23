@@ -6741,7 +6741,7 @@
       "area": "OPS",
       "title": "Web client inside the program",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-030.md",
       "statement": "The plain program shall contain the web client, so that it runs without a separate web folder.",
       "links": {
@@ -6753,6 +6753,34 @@
         "constrains": [
           {
             "target": "R-OPS-001"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/embedded_web.rs::every_embedded_file_is_served"
+          },
+          {
+            "target": "crates/musicus-server/tests/embedded_web.rs::web_dir_overrides_the_builtin_client"
+          },
+          {
+            "target": "crates/musicus-server/src/web.rs"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/build.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/web.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/Cargo.toml"
+          },
+          {
+            "target": "Dockerfile"
           }
         ]
       },
@@ -6770,13 +6798,41 @@
       "area": "OPS",
       "title": "Usual data folder of the operating system",
       "priority": "should",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-031.md",
       "statement": "When no data directory is configured, the plain program shall use the usual folder for application data of the operating system.",
       "links": {
         "refines": [
           {
             "target": "F-OPS-006"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/config.rs::linux_uses_xdg_data_home_or_local_share"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::macos_uses_application_support"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::windows_uses_appdata"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::missing_home_asks_for_a_folder"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::configured_wins_then_existing_legacy_folder"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/config.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "Dockerfile"
           }
         ]
       },
