@@ -6,7 +6,7 @@ priority: must
 status: implemented
 links:
   refines: [F-OPS-004]
-  implemented_by: [crates/musicus-server/src/main.rs, compose.yaml, deploy/Caddyfile]
+  implemented_by: [crates/musicus-server/src/main.rs, compose.yaml, deploy/Caddyfile, deploy/nginx.conf.example]
 ---
 
 # R-OPS-006 HTTPS
@@ -19,3 +19,4 @@ The system shall support HTTPS either directly (certificate and key files) or be
 
 - With --tls-cert and --tls-key the server answers on HTTPS.
 - 'docker compose --profile https up' obtains a Let's Encrypt certificate for MUSICUS_DOMAIN.
+- The user guide gives a working configuration for Caddy and for nginx as reverse proxy.

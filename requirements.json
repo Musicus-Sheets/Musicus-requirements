@@ -860,6 +860,9 @@
             "source": "R-OPS-008"
           },
           {
+            "source": "R-OPS-050"
+          },
+          {
             "source": "R-SEC-007"
           }
         ],
@@ -5645,7 +5648,7 @@
       "area": "OPS",
       "title": "Configuration",
       "priority": "must",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-002.md",
       "statement": "The server shall read every setting from a command-line option or an equivalent MUSICUS_* environment variable.",
       "links": {
@@ -5657,10 +5660,39 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/config.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/src/config.rs::every_setting_has_a_musicus_environment_variable"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::listen_is_read_from_the_environment"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs::listen_default_is_dual_stack"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs::default_accepts_ipv4_and_ipv6"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs::falls_back_to_ipv4_when_ipv6_is_missing"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs::explicit_addresses_are_bound_as_given"
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-050"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-003",
@@ -5795,6 +5827,9 @@
           },
           {
             "target": "deploy/Caddyfile"
+          },
+          {
+            "target": "deploy/nginx.conf.example"
           }
         ]
       },
@@ -5832,6 +5867,9 @@
           },
           {
             "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/listen.rs"
           }
         ],
         "decided_in": [
@@ -7514,6 +7552,29 @@
           },
           {
             "target": "R-OPS-040"
+          }
+        ]
+      },
+      "incoming": {}
+    },
+    {
+      "id": "R-OPS-050",
+      "level": 3,
+      "area": "OPS",
+      "title": "Listen on several addresses at once",
+      "priority": "could",
+      "status": "proposed",
+      "path": "requirements/ops/R-OPS-050.md",
+      "statement": "The plain program shall accept a list of listening addresses (e.g. `MUSICUS_LISTEN=127.0.0.1:8080,[::1]:8080`) and serve the same application on each of them.",
+      "links": {
+        "refines": [
+          {
+            "target": "F-OPS-001"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-002"
           }
         ]
       },
