@@ -24,4 +24,4 @@ Each published release shall offer a ready-to-run program archive, built by the 
 
 ## Notes
 
-The programs are unsigned for now (user decision). Signing is possible later: Windows with a code-signing certificate, Microsoft Trusted Signing, or free signing for open-source projects via the SignPath Foundation; macOS with the Apple Developer Program (about 99 USD per year) and notarisation. A macOS x86_64 build that fails does not block the release (R-OPS-042).
+The programs are unsigned for now (user decision). Signing is possible later: Windows with a code-signing certificate, Microsoft Trusted Signing, or free signing for open-source projects via the SignPath Foundation; macOS with the Apple Developer Program (about 99 USD per year) and notarisation. A macOS x86_64 build that fails does not block the release (R-OPS-042). Built: the release pipeline (R-OPS-049, `.github/workflows/release.yml`) builds, tests and packs all five archives (`scripts/package-program.py`, program + LICENSE + README.txt) and `SHA256SUMS`, and attaches them to the GitHub release. Open (stays `accepted`): the user-guide text for the first start of an unsigned download.

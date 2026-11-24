@@ -6609,6 +6609,9 @@
           },
           {
             "target": "crates/musicus-server/build.rs"
+          },
+          {
+            "target": ".github/workflows/release.yml"
           }
         ],
         "verified_by": [
@@ -7040,6 +7043,17 @@
           },
           {
             "target": "scripts/build-guide-site.sh"
+          },
+          {
+            "target": "scripts/release-check.py"
+          },
+          {
+            "target": ".github/workflows/release.yml"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests"
           }
         ]
       },
@@ -7221,7 +7235,7 @@
       "area": "OPS",
       "title": "Release check",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-040.md",
       "statement": "On a release branch `release/<version>`, the continuous integration shall fail if the release's database updates do not match its version: a patch release may contain no database change, and a minor or major release may only replace all previews by one merged update for its version.",
       "links": {
@@ -7249,6 +7263,19 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "scripts/release-check.py"
+          },
+          {
+            "target": ".github/workflows/release.yml"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests"
           }
         ]
       },
@@ -7671,7 +7698,7 @@
       "area": "OPS",
       "title": "Release pipeline publishes only when everything succeeded",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-049.md",
       "statement": "A release shall be built, checked and published by one automated pipeline that publishes nothing unless every build and check of the release succeeded.",
       "links": {
@@ -7701,6 +7728,37 @@
           },
           {
             "target": "R-OPS-040"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": ".github/workflows/release.yml"
+          },
+          {
+            "target": ".github/workflows/user-guide-pages.yml"
+          },
+          {
+            "target": "scripts/release-check.py"
+          },
+          {
+            "target": "scripts/smoke-program.py"
+          },
+          {
+            "target": "scripts/package-program.py"
+          },
+          {
+            "target": "scripts/release-notes.py"
+          },
+          {
+            "target": "Dockerfile"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests"
+          },
+          {
+            "target": "crates/musicus-server/tests/release_tools.rs::smoke_test_of_the_program"
           }
         ]
       },

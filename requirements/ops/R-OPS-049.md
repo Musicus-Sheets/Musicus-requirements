@@ -3,10 +3,21 @@ id: R-OPS-049
 level: 3
 title: Release pipeline publishes only when everything succeeded
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005, F-OPS-006, F-OPS-007]
   depends_on: [R-OPS-028, R-OPS-029, R-OPS-032, R-OPS-035, R-OPS-040]
+  implemented_by:
+    - .github/workflows/release.yml
+    - .github/workflows/user-guide-pages.yml
+    - scripts/release-check.py
+    - scripts/smoke-program.py
+    - scripts/package-program.py
+    - scripts/release-notes.py
+    - Dockerfile
+  verified_by:
+    - crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests
+    - crates/musicus-server/tests/release_tools.rs::smoke_test_of_the_program
 ---
 
 # R-OPS-049 Release pipeline publishes only when everything succeeded
@@ -26,4 +37,4 @@ A release shall be built, checked and published by one automated pipeline that p
 
 ## Notes
 
-User decision. The existing website workflow (`user-guide-pages.yml`, started by a published release) becomes the last step of this pipeline; its manual test-build mode stays. The tags of the documentation repositories (R-OPS-036) are created by hand after the pipeline succeeded. Until the pipeline exists, the maintainer follows the manual steps in `RELEASING.md`.
+User decision. Implemented by the workflow `Release` (`.github/workflows/release.yml`): dry run on the pull request; the real run starts with the push of its merge to `main` (found through the API: merge commit, squash or rebase); a run by hand (`workflow_dispatch`, input `version`) runs it again from `main`. Stage 1 jobs end in the gate job `stage-1`; stage 2: `images` (an existing `X.Y.Z` is never replaced, `X.Y` follows it) → `tag` (kept if on the same commit, fails elsewhere) → `github-release` (draft with every file, then published) → `site` (calls `user-guide-pages.yml`, which deploys the site built in stage 1 and no longer runs on `release: published`; its manual test-build mode stays). Artifacts expire after 7 days. The tags of the documentation repositories (R-OPS-036) are created by hand after the pipeline succeeded. Not yet run on GitHub: `verified` after the first real release run.

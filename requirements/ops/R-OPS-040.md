@@ -3,12 +3,17 @@ id: R-OPS-040
 level: 3
 title: Release check
 priority: must
-status: accepted
+status: implemented
 links:
   refines: [F-OPS-005]
   depends_on: [R-OPS-023, R-OPS-038]
   constrains: [R-OPS-018, R-OPS-024]
   decided_in: [tech:d-update-model]
+  implemented_by:
+    - scripts/release-check.py
+    - .github/workflows/release.yml
+  verified_by:
+    - crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests
 ---
 
 # R-OPS-040 Release check
@@ -25,4 +30,4 @@ On a release branch `release/<version>`, the continuous integration shall fail i
 
 ## Notes
 
-Enforces R-OPS-018 and R-OPS-024 before a release is published. Implemented with phase 0. Runs in stage 1 of the release pipeline (R-OPS-049) together with the other release checks (version in `Cargo.toml` = branch name, version on the title pages); the tags of the requirements and documentation repositories are created by hand (R-OPS-036).
+Enforces R-OPS-018 and R-OPS-024 before a release is published. Implemented with phase 0: `scripts/release-check.py` (it reuses the git helpers of `scripts/check-db-changes.py` and the update-file parser of `scripts/release-migrations.py`), job `checks` of the release pipeline (R-OPS-049) together with `scripts/db-schema.sh --check` and the other release checks (version in `Cargo.toml` and `Cargo.lock` = branch name, version on the title pages). It also requires `releases.txt` to gain exactly the line `X.Y` (minor/major) and a patch's line to be the last released one. The tags of the requirements and documentation repositories are created by hand (R-OPS-036).

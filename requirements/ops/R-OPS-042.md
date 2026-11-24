@@ -22,4 +22,4 @@ The server should run as a plain program on macOS on Intel (x86_64) computers.
 
 ## Notes
 
-User decision: macOS on Apple silicon (arm64) is a must (R-OPS-026), macOS on Intel a should. Windows on ARM is not required.
+User decision: macOS on Apple silicon (arm64) is a must (R-OPS-026), macOS on Intel a should. Windows on ARM is not required. The release pipeline (R-OPS-049) builds and smoke-tests macOS x86_64 with `continue-on-error`; without its archive the release notes get a line "not available in this release" (`scripts/release-notes.py`).

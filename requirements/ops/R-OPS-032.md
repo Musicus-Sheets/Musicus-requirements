@@ -23,4 +23,4 @@ The continuous integration shall run the platform-dependent checks (the Rust tes
 
 ## Notes
 
-User decision: only what can differ between platforms runs everywhere, to keep CI time and cost low. Today CI (`.github/workflows/rust.yml`) runs only on Linux x86_64 and builds no image. GitHub offers hosted runners for Linux arm64, Windows and macOS (arm64 and x86_64).
+User decision: only what can differ between platforms runs everywhere, to keep CI time and cost low. Built so far: the release pipeline (R-OPS-049) runs `cargo test`, the release build and the smoke test (`scripts/smoke-program.py`: start, web client, upload, marking, backup, Ctrl+C, second start) on all five systems for every release pull request (macOS x86_64 non-blocking) and builds both images; the other checks run on Linux there. Open: the same platform-dependent checks for every pull request (`.github/workflows/rust.yml` still runs only on Linux x86_64). GitHub offers hosted runners for Linux arm64, Windows and macOS (arm64 and x86_64).
