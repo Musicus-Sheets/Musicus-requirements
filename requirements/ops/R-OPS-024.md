@@ -11,6 +11,7 @@ links:
   implemented_by:
     - crates/musicus-server/src/updates/mod.rs
     - crates/musicus-server/build.rs
+    - .github/workflows/release.yml
   verified_by:
     - crates/musicus-server/src/updates/mod.rs::release_builds_refuse_previews
     - crates/musicus-server/tests/updates.rs::previews_are_merged_and_recognised_by_the_release_update
@@ -29,4 +30,4 @@ A release build shall refuse to start if it contains preview database updates.
 
 ## Notes
 
-A release build is one built with `MUSICUS_RELEASE_BUILD=1` (a-update-runner); every other build, including `cargo build --release` and local Docker images, is a development build. The release workflow that sets the flag and fails before publishing is not built yet (R-OPS-040).
+A release build is one built with `MUSICUS_RELEASE_BUILD=1` (a-update-runner); every other build, including `cargo build --release` and local Docker images, is a development build. The release pipeline (R-OPS-049) builds every platform's program with the flag and starts it in its smoke test before anything is published, so a release build with previews fails stage 1 (the release check R-OPS-040 fails earlier on previews as well). `build.rs` also refuses a release build without the built-in web client (R-OPS-030).

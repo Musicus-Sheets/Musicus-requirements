@@ -12,6 +12,10 @@ links:
     - docs/technical/main.typ
     - docs/technical/build.sh
     - scripts/build-guide-site.sh
+    - scripts/release-check.py
+    - .github/workflows/release.yml
+  verified_by:
+    - crates/musicus-server/tests/release_tools.rs::release_tools_unit_tests
 ---
 
 # R-OPS-035 Version on the documentation
@@ -32,6 +36,4 @@ Both title pages take the version from their build (`build.sh [version]` → `ty
 version=…`; else `$MUSICUS_VERSION`, else the workspace version of the main repository's
 `Cargo.toml`, else "dev"). The guide site passes each release's workspace version and shows
 the release in its version bar on every page; it warns when a release tag differs from the
-workspace version at that tag; for older releases this stays a warning. Open: the check in stage 1
-of the release pipeline (R-OPS-049) that fails on a difference; until then the warning of the
-guide site and the release checklist in `RELEASING.md` are the only checks.
+workspace version at that tag; for older releases this stays a warning. Stage 1 of the release pipeline (R-OPS-049) fails on a difference: `scripts/release-check.py` compares the workspace version with the branch name, and `--title-pages` reads the title block of both HTML files and the first page of both PDFs.

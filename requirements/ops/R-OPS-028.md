@@ -21,4 +21,4 @@ Each release shall publish one container image for linux/amd64 and linux/arm64 u
 
 ## Notes
 
-Docker Desktop on Windows and macOS uses the same Linux images. Today images are built locally for the host only. Open: registry and image name are decided when the release workflow is built (Docker Hub and/or GitHub Container Registry likely).
+Docker Desktop on Windows and macOS uses the same Linux images. Built: the release pipeline (R-OPS-049) builds the linux/amd64 + linux/arm64 image around the tested release programs (`Dockerfile` target `release`), starts both, and pushes `X.Y.Z` and `X.Y`. Registry and image name are repository variables, default `ghcr.io/musicus-sheets/musicus` (GitHub Container Registry; Docker Hub optional). Open (stays `accepted`): the Compose file of the release using a version tag (today `compose.yaml` builds locally, and the user guide installs with `git clone` and a local build); a real `docker pull` on a Raspberry Pi.

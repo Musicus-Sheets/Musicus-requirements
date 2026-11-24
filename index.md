@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 5 | 31 | 0 | 0 | 41 |
-| 3 Requirements | 25 | 19 | 44 | 99 | 0 | 187 |
+| 3 Requirements | 25 | 17 | 46 | 99 | 0 | 187 |
 
 ## Goals and features
 
@@ -360,9 +360,9 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
   - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `implemented`
   - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `implemented`
-  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
+  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `implemented`
   - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
-  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
+  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `implemented`
 - [F-OPS-006](features/F-OPS-006.md) Supported platforms `accepted`
   - [R-OPS-026](requirements/ops/R-OPS-026.md) Plain program on Linux, Windows and macOS `accepted`
   - [R-OPS-027](requirements/ops/R-OPS-027.md) Raspberry Pi `accepted`
@@ -372,13 +372,13 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-031](requirements/ops/R-OPS-031.md) Usual data folder of the operating system `implemented`
   - [R-OPS-032](requirements/ops/R-OPS-032.md) Automated tests on every supported platform `accepted`
   - [R-OPS-042](requirements/ops/R-OPS-042.md) Plain program on macOS with Intel processors `accepted`
-  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
+  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `implemented`
 - [F-OPS-007](features/F-OPS-007.md) Known version `accepted`
   - [R-OPS-033](requirements/ops/R-OPS-033.md) Version endpoint `verified`
   - [R-OPS-034](requirements/ops/R-OPS-034.md) Version in the user interface `verified`
   - [R-OPS-035](requirements/ops/R-OPS-035.md) Version on the documentation `implemented`
   - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements and documentation tagged per release `accepted`
-  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
+  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `implemented`
 - [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `implemented`
   - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `verified`
   - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `verified`
@@ -443,9 +443,9 @@ Accounts, personal markings and the (often licensed) sheet music are protected a
   - [R-OPS-025](requirements/ops/R-OPS-025.md) No online check for new versions `accepted`
   - [R-OPS-038](requirements/ops/R-OPS-038.md) Database check in pull requests `implemented`
   - [R-OPS-039](requirements/ops/R-OPS-039.md) Notice for pull requests that change the database `implemented`
-  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `accepted`
+  - [R-OPS-040](requirements/ops/R-OPS-040.md) Release check `implemented`
   - [R-OPS-041](requirements/ops/R-OPS-041.md) Patch releases write no new kinds of stored values `accepted`
-  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
+  - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `implemented`
 - [F-SEC-001](features/F-SEC-001.md) Nothing stored on the device `implemented`
   - [R-SEC-001](requirements/sec/R-SEC-001.md) No persistent data in the web client `implemented`
 - [F-SEC-002](features/F-SEC-002.md) Protection against common attacks `implemented`
@@ -693,7 +693,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | implemented | F-OPS-002 |
 | [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | implemented | F-OPS-005 |
 | [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | implemented | F-OPS-005 |
-| [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |
+| [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | implemented | F-OPS-005 |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | Patch releases write no new kinds of stored values | must | accepted | F-OPS-005 |
 | [R-OPS-042](requirements/ops/R-OPS-042.md) | Plain program on macOS with Intel processors | should | accepted | F-OPS-006 |
 | [R-OPS-043](requirements/ops/R-OPS-043.md) | Orderly shutdown with a shutting-down answer | must | verified | F-OPS-008 |
@@ -702,7 +702,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-046](requirements/ops/R-OPS-046.md) | Client notice while the server starts | must | verified | F-OPS-008 |
 | [R-OPS-047](requirements/ops/R-OPS-047.md) | Unsaved annotations survive a server outage | must | verified | F-OPS-008 |
 | [R-OPS-048](requirements/ops/R-OPS-048.md) | Switch to a new version at a safe moment | must | verified | F-OPS-008 |
-| [R-OPS-049](requirements/ops/R-OPS-049.md) | Release pipeline publishes only when everything succeeded | must | accepted | F-OPS-005, F-OPS-006, F-OPS-007 |
+| [R-OPS-049](requirements/ops/R-OPS-049.md) | Release pipeline publishes only when everything succeeded | must | implemented | F-OPS-005, F-OPS-006, F-OPS-007 |
 | [R-OPS-050](requirements/ops/R-OPS-050.md) | Listen on several addresses at once | could | proposed | F-OPS-001 |
 
 ### OFF – Offline app
