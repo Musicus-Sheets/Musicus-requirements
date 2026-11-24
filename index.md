@@ -9,8 +9,8 @@ How to read and write requirements: see [README.md](README.md).
 | Level | proposed | accepted | implemented | verified | deprecated | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
-| 2 Features | 5 | 6 | 30 | 0 | 0 | 41 |
-| 3 Requirements | 25 | 25 | 45 | 92 | 0 | 187 |
+| 2 Features | 5 | 5 | 31 | 0 | 0 | 41 |
+| 3 Requirements | 25 | 19 | 44 | 99 | 0 | 187 |
 
 ## Goals and features
 
@@ -275,13 +275,13 @@ Musicians can read and turn their parts on a tablet during rehearsals and concer
   - [R-FILE-005](requirements/file/R-FILE-005.md) Access check on every download `verified`
   - [R-FILE-006](requirements/file/R-FILE-006.md) Conditional and partial downloads `verified`
   - [R-FILE-007](requirements/file/R-FILE-007.md) Configurable client caching `verified`
-- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `accepted`
-  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `accepted`
-  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `accepted`
-  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `accepted`
-  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `accepted`
-  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved markings survive a server outage `accepted`
-  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `accepted`
+- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `implemented`
+  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `verified`
+  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `verified`
+  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `verified`
+  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `verified`
+  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved annotations survive a server outage `verified`
+  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `verified`
 - [F-PERF-002](features/F-PERF-002.md) Everyone opens the same piece at once `implemented`
   - [R-FILE-010](requirements/file/R-FILE-010.md) Smaller scanned sheets `proposed`
   - [R-PERF-003](requirements/perf/R-PERF-003.md) Burst of downloads `implemented`
@@ -327,7 +327,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-002](requirements/ops/R-OPS-002.md) Configuration `verified`
   - [R-OPS-003](requirements/ops/R-OPS-003.md) Container `implemented`
   - [R-OPS-004](requirements/ops/R-OPS-004.md) Automatic migrations `implemented`
-  - [R-OPS-008](requirements/ops/R-OPS-008.md) Graceful shutdown `implemented`
+  - [R-OPS-008](requirements/ops/R-OPS-008.md) Graceful shutdown `verified`
   - [R-OPS-050](requirements/ops/R-OPS-050.md) Listen on several addresses at once `proposed`
   - [R-SEC-007](requirements/sec/R-SEC-007.md) Minimal, unprivileged container `implemented`
 - [F-OPS-002](features/F-OPS-002.md) Backup and restore `implemented`
@@ -379,13 +379,13 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-035](requirements/ops/R-OPS-035.md) Version on the documentation `implemented`
   - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements and documentation tagged per release `accepted`
   - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `accepted`
-- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `accepted`
-  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `accepted`
-  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `accepted`
-  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `accepted`
-  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `accepted`
-  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved markings survive a server outage `accepted`
-  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `accepted`
+- [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `implemented`
+  - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `verified`
+  - [R-OPS-044](requirements/ops/R-OPS-044.md) Client notices for a stopping or unreachable server `verified`
+  - [R-OPS-045](requirements/ops/R-OPS-045.md) Reachable while starting `verified`
+  - [R-OPS-046](requirements/ops/R-OPS-046.md) Client notice while the server starts `verified`
+  - [R-OPS-047](requirements/ops/R-OPS-047.md) Unsaved annotations survive a server outage `verified`
+  - [R-OPS-048](requirements/ops/R-OPS-048.md) Switch to a new version at a safe moment `verified`
 - [F-PERF-001](features/F-PERF-001.md) Runs on small hardware `implemented`
   - [R-PERF-001](requirements/perf/R-PERF-001.md) Memory use `implemented`
   - [R-PERF-002](requirements/perf/R-PERF-002.md) Bounded password hashing `implemented`
@@ -661,7 +661,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-005](requirements/ops/R-OPS-005.md) | Online backup | must | implemented | F-OPS-002 |
 | [R-OPS-006](requirements/ops/R-OPS-006.md) | HTTPS | must | implemented | F-OPS-004 |
 | [R-OPS-007](requirements/ops/R-OPS-007.md) | Health check | must | verified | F-OPS-003 |
-| [R-OPS-008](requirements/ops/R-OPS-008.md) | Graceful shutdown | must | implemented | F-OPS-001 |
+| [R-OPS-008](requirements/ops/R-OPS-008.md) | Graceful shutdown | must | verified | F-OPS-001 |
 | [R-OPS-009](requirements/ops/R-OPS-009.md) | Continuous database replication | could | proposed | F-OPS-002 |
 | [R-OPS-010](requirements/ops/R-OPS-010.md) | Update by replacing the container image | must | accepted | F-OPS-005 |
 | [R-OPS-011](requirements/ops/R-OPS-011.md) | Upgrade from any older release | must | implemented | F-OPS-005 |
@@ -696,12 +696,12 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-040](requirements/ops/R-OPS-040.md) | Release check | must | accepted | F-OPS-005 |
 | [R-OPS-041](requirements/ops/R-OPS-041.md) | Patch releases write no new kinds of stored values | must | accepted | F-OPS-005 |
 | [R-OPS-042](requirements/ops/R-OPS-042.md) | Plain program on macOS with Intel processors | should | accepted | F-OPS-006 |
-| [R-OPS-043](requirements/ops/R-OPS-043.md) | Orderly shutdown with a shutting-down answer | must | accepted | F-OPS-008 |
-| [R-OPS-044](requirements/ops/R-OPS-044.md) | Client notices for a stopping or unreachable server | must | accepted | F-OPS-008 |
-| [R-OPS-045](requirements/ops/R-OPS-045.md) | Reachable while starting | must | accepted | F-OPS-008 |
-| [R-OPS-046](requirements/ops/R-OPS-046.md) | Client notice while the server starts | must | accepted | F-OPS-008 |
-| [R-OPS-047](requirements/ops/R-OPS-047.md) | Unsaved markings survive a server outage | must | accepted | F-OPS-008 |
-| [R-OPS-048](requirements/ops/R-OPS-048.md) | Switch to a new version at a safe moment | must | accepted | F-OPS-008 |
+| [R-OPS-043](requirements/ops/R-OPS-043.md) | Orderly shutdown with a shutting-down answer | must | verified | F-OPS-008 |
+| [R-OPS-044](requirements/ops/R-OPS-044.md) | Client notices for a stopping or unreachable server | must | verified | F-OPS-008 |
+| [R-OPS-045](requirements/ops/R-OPS-045.md) | Reachable while starting | must | verified | F-OPS-008 |
+| [R-OPS-046](requirements/ops/R-OPS-046.md) | Client notice while the server starts | must | verified | F-OPS-008 |
+| [R-OPS-047](requirements/ops/R-OPS-047.md) | Unsaved annotations survive a server outage | must | verified | F-OPS-008 |
+| [R-OPS-048](requirements/ops/R-OPS-048.md) | Switch to a new version at a safe moment | must | verified | F-OPS-008 |
 | [R-OPS-049](requirements/ops/R-OPS-049.md) | Release pipeline publishes only when everything succeeded | must | accepted | F-OPS-005, F-OPS-006, F-OPS-007 |
 | [R-OPS-050](requirements/ops/R-OPS-050.md) | Listen on several addresses at once | could | proposed | F-OPS-001 |
 
