@@ -1168,9 +1168,9 @@
       "area": "OPS",
       "title": "Open devices survive restarts and updates",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "features/F-OPS-008.md",
-      "statement": "When the server stops, is unreachable, starts or comes back with a new version, the tablets and computers that have Musicus open tell their users what is happening in plain words, keep showing what is already loaded, keep unsaved markings in memory and save them as soon as the server is back, and switch to a new version only at a moment when nobody is reading or drawing.",
+      "statement": "When the server stops, is unreachable, starts or comes back with a new version, the tablets and computers that have Musicus open tell their users what is happening in plain words, keep showing what is already loaded, keep unsaved annotations in memory and save them as soon as the server is back, and switch to a new version only at a moment when nobody is reading or drawing.",
       "links": {
         "refines": [
           {
@@ -5849,7 +5849,7 @@
       "priority": "must",
       "status": "verified",
       "path": "requirements/ops/R-OPS-007.md",
-      "statement": "The system shall answer GET /api/health without login with 'ok' when it can read its database, and provide a 'healthcheck' command that exits with 0 only in that case.",
+      "statement": "The system shall answer GET /api/health without login with 'ok' when it is ready and can read its database (503 while it starts or shuts down, R-OPS-045, R-OPS-043), and provide a 'healthcheck' command that exits with 0 only in that case.",
       "links": {
         "refines": [
           {
@@ -5859,6 +5859,9 @@
         "verified_by": [
           {
             "target": "crates/musicus-server/tests/api.rs::login_sessions_and_csrf"
+          },
+          {
+            "target": "crates/musicus-server/tests/lifecycle.rs::starting_answers_server_starting_until_ready"
           }
         ],
         "implemented_by": [
@@ -5870,6 +5873,9 @@
           },
           {
             "target": "crates/musicus-server/src/listen.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/lifecycle.rs"
           }
         ],
         "decided_in": [
@@ -5892,7 +5898,7 @@
       "area": "OPS",
       "title": "Graceful shutdown",
       "priority": "must",
-      "status": "implemented",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-008.md",
       "statement": "When the server receives SIGTERM or Ctrl-C, it shall stop accepting connections and let running requests finish.",
       "links": {
@@ -5904,6 +5910,14 @@
         "implemented_by": [
           {
             "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/lifecycle.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/shutdown.rs::the_process_drains_and_exits_after_the_last_request"
           }
         ]
       },
@@ -7343,9 +7357,9 @@
       "area": "OPS",
       "title": "Orderly shutdown with a shutting-down answer",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-043.md",
-      "statement": "When the server receives the stop signal, it shall accept no further changes and answer every request that needs it with a dedicated \"shutting down\" status, finish the writes already in progress, close the database cleanly and then exit.",
+      "statement": "When the server receives the stop signal, it shall announce \"shutting down\" to every open client at once, keep serving the requests that arrive during a short grace (so that clients can send what they have not saved yet), then answer every new request with a dedicated \"shutting down\" status, finish the requests still running, close the database cleanly and exit.",
       "links": {
         "refines": [
           {
@@ -7360,6 +7374,37 @@
         "decided_in": [
           {
             "target": "tech:d-update-model"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/lifecycle.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/events.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/db.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/config.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/lifecycle.rs::shutdown_announces_serves_the_grace_then_refuses_and_waits_for_running_requests"
+          },
+          {
+            "target": "crates/musicus-server/tests/shutdown.rs::the_process_drains_and_exits_after_the_last_request"
+          },
+          {
+            "target": "e2e/outage.mjs"
           }
         ]
       },
@@ -7377,9 +7422,9 @@
       "area": "OPS",
       "title": "Client notices for a stopping or unreachable server",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-044.md",
-      "statement": "When the server answers \"shutting down\" or cannot be reached, the web client shall show a banner (\"Server is shutting down\" or \"Server not reachable\"), keep everything already loaded readable, and block only the actions that need the server.",
+      "statement": "When the server announces that it is shutting down, the web client shall show the banner \"Server is shutting down\", first block every action that needs the server (drawing included) and then immediately send everything it has not sent yet; when the server cannot be reached without such an announcement, it shall show \"Server not reachable\" and keep drawing possible. In both cases everything already loaded stays readable.",
       "links": {
         "refines": [
           {
@@ -7389,6 +7434,31 @@
         "depends_on": [
           {
             "target": "R-OPS-043"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/api.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs::tests"
+          },
+          {
+            "target": "e2e/outage.mjs"
           }
         ]
       },
@@ -7400,9 +7470,9 @@
       "area": "OPS",
       "title": "Reachable while starting",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-045.md",
-      "statement": "When the server starts, it shall listen at once and answer every request with a dedicated \"starting\" status until the snapshot, the database updates and the start-up checks are done.",
+      "statement": "When the server starts, it shall listen at once and answer every request with a dedicated \"starting\" status until the snapshot, the database updates and the start-up checks are done; only the health check, the version, the event stream and the web client files answer meanwhile.",
       "links": {
         "refines": [
           {
@@ -7423,6 +7493,31 @@
           {
             "target": "tech:d-update-model"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-server/src/main.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/lifecycle.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/mod.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/routes/events.rs"
+          },
+          {
+            "target": "crates/musicus-server/src/error.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-server/tests/lifecycle.rs::starting_answers_server_starting_until_ready"
+          },
+          {
+            "target": "crates/musicus-server/tests/shutdown.rs::a_failed_start_ends_the_process_with_an_error"
+          }
         ]
       },
       "incoming": {
@@ -7439,9 +7534,9 @@
       "area": "OPS",
       "title": "Client notice while the server starts",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-046.md",
-      "statement": "When the server answers \"starting\", the web client shall show the banner \"Server is starting\" and remove it by itself as soon as the server is ready, by polling a status endpoint.",
+      "statement": "When the server announces or answers \"starting\", the web client shall show the banner \"Server is starting\", keep blocking the actions that need the server (drawing included), and remove the banner by itself as soon as the server is ready.",
       "links": {
         "refines": [
           {
@@ -7452,6 +7547,25 @@
           {
             "target": "R-OPS-045"
           }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/main.rs"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs::tests"
+          },
+          {
+            "target": "e2e/outage.mjs"
+          }
         ]
       },
       "incoming": {}
@@ -7460,11 +7574,11 @@
       "id": "R-OPS-047",
       "level": 3,
       "area": "OPS",
-      "title": "Unsaved markings survive a server outage",
+      "title": "Unsaved annotations survive a server outage",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-047.md",
-      "statement": "While the server is shutting down, starting or unreachable, the web client shall keep markings drawn in that time in the memory of the open tab and save them automatically when the server is back, without storing them on the device.",
+      "statement": "The web client shall keep annotations not saved yet in the memory of the open tab while the server is shutting down, starting or unreachable, and save them automatically when the server is back, without storing them on the device; annotations drawn while the server is merely unreachable (no announcement) are kept the same way.",
       "links": {
         "refines": [
           {
@@ -7479,6 +7593,22 @@
         "constrains": [
           {
             "target": "R-SEC-001"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/pages/viewer.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/connection.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "e2e/outage.mjs"
           }
         ]
       },
@@ -7496,7 +7626,7 @@
       "area": "OPS",
       "title": "Switch to a new version at a safe moment",
       "priority": "must",
-      "status": "accepted",
+      "status": "verified",
       "path": "requirements/ops/R-OPS-048.md",
       "statement": "When the server comes back with another version than the open web client, the client shall show \"Musicus has been updated\", save anything pending and then reload automatically, but never while the user is reading or drawing.",
       "links": {
@@ -7511,6 +7641,25 @@
           },
           {
             "target": "R-OPS-047"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs"
+          },
+          {
+            "target": "crates/musicus-web/src/ui.rs"
+          },
+          {
+            "target": "crates/musicus-web/js/bridge.js"
+          }
+        ],
+        "verified_by": [
+          {
+            "target": "crates/musicus-web/src/connection.rs::tests"
+          },
+          {
+            "target": "e2e/outage.mjs"
           }
         ]
       },
