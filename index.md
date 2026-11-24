@@ -10,7 +10,7 @@ How to read and write requirements: see [README.md](README.md).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 Goals | 1 | 7 | 0 | 0 | 0 | 8 |
 | 2 Features | 5 | 5 | 31 | 0 | 0 | 41 |
-| 3 Requirements | 25 | 17 | 46 | 99 | 0 | 187 |
+| 3 Requirements | 25 | 16 | 47 | 99 | 0 | 187 |
 
 ## Goals and features
 
@@ -377,7 +377,7 @@ A volunteer-run ensemble can install, operate and back up the system on small, i
   - [R-OPS-033](requirements/ops/R-OPS-033.md) Version endpoint `verified`
   - [R-OPS-034](requirements/ops/R-OPS-034.md) Version in the user interface `verified`
   - [R-OPS-035](requirements/ops/R-OPS-035.md) Version on the documentation `implemented`
-  - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements and documentation tagged per release `accepted`
+  - [R-OPS-036](requirements/ops/R-OPS-036.md) Requirements and documentation tagged per release `implemented`
   - [R-OPS-049](requirements/ops/R-OPS-049.md) Release pipeline publishes only when everything succeeded `implemented`
 - [F-OPS-008](features/F-OPS-008.md) Open devices survive restarts and updates `implemented`
   - [R-OPS-043](requirements/ops/R-OPS-043.md) Orderly shutdown with a shutting-down answer `verified`
@@ -689,7 +689,7 @@ The system is built with a small, consistent technology stack that a small team 
 | [R-OPS-033](requirements/ops/R-OPS-033.md) | Version endpoint | must | verified | F-OPS-007 |
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | Version in the user interface | must | verified | F-OPS-007 |
 | [R-OPS-035](requirements/ops/R-OPS-035.md) | Version on the documentation | must | implemented | F-OPS-007 |
-| [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements and documentation tagged per release | must | accepted | F-OPS-007 |
+| [R-OPS-036](requirements/ops/R-OPS-036.md) | Requirements and documentation tagged per release | must | implemented | F-OPS-007 |
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | Unencrypted backups and exports with guidance | must | implemented | F-OPS-002 |
 | [R-OPS-038](requirements/ops/R-OPS-038.md) | Database check in pull requests | must | implemented | F-OPS-005 |
 | [R-OPS-039](requirements/ops/R-OPS-039.md) | Notice for pull requests that change the database | should | implemented | F-OPS-005 |
@@ -860,6 +860,7 @@ All links other than `refines`.
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-027](requirements/ops/R-OPS-027.md) |  |
 | [R-OPS-032](requirements/ops/R-OPS-032.md) | constrains | [R-OPS-028](requirements/ops/R-OPS-028.md) |  |
 | [R-OPS-034](requirements/ops/R-OPS-034.md) | depends_on | [R-OPS-033](requirements/ops/R-OPS-033.md) |  |
+| [R-OPS-036](requirements/ops/R-OPS-036.md) | depends_on | [R-OPS-049](requirements/ops/R-OPS-049.md) |  |
 | [R-OPS-037](requirements/ops/R-OPS-037.md) | conflicts_with | [R-ANN-018](requirements/ann/R-ANN-018.md) | Backups, snapshots and exports are as readable as the database. Should annotations ever be encrypted at rest, they stay encrypted in these copies; the copies themselves are not encrypted again. |
 | [R-OPS-038](requirements/ops/R-OPS-038.md) | depends_on | [R-OPS-023](requirements/ops/R-OPS-023.md) |  |
 | [R-OPS-038](requirements/ops/R-OPS-038.md) | constrains | [R-OPS-018](requirements/ops/R-OPS-018.md) |  |
