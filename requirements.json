@@ -7071,13 +7071,23 @@
       "area": "OPS",
       "title": "Requirements and documentation tagged per release",
       "priority": "must",
-      "status": "accepted",
+      "status": "implemented",
       "path": "requirements/ops/R-OPS-036.md",
       "statement": "For each release, the requirements repository and the documentation repositories (technical documentation and user guide) shall have a git tag with the release version on the commit that the release pins.",
       "links": {
         "refines": [
           {
             "target": "F-OPS-007"
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "R-OPS-049"
+          }
+        ],
+        "implemented_by": [
+          {
+            "target": ".github/workflows/release.yml"
           }
         ]
       },
@@ -7762,7 +7772,13 @@
           }
         ]
       },
-      "incoming": {}
+      "incoming": {
+        "required_by": [
+          {
+            "source": "R-OPS-036"
+          }
+        ]
+      }
     },
     {
       "id": "R-OPS-050",
