@@ -5715,6 +5715,9 @@
           },
           {
             "target": "compose.yaml"
+          },
+          {
+            "target": "compose.override.example.yaml"
           }
         ]
       },
