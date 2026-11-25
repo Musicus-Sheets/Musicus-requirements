@@ -1,6 +1,6 @@
 # Musicus – requirements
 
-The requirements of [Musicus](https://github.com/NelDav/Musicus): what the
+The requirements of [Musicus](https://github.com/Musicus-Sheets/Musicus): what the
 system must do and under which constraints. Written for humans and coding
 agents alike. This repository is the submodule `docs/requirements` of the main
 repository; the architecture is described next to it in `docs/technical`.
